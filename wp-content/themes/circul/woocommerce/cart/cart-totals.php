@@ -19,12 +19,86 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+$my_currency = get_woocommerce_currency_symbol( $currency ); 
+
 ?>
-<div class="cart_totals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
-	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
+	<p class="cart__key cart__key--subtotal">
+		Sub-total
+		<span class="cart__value">
+			<span class="currency cart__currency">
+				<?php echo $my_currency; ?>
+			</span>
+			<?= WC()->cart->get_subtotal(); ?>
+		</span>
+	</p>
+	<p class="cart__key cart__key--delivery">
+		Delivery
+		<span class="cart__value cart__value--empty">
+			<span class="currency cart__currency">
+				&#8364;
+			</span>
+			0
+		</span>
+	</p>
+	<p class="cart__key cart__key--total">
+		Total
+		<span class="cart__value">
+			<span class="currency cart__currency">
+				<?php echo $my_currency; ?>
+			</span>
 
-	<h2><?php _e( 'Cart totals', 'woocommerce' ); ?></h2>
+			<?php global $woocommerce; ?>
+			<?= $woocommerce->cart->total; ?>
+
+		</span>
+	</p>
+	<a href="<?= get_site_url(); ?>/checkout" class="btn cart__btn cart__btn--checkout btn--active">
+		Proceed to checkout
+	</a>
+	<a href="<?php get_site_url(); ?>shop/" class="btn cart__btn cart__btn--continue">
+		Continue shopping
+	</a>
+	<ul class="cart__payment payment">
+		<li class="payment__item">
+			<svg class="payment__icon" viewBox="0 0 104 62">
+				<use xlink:href="#master"></use>
+			</svg>
+		</li>
+		<li class="payment__item">
+			<svg class="payment__icon" viewBox="0 0 104 62">
+				<use xlink:href="#visa"></use>
+			</svg>
+		</li>
+		<li class="payment__item">
+			<svg class="payment__icon" viewBox="0 0 104 62">
+				<use xlink:href="#paypal"></use>
+			</svg>
+		</li>
+	</ul>
+	<div class="info__options options cart__options">
+		<input type="checkbox" class="options__trigger options__trigger--payment cart__trigger"
+			id="payment" name="options">
+		<label for="payment">
+			Delivery & payment
+		</label>
+		<div class="options__content options__content--payment cart__details">
+
+			<?php the_field('delivery'); ?>
+			
+		</div>
+		<input type="checkbox" class="options__trigger options__trigger--guarantee cart__trigger"
+			id="guarantee" name="options">
+		<label for="guarantee">
+			Guarantees & returns
+		</label>
+		<div class="options__content options__content--guarantee cart__details">
+
+			<?php the_field('guarantees'); ?>
+
+		</div>
+	</div>
 
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
@@ -100,6 +174,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 	</div>
 
-	<?php do_action( 'woocommerce_after_cart_totals' ); ?>
 
-</div>

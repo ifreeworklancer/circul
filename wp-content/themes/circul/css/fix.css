@@ -1,0 +1,16 @@
+.hidden-block {
+    position: absolute;
+    left: -9999px;
+}
+
+.options__content p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    margin-top: 20px;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 0;
+}

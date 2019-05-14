@@ -40,6 +40,7 @@ function theme_scripts()
     wp_enqueue_script('app9', get_theme_file_uri('js/selection.js'), null, '', true);
     wp_enqueue_script('app10', get_theme_file_uri('js/maps.js'), null, '', true);
     wp_enqueue_script('app11', get_theme_file_uri('js/modal.js'), null, '', true);
+    wp_enqueue_script('app12', get_theme_file_uri('js/fix.js'), null, '', true);
 }
 
 add_action('wp_enqueue_scripts', 'theme_scripts');
@@ -48,9 +49,11 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 // Enqueue styles
 function theme_styles()
 {
-    wp_enqueue_style('theme-app1', get_theme_file_uri('css/style.css'), null, null);
-    wp_enqueue_style('theme-app2', get_theme_file_uri('css/normalize.min.css'), null, null);
+    wp_enqueue_style('theme-app1', get_theme_file_uri('css/normalize.min.css'), null, null);
+    wp_enqueue_style('theme-app2', get_theme_file_uri('css/style.css'), null, null);
     wp_enqueue_style('theme-app3', get_theme_file_uri('jQuery/slick/slick.css'), null, null);
+    wp_enqueue_style('theme-app4', get_theme_file_uri('css/fix.css'), null, null);
+
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles');
