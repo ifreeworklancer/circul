@@ -101,6 +101,37 @@ section.checkout .woocommerce {
     display: inline-block;
 }
 
+
+.cart__key strong {
+    margin-right: auto;
+}
+
+
+
+.woocommerce-checkout-payment {
+    margin-top: 30px;
+}
+
+.wc_payment_method {
+    font-size: 16px; 
+    color: #333;
+}
+
+.woocommerce-checkout #payment {
+    background: none;
+}
+
+.woocommerce-privacy-policy-text p {
+    font-size: 12px;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+
 @media (min-width: 768px) {
     .checkout--step2 .checkout__action {
         width: 80%;
@@ -116,3 +147,7 @@ section.checkout .woocommerce {
         width: 60%;
     }
 }
+
+
+
+

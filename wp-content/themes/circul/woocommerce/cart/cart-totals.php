@@ -110,10 +110,8 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 
 	</div>
 
-
-	<a href="<?= get_site_url(); ?>/checkout" class="btn cart__btn cart__btn--checkout btn--active">
-		Proceed to checkout
-	</a>
+	<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+	
 	<a href="<?php get_site_url(); ?>shop/" class="btn cart__btn cart__btn--continue">
 		Continue shopping
 	</a>

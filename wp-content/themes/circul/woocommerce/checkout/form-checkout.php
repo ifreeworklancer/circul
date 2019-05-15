@@ -32,16 +32,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			
 
-			<form name="checkout" method="post" class="checkout__sign woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+			<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
 				<div class="row">
 					<div class="checkout-col-50">
 						<h2 class="checkout__subheading"><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h2>
 
 						<?php if ( $checkout->get_checkout_fields() ) : ?>
+							<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 							<?php do_action( 'woocommerce_checkout_billing' ); ?>
 							<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 						<?php endif; ?>
+
 					</div>
 
 					<div class="checkout-col-50">
@@ -57,6 +59,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 
 			</form>
+			
+			<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
 
 		</div>
 	</div>
