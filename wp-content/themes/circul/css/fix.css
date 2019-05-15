@@ -130,7 +130,37 @@ button {
 }
 
 
+.thank-you-section {
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 
+
+.woocommerce ul.order_details {
+    padding-left: 0;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.woocommerce ul.order_details li {
+    float: none;
+    font-size: 12px;
+    text-transform: none;
+    margin: 0;
+    padding: 0 15px;
+}
+
+.woocommerce ul.order_details li strong { 
+    font-size: 16px;
+    text-transform: uppercase;
+}
 
 @media (min-width: 768px) {
     .checkout--step2 .checkout__action {
