@@ -15,21 +15,31 @@
  * @version 2.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-do_action( 'woocommerce_before_account_navigation' );
+do_action('woocommerce_before_account_navigation');
 ?>
 
-<nav class="woocommerce-MyAccount-navigation">
-	<ul>
-		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
-</nav>
 
-<?php do_action( 'woocommerce_after_account_navigation' ); ?>
+<div class="cabinet-nav">
+    <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+        <label class="cabinet-nav-item">
+            <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
+        </label>
+    <?php endforeach; ?>
+</div>
+<div class="cabinet__controls">
+    <a href="#" class="cabinet__back">
+        <svg class="cabinet__icon" viewbox="0 0 8 14">
+            <use xlink:href="#back"></use>
+        </svg>
+        Back to shopping
+    </a>
+    <button class="cabinet__logout" type="button">
+        Log out
+    </button>
+</div>
+
+<?php do_action('woocommerce_after_account_navigation'); ?>
