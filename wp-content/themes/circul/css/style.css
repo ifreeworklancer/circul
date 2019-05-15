@@ -7666,8 +7666,10 @@ span.bag__value {
 }
 
 .whishlist__cancel {
-    display: none;
+    margin-top: 1.5rem;
+    display: block;
     cursor: pointer;
+    background-color: #bebebe;
 }
 
 @media (min-width: 768px) {
@@ -7683,12 +7685,6 @@ span.bag__value {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 5%;
-    }
-
-    .whishlist__cancel {
-        margin-top: 1.5rem;
-        display: block;
-        background-color: #bebebe;
     }
 }
 
@@ -7770,8 +7766,7 @@ span.bag__value {
 }
 
 .cabinet > .container {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+    padding-top: 2.4em;
     padding-top: 2.4em;
 }
 
@@ -7788,20 +7783,12 @@ span.bag__value {
     pointer-events: none;
 }
 
-.cabinet__selector + label {
+.cabinet-nav-item a {
     font-size: 3.2em;
     font-weight: 300;
     line-height: calc(46 / 32);
     color: #bebebe;
     text-transform: uppercase;
-}
-
-.cabinet__selector:checked + label {
-    color: black;
-}
-
-.cabinet__selector--orders + label {
-    text-align: right;
 }
 
 .cabinet__controls {
@@ -7846,10 +7833,6 @@ span.bag__value {
     margin-left: auto;
     background-color: transparent;
     border: none;
-}
-
-.cabinet__content {
-    display: none;
 }
 
 .cabinet__selector--account:checked ~ .cabinet__content--account,
@@ -7930,23 +7913,14 @@ span.bag__value {
 }
 
 @media (min-width: 768px) {
-    .cabinet > .container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 8em;
+
+    .cabinet>.container {
         padding-top: 5.6em;
     }
 
-    .cabinet__selector + label {
+    .cabinet-nav-item a {
         font-size: 4em;
         line-height: normal;
-    }
-
-    .cabinet__selector--account + label {
-        text-align: right;
-    }
-
-    .cabinet__selector--orders + label {
-        text-align: left;
     }
 
     .cabinet__controls {
@@ -8369,4 +8343,37 @@ select.orderby {
 
 .select2-results__options li {
     padding: 5px 16px;
+}
+
+.order__like {
+    position: relative;
+}
+
+.order__like .inited-add-wishlist + .order__icon use {
+    fill: black;
+    stroke: black;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.order__like .tinvwl-product-make-remove + order__icon use {
+    fill: none;
+}
+
+.tinvwl_add_to_wishlist_button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.woocommerce-MyAccount-content {
+    float: none !important;
+    width: 100% !important;
+}
+
+.cabinet-nav {
+    display: flex;
+    justify-content: space-around;
 }
