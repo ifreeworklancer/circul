@@ -2,21 +2,9 @@
 
 get_header('secondary'); ?>
 
-
-
-	<?php
-	while ( have_posts() ) :
-        the_post(); ?>
+    <?= do_shortcode('[woocommerce_checkout]') ?>
         
-        <section class="checkout-section ">
-            <div class="container-fluid">
-                <?= do_shortcode('[woocommerce_checkout]') ?>
-            </div>
-        </section>
-
-    <?php
-	endwhile; // End of the loop.
-	?>
+    <?php get_template_part('template-parts/follow'); ?>
 
 <?php
 get_footer();

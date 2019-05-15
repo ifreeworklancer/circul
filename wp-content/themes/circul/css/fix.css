@@ -14,3 +14,105 @@
     letter-spacing: 1px;
     padding: 0;
 }
+
+.delivery_calc {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 20px;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 0;
+}
+
+.delivery_calc a {
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.delivery_calc ul {
+    margin: 20px 0; 
+}
+
+section.shipping-calculator-form p input {
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+section.shipping-calculator-form p button {
+    padding: 1.7rem 15% !important;
+    line-height: normal !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    background-color: #bebebe !important;
+    color: #fff !important;
+}
+
+.cart-update-btn {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cart-update-btn button {
+    padding: 1.7rem 15% !important;
+    line-height: normal !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    background-color: #bebebe !important;
+    color: #fff !important;
+    text-transform: uppercase;
+}
+
+
+
+section.checkout .woocommerce {
+    width: 100%;
+}
+
+
+
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.checkout-col-50 {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.checkout--step2 .checkout__action {
+    width: 100%;
+}
+
+
+
+.label-select-country {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 2.2rem;
+    margin-top: 2.4rem;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .checkout--step2 .checkout__action {
+        width: 80%;
+    }
+
+    .checkout-col-50 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .checkout--step2 .checkout__action {
+        width: 60%;
+    }
+}
