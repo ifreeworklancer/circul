@@ -22,9 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_mini_cart' ); ?>
 
-<?php if ( ! WC()->cart->is_empty() ) : ?>
 
-	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
+<?php if ( ! WC()->cart->is_empty() ) : ?>
+	
+
+	<ul class="bag__list">
 		<?php
 			do_action( 'woocommerce_before_mini_cart_contents' );
 
@@ -38,26 +40,47 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 					?>
-					<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
-						<?php
-						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							__( 'Remove this item', 'woocommerce' ),
-							esc_attr( $product_id ),
-							esc_attr( $cart_item_key ),
-							esc_attr( $_product->get_sku() )
-						), $cart_item_key );
-						?>
-						<?php if ( empty( $product_permalink ) ) : ?>
-							<?php echo $thumbnail . $product_name; ?>
-						<?php else : ?>
-							<a href="<?php echo esc_url( $product_permalink ); ?>">
-								<?php echo $thumbnail . $product_name; ?>
-							</a>
-						<?php endif; ?>
+					<li class="bag__item woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+
+						<dl class="bag__details">
+							<dt class="bag__name">
+								<?php echo $product_name; ?>
+							</dt>
+							<dd class="bag__price">
+								<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+							</dd>
+						</dl>
+
+						<div class="bag__wrapper">
+							<p class="bag__key bag__key--size">
+								Size:
+								<span class="bag__value">1</span>
+							</p>
+							<?php
+								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+									'<a href="%s" class="bag__remove" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">Remove</a>',
+									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+									__( 'Remove this item', 'woocommerce' ),
+									esc_attr( $product_id ),
+									esc_attr( $cart_item_key ),
+									esc_attr( $_product->get_sku() )
+								), $cart_item_key );
+							?>
+						</div>
+						<div class="bag__frame">
+							<picture>
+								<img src="<?php echo get_the_post_thumbnail_url( $product_id ); ?>"
+                                alt="Photo of selected item to order" class="bag__img">
+
+								
+								
+							</picture>
+						</div>
+				
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
-						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+						
+
+						
 					</li>
 					<?php
 				}

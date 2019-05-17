@@ -244,7 +244,7 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-shop__item nav-shop__item--bag">
+                <li class="nav-shop__item nav-shop__item--bag  menu-item cart-punkt">
                     <a class="nav-shop__link nav-shop__link--cart">
                         Bag
                         <span class="nav-shop__counter nav-shop__counter--bag">(99)</span>
@@ -253,67 +253,15 @@
                         </svg>
                     </a>
                     <div class="bag">
-                        <div class="container">
+	                    <div class="container">
                             <button class="bag__close">
-                                Close side bag
+                                <?= __('[:ru]Закрыть боковую корзину[:en]Close side bag[:]'); ?>
                             </button>
                             <h2 class="bag__heading">
-                                shopping bag
-                                <span class="bag__counter">(1)</span>
+                                <?= __('[:ru]корзина[:en]shopping bag[:]'); ?>
+                                <span class="bag__counter">(<?php name_item_in_cart_count(); ?>)</span>
                             </h2>
-                            <ul class="bag__list">
-                                <li class="bag__item">
-                                    <dl class="bag__details">
-                                        <dt class="bag__name">
-                                            Celebration derby
-                                        </dt>
-                                        <dd class="bag__price">
-                                            <span class="currency bag__currency">&#8364;</span>
-                                            151
-                                        </dd>
-                                    </dl>
-                                    <div class="bag__wrapper">
-                                        <p class="bag__key bag__key--quantity">
-                                            Quantity:
-                                            <button class="bag__decrement">
-                                                Decrease quantity by 1
-                                            </button>
-                                            <span class="bag__value">1</span>
-                                            <button class="bag__increment">
-                                                Increase quantity by 1
-                                            </button>
-                                        </p>
-                                        <p class="bag__key bag__key--size">
-                                            Size:
-                                            <span class="bag__value">1</span>
-                                        </p>
-                                        <button class="bag__remove">
-                                            Remove
-                                        </button>
-                                    </div>
-                                    <div class="bag__frame">
-                                        <picture>
-                                            <img src="<?= get_theme_file_uri('img/catalog__item--1@1x.png') ?>"
-                                                 alt="Photo of selected item to order" class="bag__img">
-                                        </picture>
-                                    </div>
-                                </li>
-                            </ul>
-                            <dl class="bag__subtotal">
-                                <dt class="bag__descriptor">
-                                    Sub-total
-                                </dt>
-                                <dd class="bag__sum">
-                                    <span class="currency bag__currency">&#8364;</span>
-                                    151
-                                </dd>
-                            </dl>
-                            <a href="#" class="bag__btn bag__btn--checkout">
-                                Proceed to checkout
-                            </a>
-                            <a href="#" class="bag__btn bag__btn--continue">
-                                Continue shopping
-                            </a>
+                            <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
                         </div>
                     </div>
                 </li>

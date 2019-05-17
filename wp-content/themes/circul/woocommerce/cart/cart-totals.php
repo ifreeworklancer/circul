@@ -43,7 +43,6 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 			<span class="currency cart__currency">
 				&#8364;
 			</span>
-			0
 		</span>
 	</p>
 	<p class="cart__key cart__key--total">

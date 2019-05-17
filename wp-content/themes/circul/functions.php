@@ -381,3 +381,37 @@ function remove_my_account_links( $menu_links ){
     //unset( $menu_links['customer-logout'] ); // Remove Logout link
     return $menu_links;
 }
+
+
+
+function woocommerce_header_add_to_cart_fragment( $fragments ) { 
+	ob_start(); 
+	?>
+	<a class="cart-contents" href="/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">  
+	<span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>  
+	<span class="cart-txt">товаров: <strong><?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+	</a>
+	<?php 
+	$fragments['a.cart-contents'] = ob_get_clean(); 
+	return $fragments;
+	}
+	
+	//Вывод кратких данных из корзины
+	if ( ! function_exists( 'cart_link' ) ) {
+	function cart_link() { 
+	?><a class="cart-contents" href="/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
+	<span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
+	<span class="cart-txt">товаров: <strong><?php echo sprintf (_n( '%d', '%d', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+	</a>
+	<?php 
+	}
+	}
+
+
+	function name_item_in_cart_count() {
+		global $woocommerce;
+		$product_ids = array();
+		foreach(WC()->cart->get_cart() as $cart_item_key => $values) { $product_ids[] = $values['product_id']; }
+		$product_ids_unique = $product_ids;
+		echo count($product_ids_unique);
+	}
