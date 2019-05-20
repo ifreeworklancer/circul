@@ -26,7 +26,7 @@ if (!$product_attributes) {
 <div class="info__options options">
     <input type="checkbox" class="options__trigger options__trigger--details" id="details" name="options" checked>
     <label for="details">
-        Details
+        <?= __('[:ru]Подробности[:en]Details[:]'); ?>
     </label>
     <div class="options__content options__content--details">
         <ul class="options__list">
@@ -37,29 +37,18 @@ if (!$product_attributes) {
             <?php endforeach; ?>
         </ul>
     </div>
-    <input type="checkbox" class="options__trigger options__trigger--payment" id="payment" name="options">
+
+    <input type="checkbox" class="options__trigger options__trigger--payment cart__trigger"
+           id="payment" name="options">
     <label for="payment">
-        Delivery & payment
+        <?= __('[:ru]Доставка и оплата[:ua]Delivery & payment[:]'); ?>
     </label>
-    <div class="options__content options__content--payment">
-        <dl class="options__payment">
-            <dt class="options__type">
-                Credit card:
-            </dt>
-            <dd class="options__descriptor">
-                You can pay via your visa/mastercard online right after making order.
-            </dd>
-            <dt class="options__type">
-                Paypal:
-            </dt>
-            <dd class="options__descriptor">
-                You can use your paypal account to pay for your online order too.
-            </dd>
-        </dl>
+    <div class="options__content options__content--payment cart__details">
+        <?php the_field('delivery', 10); ?>
     </div>
     <input type="checkbox" class="options__trigger options__trigger--size" id="size" name="options">
     <label for="size">
-        Size guide
+        <?= __('[:ru]Размеры[:ua]Size guide[:]'); ?>
     </label>
     <div class="options__content options__content--size">
         <table class="options__size guide">
@@ -219,19 +208,12 @@ if (!$product_attributes) {
             </tr>
         </table>
     </div>
-    <input type="checkbox" class="options__trigger options__trigger--guarantee" id="guarantee" name="options">
+    <input type="checkbox" class="options__trigger options__trigger--guarantee cart__trigger"
+           id="guarantee" name="options">
     <label for="guarantee">
-        Guarantees & returns
+        <?= __('[:ru]Гарантии и возвраты[:ua]Guarantees & returns[:]'); ?>
     </label>
-    <div class="options__content options__content--guarantee">
-        <p class="options__descriptor options__descriptor--guarantee">
-            Complimentary ground shipping and returns.
-        </p>
-        <p class="options__descriptor options__descriptor--guarantee">
-            Complimentary express shipping with orders over $500.
-        </p>
-        <p class="options__descriptor options__descriptor--guarantee">
-            Overnight and same day delivery (Manhattan only for same day): $35.
-        </p>
+    <div class="options__content options__content--guarantee cart__details">
+        <?php the_field('guarantees', 10); ?>
     </div>
 </div>

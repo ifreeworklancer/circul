@@ -13,7 +13,7 @@ wp_enqueue_script( 'tinvwl' );
 ?>
 <input type="checkbox" class="order__fav" name="order-like" id="add-to-fav">
 <label for="add-to-fav" class="order__like">
-    Add to favourites
+    <?= __('[:ru]Добавить в избранное[:en]Add to favourites[:]'); ?>
 	<?php do_action( 'tinv_wishlist_addtowishlist_button' ); ?>
 	<?php do_action( 'tinv_wishlist_addtowishlist_dialogbox' ); ?>
     <svg class="order__icon" width="28" height="28" viewbox="0 0 497 470">

@@ -25,7 +25,7 @@ $variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json
 
 do_action('woocommerce_before_add_to_cart_form'); ?>
 
-    <ul class="info__social">
+    <ul class="info__social" data-title="<?= __('[:ru]Контакты:[:en]Contacts:[:]'); ?>">
         <li class="info__network info__network--instagram">
             <a href="<?= get_theme_mod('instagram');?>" class="info__link" aria-label="Our instagram">
                 <svg class="info__logo" viewBox="0 0 33 32">
@@ -68,7 +68,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                 ));
                 ?>
                 <a class="order__link">
-                    Size guide
+                    <?= __('[:ru]Размеры:[:en]Size guide[:]'); ?>
                 </a>
                 </div>
             <?php endforeach; ?>

@@ -65,13 +65,13 @@ $form_url = tinv_url_wishlist($wishlist['share_key'], $wl_paged, true);
                                 ?>
                                 <button class="btn whishlist__add" name="tinvwl-add-to-cart"
                                         value="<?php echo esc_attr($wl_product['ID']); ?>">
-                                    Add to bag
+                                    <?= __('[:ru]Добавить в корзину[:en]Add to bag[:]'); ?>
                                 </button>
                             <?php } ?>
                         <?php } ?>
                         <button type="submit" class="btn whishlist__cancel" name="tinvwl-remove"
                                 value="<?php echo esc_attr($wl_product['ID']); ?>">
-                            Cancel wish
+                            <?= __('[:ru]Удалить из желаемого[:en]Cancel wish[:]'); ?>
                         </button>
                     </div>
                 </li>

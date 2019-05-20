@@ -8,4 +8,5 @@ get_header();
     </section>
 
 <?php
+include('template-parts/follow.php');
 get_footer();

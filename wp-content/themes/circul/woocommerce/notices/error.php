@@ -24,7 +24,7 @@ if ( ! $messages ) {
 }
 
 ?>
-<ul class="woocommerce-error" role="alert">
+<ul class="woocommerce-notice woocommerce-error" role="alert">
 	<?php foreach ( $messages as $message ) : ?>
 		<li>
 			<?php
@@ -32,4 +32,8 @@ if ( ! $messages ) {
 			?>
 		</li>
 	<?php endforeach; ?>
+    <div class="close-notice">
+        <div class="line line--left"></div>
+        <div class="line line--right"></div>
+    </div>
 </ul>

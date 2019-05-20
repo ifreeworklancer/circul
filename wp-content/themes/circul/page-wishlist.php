@@ -7,22 +7,22 @@ get_header();
         <div class="container">
             <div class="whishlist__wrapper">
                 <h1 class="whishlist__heading">
-                    My whishlist
+                    <?= __('[:ru]Мой список пожеланий[:en]My wishlist[:]'); ?>
                 </h1>
-                <a href="#" class="whishlist__back">
+                <a href="<?= get_the_permalink(9);?>" class="whishlist__back">
                     <svg class="cart__icon whishlist__icon" viewbox="0 0 8 14">
                         <use xlink:href="#back"></use>
                     </svg>
-                    Back to shopping
+                    <?= __('[:ru]Вернуться к покупкам[:en]Back to shopping[:]'); ?>
                 </a>
             </div>
             <div class="orders__no-orders whishlist__no-items">
                 <p class="orders__message">
-                    There are currently no items in your whishlist
+                    <?= __('[:ru]В вашем списке желаний нет[:en]There are currently no items in your wishlist[:]'); ?>
                 </p>
                 <div class="success__info orders__info">
                     <a href="#" class="btn cart__btn cart__btn--continue success__btn orders__continue">
-                        Go shopping
+                        <?= __('[:ru]В магазин[:en]Go shopping[:]'); ?>
                     </a>
                     <ul class="cart__payment payment orders__payment">
                         <li class="payment__item">
@@ -44,37 +44,37 @@ get_header();
                     <div class="info__options options orders__options whishlist__options">
                         <input type="checkbox" class="options__trigger options__trigger--payment orders__trigger" id="payment" name="options">
                         <label for="payment">
-                            Delivery & payment
+                            <?= __('[:ru]Доставка и оплата[:en]Delivery & payment[:]'); ?>
                         </label>
                         <div class="options__content options__content--payment orders__details">
                             <dl class="options__payment">
                                 <dt class="options__type">
-                                    Credit card:
+                                    <?= __('[:ru]Кредитная карта:[:en]Credit card:[:]'); ?>
                                 </dt>
                                 <dd class="options__descriptor">
-                                    You can pay via your visa/mastercard online right after making order.
+                                    <?= __('[:ru]Вы можете оплатить через свою визу / мастер-карту онлайн сразу после оформления заказа.[:en]You can pay via your visa/mastercard online right after making order.[:]'); ?>
                                 </dd>
                                 <dt class="options__type">
                                     Paypal:
                                 </dt>
                                 <dd class="options__descriptor">
-                                    You can use your paypal account to pay for your online order too.
+                                    <?= __('[:ru]Вы также можете использовать свою учетную запись PayPal для оплаты вашего онлайн-заказа.[:en]You can use your paypal account to pay for your online order too.[:]'); ?>
                                 </dd>
                             </dl>
                         </div>
                         <input type="checkbox" class="options__trigger options__trigger--guarantee cart__trigger" id="guarantee" name="options">
                         <label for="guarantee">
-                            Guarantees & returns
+                            <?= __('[:ru]Гарантии и возвраты[:en]Guarantees & returns[:]'); ?>
                         </label>
                         <div class="options__content options__content--guarantee cart__details">
                             <p class="options__descriptor options__descriptor--guarantee">
-                                Complimentary ground shipping and returns.
+                                <?= __('[:ru]Бесплатная наземная доставка и возврат.[:en]Complimentary ground shipping and returns.[:]'); ?>
                             </p>
                             <p class="options__descriptor options__descriptor--guarantee">
-                                Complimentary express shipping with orders over $500.
+                                <?= __('[:ru]Бесплатная экспресс-доставка при заказе свыше 500 долларов.[:en]Complimentary express shipping with orders over $500.[:]'); ?>
                             </p>
                             <p class="options__descriptor options__descriptor--guarantee">
-                                Overnight and same day delivery (Manhattan only for same day): $35.
+                                <?= __('[:ru]Ночь и доставка в тот же день (Манхэттен только в тот же день): 35 долларов США.[:en]Overnight and same day delivery (Manhattan only for same day): $35.[:]'); ?>
                             </p>
                         </div>
                     </div>

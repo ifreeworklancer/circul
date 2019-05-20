@@ -3,7 +3,7 @@
 <section class="smm smm--all">
     <div class="container">
         <h2 class="visually-hidden">
-            Follow our news and updates
+            <?= __('[:ru]Следите за нашими новостями и обновлениями[:en]Follow our news and updates[:]'); ?>
         </h2>
         <div class="smm__instagram">
             <p class="smm__invitation smm__invitation--instagram">
@@ -29,16 +29,16 @@
         <div class="smm__newsletter">
             <div class="container">
                 <p class="smm__invitation">
-                    Subscribe to newsletter
+                    <?= __('[:ru]Подписаться на новостную рассылку[:en]Subscribe to newsletter[:]'); ?>
                 </p>
                 <form class="smm__form" action="#">
                     <input type="text" class="smm__email" placeholder="Enter e-mail adress">
                     <button class="smm__btn visually-hidden" type="submit">
-                        Send email
+                        <?= __('[:ru]Отправить письмо[:en]Send email[:]'); ?>
                     </button>
                 </form>
                 <p class="smm__success">
-                    Thank you! You&nbsp;will&nbsp;start to receive your e&nbsp;-&nbsp;mails&nbsp;shortly
+                    <?= __('[:ru]Спасибо! Вы начнете получать ваши письма в ближайшее время[:en]Thank you! You will start to receive your e-mails shortly[:]'); ?>
                 </p>
             </div>
         </div>

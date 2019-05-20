@@ -35,24 +35,18 @@ if (post_password_required()) {
         <h1 class="visually-hidden">
             Detailed information about product
         </h1>
-        <ul class="card__controls">
-            <li class="card__control card__control--back">
-                <a href="#" class="card__link">
-                    Back
-                    <svg class="card__icon" viewbox="0 0 8 14">
-                        <use xlink:href="#back"></use>
-                    </svg>
-                </a>
-            </li>
-            <li class="card__control card__control--next">
-                <a href="#" class="card__link">
-                    Next
-                    <svg class="card__icon" viewbox="0 0 8 14">
-                        <use xlink:href="#back"></use>
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <!-- Prev b Next button -->
+        <?php echo '<ul class="card__controls">';
+
+        // 'product_cat' will make sure to return next/prev from current category
+        $previous = previous_post_link('<li class="card__control card__control--back">%link</li>', __('[:ru]Предыдущий[:en]Back[:]') . '<svg class="card__icon" viewbox="0 0 8 14"><use xlink:href="#back"></use></svg>', TRUE, ' ', 'product_cat');
+        $next = next_post_link('<li class="card__control card__control--next">%link</li>', __('[:ru]Следующий[:en]Next[:]') . '<svg class="card__icon" viewbox="0 0 8 14"><use xlink:href="#back"></use></svg>', TRUE, ' ', 'product_cat');
+
+        echo $previous;
+        echo $next;
+
+        echo '</ul>';
+        ?>
         <?php
         /**
          * Hook: woocommerce_before_single_product_summary.

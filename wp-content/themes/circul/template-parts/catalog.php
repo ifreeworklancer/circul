@@ -16,23 +16,13 @@ if (!is_null($images)): ?>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <?php
-        $prod_cat_args = array(
-            'taxonomy' => 'product_cat',
-            'include' => [16, 17],
-            'hide_empty' => false, // скрывать категории без товаров или нет
-        );
-        $woo_categories = get_categories($prod_cat_args);
-        if (!is_null($woo_categories)) :
-            foreach ($woo_categories as $woo_cat) :
-                $woo_cat_id = $woo_cat->term_id;
-                $woo_cat_name = $woo_cat->name;
-                $woo_cat_slug = $woo_cat->slug;
-                ?>
-                <a href="<?= get_term_link($woo_cat_id, 'product_cat'); ?>"
-                   class="gender__link slide-up">
-                    <?= $woo_cat_name; ?>
-                </a>
-            <?php endforeach; endif; ?>
+        <a href="<?= get_category_link(16)?>"
+           class="gender__link slide-up">
+            <?= __('[:ru]Мужская[:en]Men[:]'); ?>
+        </a>
+        <a href="<?= get_category_link(17)?>"
+           class="gender__link slide-up">
+            <?= __('[:ru]Женская[:en]Women[:]'); ?>
+        </a>
     </section>
 <?php endif; ?>

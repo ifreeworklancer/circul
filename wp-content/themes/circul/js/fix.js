@@ -1,9 +1,3 @@
-
-
-
-
-
-
 $('body').on('click' , '.item__increment' , function() {
         
     var inputAmount = $(this).siblings('.item__value');
@@ -55,4 +49,8 @@ $('body').on('click' , '.item__decrement' , function() {
 
     $('button[name="update_cart"]').removeAttr("disabled");
     
+});
+
+$('body').on('click' , '.close-notice' , function() {
+    $('.woocommerce-notice').hide();
 });
