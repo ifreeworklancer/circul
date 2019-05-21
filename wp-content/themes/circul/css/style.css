@@ -4584,7 +4584,7 @@ span.bag__value {
 }
 
 .order__btn {
-    margin-top: 24px;
+    width: 80%;
 }
 
 .order__btn--passive {
@@ -4613,8 +4613,8 @@ span.bag__value {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     font-size: 0;
     background-color: transparent;
     cursor: pointer;
@@ -4644,6 +4644,20 @@ span.bag__value {
     border: none;
     opacity: 0;
     pointer-events: none;
+}
+
+.order__buttons {
+    margin-top: 24px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 @media (min-width: 1260px) {
@@ -4684,19 +4698,6 @@ span.bag__value {
 
     .order__link {
         display: inline-block;
-    }
-
-    .order__buttons {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: end;
-        -ms-flex-align: end;
-        align-items: flex-end;
     }
 
     .order__btn {
