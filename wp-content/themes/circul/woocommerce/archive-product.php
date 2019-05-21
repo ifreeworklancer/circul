@@ -26,24 +26,33 @@ get_header();
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action('woocommerce_before_main_content');
+$term = get_queried_object();
 
+// vars
+$image = get_field('image', $term);
 ?>
     <section class="banner">
-        <div class="container">
-            <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-                <h1 class="banner__title"><span class="banner__highlight"><?php woocommerce_page_title(); ?></span></h1>
+        <?php if (!is_null($image)) : ?>
+        <div class="container" style="background-image:url(<?= $image['url'] ?>);">
             <?php endif; ?>
+            <?php if (is_null($image)) : ?>
+            <div class="container" style="background-image:url(<?= get_theme_file_uri('img/banner__bg@1x.jpg')?>);">
+                <?php endif; ?>
+                <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
+                    <h1 class="banner__title"><span class="banner__highlight"><?php woocommerce_page_title(); ?></span>
+                    </h1>
+                <?php endif; ?>
 
-            <?php
-            /**
-             * Hook: woocommerce_archive_description.
-             *
-             * @hooked woocommerce_taxonomy_archive_description - 10
-             * @hooked woocommerce_product_archive_description - 10
-             */
-            do_action('woocommerce_archive_description');
-            ?>
-        </div>
+                <?php
+                /**
+                 * Hook: woocommerce_archive_description.
+                 *
+                 * @hooked woocommerce_taxonomy_archive_description - 10
+                 * @hooked woocommerce_product_archive_description - 10
+                 */
+                do_action('woocommerce_archive_description');
+                ?>
+            </div>
     </section>
 
 

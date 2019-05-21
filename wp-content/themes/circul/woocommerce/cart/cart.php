@@ -26,13 +26,13 @@ defined( 'ABSPATH' ) || exit; ?>
 			<?php do_action( 'woocommerce_before_cart' ); ?>
 
 			<h1 class="cart__heading">
-				My shopping bag
+                <?= __('[:ru]Моя корзина[:en]My shopping bag[:]'); ?>
 			</h1>
 			<a href="<?php get_site_url(); ?>shop/" class="cart__back">
 				<svg class="cart__icon" viewbox="0 0 8 14">
 					<use xlink:href="#back"></use>
 				</svg>
-				Back to shopping
+                <?= __('[:ru]Вернуться к покупкам[:en]Back to shopping[:]'); ?>
 			</a>
 		</div>
 
@@ -89,9 +89,9 @@ defined( 'ABSPATH' ) || exit; ?>
 								<div class="item__wrapper">
 
 									<p class="item__key item__key--quantity">
-										Quantity:
+                                        <?= __('[:ru]Количество:[:en]Quantity:[:]'); ?>
 										<button type="button" class="item__decrement">
-											Decrease quantity by 1
+                                            <?= __('[:ru]Уменьшить количество на 1:[:en]Decrease quantity by 1[:]'); ?>
 										</button>
 
 										<span class="item__value">
@@ -99,7 +99,7 @@ defined( 'ABSPATH' ) || exit; ?>
 										</span>
 
 										<button type="button" class="item__increment">
-											Increase quantity by 1
+                                            <?= __('[:ru]Увеличить количество на 1[:en]Increase quantity by 1[:]'); ?>
 										</button>
 
 
@@ -124,7 +124,7 @@ defined( 'ABSPATH' ) || exit; ?>
 									</p>
 
 									<p class="item__key item__key--size">
-										Size:
+                                        <?= __('[:ru]Размер:[:en]Size:[:]'); ?>
 										<span class="item__value">
 											<?= $_product->attributes['pa_size']; ?>
 										</span>
@@ -143,7 +143,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
 									<dl class="item__subtotal">
 										<dt class="item__key">
-											Sub-total
+                                            <?= __('[:ru]Промежуточный итог[:en]Sub-total[:]'); ?>
 										</dt>
 										<dd class="item__value">
 											<?php
@@ -154,9 +154,6 @@ defined( 'ABSPATH' ) || exit; ?>
 
 								</div>
 							</li>
-
-
-
 							<?php
 						}
 					}

@@ -1626,27 +1626,28 @@ span.bag__value {
     margin: 0;
 }
 
-.bag__btn {
+.woocommerce-mini-cart__buttons a {
     display: block;
-    padding: calc(1.7em / 1.2);
+    padding: calc(1.7em / 1.2) !important;
     width: 100%;
-    font-size: 1.2em;
-    font-weight: 500;
-    line-height: calc(1.4em / 1.2);
-    color: white;
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+    line-height: calc(1.4em / 1.2) !important;
+    color: white !important;
     text-transform: uppercase;
     text-align: center;
 }
 
-.bag__btn--checkout {
-    margin-top: calc(2.4em / 1.2);
-    background-color: #3f3f3f;
+.woocommerce-mini-cart__buttons a {
+    margin-top: calc(2.4em / 1.2) !important;
+    background-color: #3f3f3f !important;
 }
 
-.bag__btn--continue {
-    margin-top: calc(1.5em / 1.2);
-    background-color: #bebebe;
+.woocommerce-mini-cart__buttons a:nth-of-type(2) {
+    margin-top: calc(1.5em / 1.2) !important;
+    background-color: #bebebe !important;
 }
+
 
 @media (min-width: 768px) {
     .bag > .container {
@@ -1788,17 +1789,17 @@ span.bag__value {
         line-height: calc(2.9em / 2.4);
     }
 
-    .bag__btn {
-        font-size: 1.8em;
-        font-weight: 700;
-        line-height: calc(2.1em / 1.8);
+    .woocommerce-mini-cart__buttons a {
+        font-size: 1.8em !important;
+        font-weight: 700 !important;
+        line-height: calc(2.1em / 1.8) !important;
     }
 
-    .bag__btn--checkout {
+    .woocommerce-mini-cart__buttons a {
         background-color: #3f3f3f;
     }
 
-    .bag__btn--continue {
+    .woocommerce-mini-cart__buttons a:nth-of-type(2) {
         background-color: #bebebe;
     }
 }
@@ -1814,28 +1815,20 @@ span.bag__value {
 }
 
 .modal__wrapper--registration {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding-top: 5em;
     -webkit-animation-duration: 0.6s;
     animation-duration: 0.6s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    overflow: scroll;
     z-index: 4;
+    margin-bottom: 15rem;
 }
 
 .modal__wrapper:not(.modal__wrapper--size) .modal__container {
     position: relative;
     margin: 0;
-    padding: 5.6em 1.6em 3.6em 1.6em;
+    padding: 0em 1.6em 3.6em 1.6em;
     width: 100%;
-    min-height: calc(100vh - 5em);
     background-color: white;
-    overflow: auto;
 }
 
 .modal__title {
@@ -2032,6 +2025,14 @@ span.bag__value {
     text-transform: uppercase;
 }
 
+.modal__content--sign {
+    padding-top: 4.5rem;
+}
+
+.modal__content--signup {
+    margin-top: 4.5rem;
+}
+
 @media (min-width: 768px) {
     .modal__wrapper--registration {
         display: -webkit-box;
@@ -2043,7 +2044,6 @@ span.bag__value {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        overflow: auto;
     }
 
     .modal__wrapper:not(.modal__wrapper--size) .modal__container {
@@ -2051,7 +2051,6 @@ span.bag__value {
         margin: 0 auto;
         padding: 0;
         width: 76em;
-        min-height: 70vh;
     }
 
     .modal__wrapper:not(.modal__wrapper--size) .modal__container::before {
@@ -2059,7 +2058,7 @@ span.bag__value {
         position: absolute;
         top: calc(50% - 80% / 2);
         left: calc(50% - 1px);
-        height: 80%;
+        height: 100%;
         width: 1px;
         background-color: #707070;
     }
@@ -2102,7 +2101,7 @@ span.bag__value {
     }
 
     .modal__content--sign {
-        padding-top: 10.6em;
+        padding-top: 5.4em;
     }
 
     .modal__content--create .modal__title {
@@ -2140,7 +2139,6 @@ span.bag__value {
         width: 52.6em;
         max-height: calc(100vh - 10.2em - 2em * 2);
         background-color: white;
-        overflow: auto;
     }
 
     .modal__wrapper--size .modal__title {
@@ -2161,15 +2159,12 @@ span.bag__value {
 
     .modal__wrapper:not(.modal__wrapper--size) .modal__container {
         width: 120.4rem;
-        min-height: 70rem;
     }
 
     .modal__wrapper:not(.modal__wrapper--size) .modal__container::before {
         content: "";
         position: absolute;
-        top: calc(50% - 58.5rem / 2);
         left: calc(50% - 1px);
-        height: 58.5rem;
         width: 1px;
         background-color: #707070;
     }
@@ -2183,13 +2178,6 @@ span.bag__value {
         padding-left: 11.9rem;
     }
 
-    .modal__item--sign > div.modal__content.modal__content:not(:first-of-type) {
-        padding-top: 20.6rem;
-    }
-
-    .modal__wrapper--registration div.modal__content:not(:first-of-type) {
-        padding-top: 28.7rem;
-    }
 
     .modal__title {
         --font-size-em: 4;
@@ -2238,10 +2226,6 @@ span.bag__value {
         margin-top: 3.6rem;
     }
 
-    .modal__wrapper--registration .modal__content:not(:first-of-type),
-    div.modal__item--forgotten > div.modal__content:not(:first-of-type) {
-        padding-top: 20.6rem;
-    }
 
     .modal__content:not(:first-of-type) .modal__descriptor {
         margin: 0;
@@ -3032,6 +3016,7 @@ span.bag__value {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -3040,18 +3025,12 @@ span.bag__value {
     justify-content: center;
     width: 100%;
     height: 18em;
-    background-image: url("../img/banner__bg--mobile@1x.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0 0;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-    .banner > .container {
-        background-image: url("../img/banner__bg--mobile@2x.jpg");
-    }
-}
-
+.term-description,
 .banner__title {
     --font-size-title-em: 0.9;
     margin: 0;
@@ -3062,6 +3041,14 @@ span.bag__value {
     color: white;
     text-transform: uppercase;
     text-align: center;
+}
+
+.term-description {
+    order: 1;
+}
+
+.banner__title {
+    order: 2;
 }
 
 .banner__highlight {
@@ -3075,9 +3062,9 @@ span.bag__value {
 @media (min-width: 768px) {
     .banner > .container {
         height: 22em;
-        background-image: url("../img/banner__bg@1x.jpg");
     }
 
+    .term-description,
     .banner__title {
         --font-size-title-em: 1.5;
         line-height: calc(19 / 15);
@@ -3099,6 +3086,7 @@ span.bag__value {
         height: 404px;
     }
 
+    .term-description,
     .banner__title {
         --font-size-title-em: 1.8;
         position: relative;
@@ -3864,7 +3852,7 @@ span.bag__value {
 }
 
 .info__social::before {
-    content: "contact:";
+    content: '' attr(data-title) '';
     position: absolute;
     top: -22px;
     left: 0;
@@ -3978,7 +3966,7 @@ span.bag__value {
     }
 
     .info__social::before {
-        content: "contact:";
+        content: '' attr(data-title) '';
         position: absolute;
         top: -38px;
         left: 0;
@@ -5417,7 +5405,7 @@ span.bag__value {
     }
 
     .content__heading,
-    .about h2{
+    .about h2 {
         margin-right: auto;
         margin-left: auto;
         width: 37.5rem;
@@ -5438,7 +5426,7 @@ span.bag__value {
         line-height: 4.8rem;
     }
 
-    .content__wrapper > .content__descriptor{
+    .content__wrapper > .content__descriptor {
         margin-top: 6.4rem;
     }
 
@@ -5447,7 +5435,7 @@ span.bag__value {
     }
 
     li.content__item,
-    .content__descriptor{
+    .content__descriptor {
         font-size: 1.6rem;
         line-height: 2.4rem;
     }
@@ -5479,7 +5467,7 @@ span.bag__value {
 }
 
 .rules-description h3,
-.rules-description p{
+.rules-description p {
     font-size: 1.2rem;
     line-height: 1.4rem;
     letter-spacing: 1px;
@@ -5550,7 +5538,7 @@ span.bag__value {
     }
 
     .rules-description h3,
-    .rules-description p{
+    .rules-description p {
         font-size: 1.6rem;
         line-height: 2.4rem;
         margin-top: 3rem;
@@ -5588,7 +5576,7 @@ span.bag__value {
 }
 
 .leather-description h3,
-.leather-description p{
+.leather-description p {
     font-size: 1.2rem;
     line-height: 1.4rem;
     letter-spacing: 1px;
@@ -5652,7 +5640,7 @@ span.bag__value {
     }
 
     .leather-description h3,
-    .leather-description p{
+    .leather-description p {
         font-size: 1.6rem;
         line-height: 2.4rem;
         margin-top: 3rem;
@@ -5688,7 +5676,7 @@ span.bag__value {
 }
 
 .chukka-description p,
-.chukka-description ol{
+.chukka-description ol {
     margin-top: 2.4rem;
     font-size: 1.2rem;
     font-weight: 300;
@@ -5776,6 +5764,7 @@ span.bag__value {
     .chukka-description p:not(:first-of-type) {
         margin-top: 2.4rem;
     }
+
     .chukka-description p,
     .chukka-description ol {
         font-size: 1.6rem;
@@ -7805,7 +7794,7 @@ span.bag__value {
 }
 
 .cabinet__back,
-.cabinet__logout {
+.cabinet__logout a {
     font-size: 1.2em;
     font-weight: 500;
     line-height: normal;
@@ -7914,7 +7903,7 @@ span.bag__value {
 
 @media (min-width: 768px) {
 
-    .cabinet>.container {
+    .cabinet > .container {
         padding-top: 5.6em;
     }
 
@@ -7929,7 +7918,7 @@ span.bag__value {
     }
 
     .cabinet__back,
-    .cabinet__logout {
+    .cabinet__logout a {
         font-size: 1.8em;
         font-weight: 300;
         letter-spacing: 0;
@@ -7997,7 +7986,7 @@ span.bag__value {
     }
 
     .cabinet__update {
-        grid-column: 2 / 3;
+        grid-column: 2 / 2;
         margin: 0;
         padding: 1.7rem 15%;
         font-size: 1.8em;
@@ -8017,7 +8006,7 @@ span.bag__value {
     }
 
     .cabinet__update {
-        grid-column: -2 / -1;
+        grid-column: -2 / 0;
         align-self: end;
         cursor: pointer;
     }
@@ -8297,7 +8286,7 @@ select:focus {
 select.orderby {
     padding: 16px 16px 18px;
     font-weight: 300;
-    line-height: calc(22/18);
+    line-height: calc(22 / 18);
     letter-spacing: 1px;
     border: 1px solid #979797;
     background-color: #f4f4f4;
@@ -8315,7 +8304,7 @@ select.orderby {
     height: 100% !important;
     padding: 14px 16px 16px;
     font-weight: 300;
-    line-height: calc(22/18);
+    line-height: calc(22 / 18);
     letter-spacing: 1px;
     border: 1px solid #979797 !important;
     background-color: #f4f4f4 !important;
@@ -8336,7 +8325,7 @@ select.orderby {
 
     padding: 5px 16px;
     font-weight: 300;
-    line-height: calc(22/18);
+    line-height: calc(22 / 18);
     color: #a2a2a2;
     font-size: 18px;
 }
@@ -8376,4 +8365,108 @@ select.orderby {
 .cabinet-nav {
     display: flex;
     justify-content: space-around;
+}
+
+.cabinet__update {
+    height: 70%;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .cabinet__update {
+        margin-top: auto;
+    }
+}
+
+.account-dashboard-text {
+    font-size: 18px;
+    text-align: center;
+}
+
+.woocommerce-mini-cart__total {
+    display: flex !important;
+    justify-content: space-between !important;
+    border-top: none !important;
+    font-size: 2.4em !important;
+    line-height: calc(2.9em / 2.4) !important;
+}
+
+.woocommerce-notice {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 0;
+    z-index: 500;
+    font-size: 20px;
+}
+
+.close-notice {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 501;
+}
+
+
+.close-notice .line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 1px;
+    background: #333;
+}
+
+.close-notice .line--left {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-notice .line--right {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.woocommerce-unproduct {
+    font-size: 18px;
+    max-width: 90vw;
+    margin: 0 auto 30px;
+}
+
+.cart-empty {
+    text-align: center;
+    font-size: 16px;
+}
+
+.return-to-shop {
+    text-align: center;
+    font-size: 16px;
+}
+
+.order-item {
+    margin-bottom: 40px;
+}
+
+.order-item-header {
+    margin: 20px 0;
+}
+
+.order-item-header__title {
+    font-size: 20px;
+    font-weight: 300;
+}
+.order-item-footer {
+    display: flex;
+    justify-content: space-between;
+}
+.order-item-footer-row {
+    margin: 20px 0;
+}
+
+.order-item-footer {
+    font-size: 18px;
+    font-weight: 300;
 }

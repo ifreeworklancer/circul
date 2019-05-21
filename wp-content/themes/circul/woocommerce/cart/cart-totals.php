@@ -29,7 +29,7 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
 	<p class="cart__key cart__key--subtotal">
-		Sub-total
+        <?= __('[:ru]Промежуточный итог[:en]Sub-total[:]'); ?>
 		<span class="cart__value">
 			<span class="currency cart__currency">
 				<?php echo $my_currency; ?>
@@ -37,16 +37,8 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 			<?= WC()->cart->get_subtotal(); ?>
 		</span>
 	</p>
-	<p class="cart__key cart__key--delivery">
-		Delivery
-		<span class="cart__value cart__value--empty">
-			<span class="currency cart__currency">
-				&#8364;
-			</span>
-		</span>
-	</p>
 	<p class="cart__key cart__key--total">
-		Total
+        <?= __('[:ru]Всего[:en]Total[:]'); ?>
 		<span class="cart__value">
 			<span class="currency cart__currency">
 				<?php echo $my_currency; ?>
@@ -112,7 +104,7 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 	<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 	
 	<a href="<?php get_site_url(); ?>shop/" class="btn cart__btn cart__btn--continue">
-		Continue shopping
+        <?= __('[:ru]Продолжить покупки[:en]Continue shopping[:]'); ?>
 	</a>
 	<ul class="cart__payment payment">
 		<li class="payment__item">
@@ -135,7 +127,7 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 		<input type="checkbox" class="options__trigger options__trigger--payment cart__trigger"
 			id="payment" name="options">
 		<label for="payment">
-			Delivery & payment
+            <?= __('[:ru]Доставка и оплата[:en]Delivery & payment[:]'); ?>
 		</label>
 		<div class="options__content options__content--payment cart__details">
 
@@ -145,7 +137,7 @@ $my_currency = get_woocommerce_currency_symbol( $currency );
 		<input type="checkbox" class="options__trigger options__trigger--guarantee cart__trigger"
 			id="guarantee" name="options">
 		<label for="guarantee">
-			Guarantees & returns
+            <?= __('[:ru]Гарантии и возвраты[:en]Guarantees & returns[:]'); ?>
 		</label>
 		<div class="options__content options__content--guarantee cart__details">
 

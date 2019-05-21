@@ -31,14 +31,21 @@ do_action('woocommerce_before_account_navigation');
     <?php endforeach; ?>
 </div>
 <div class="cabinet__controls">
-    <a href="#" class="cabinet__back">
+    <a href="<?= the_permalink(9)?>" class="cabinet__back">
         <svg class="cabinet__icon" viewbox="0 0 8 14">
             <use xlink:href="#back"></use>
         </svg>
-        Back to shopping
+        <?php _e('[:en]Back to shopping[:ru]Вернуться к покупкам[:]') ?>
     </a>
     <button class="cabinet__logout" type="button">
-        Log out
+        <?php
+        /* translators: 1: user display name 2: logout url */
+        printf(
+            __( '<a href="%2$s">'. __('[:ru]Выйти[:en]Log out[:]').'</a>', 'woocommerce' ),
+            '<strong>' . esc_html( $current_user->display_name ) . '</strong>',
+            esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) )
+        );
+        ?>
     </button>
 </div>
 
