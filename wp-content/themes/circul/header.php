@@ -85,36 +85,36 @@
                         <div class="submenu__content submenu__content--top">
                             <ul class="submenu__list submenu__list--topLvl">
                                 <li class="submenu__item">
-                                    <a href="<?= get_category_link(17)?>" class="submenu__link submenu__link--trigger">
+                                    <a href="<?= get_category_link(17) ?>" class="submenu__link submenu__link--trigger">
                                         <picture>
-                                            <img src="<?= get_theme_file_uri('img/submenu__img--1@1x.jpg')?>"
+                                            <img src="<?= get_theme_file_uri('img/submenu__img--1@1x.jpg') ?>"
                                                  alt="Illustration for women catalog" class="submenu__img">
                                         </picture>
                                         <span class="submenu__category"><?= __('[:ru]женская[:en]women[:]'); ?></span>
                                     </a>
                                 </li>
                                 <li class="submenu__item">
-                                    <a href="<?= get_category_link(16)?>" class="submenu__link submenu__link--trigger">
+                                    <a href="<?= get_category_link(16) ?>" class="submenu__link submenu__link--trigger">
                                         <picture>
-                                            <img src="<?= get_theme_file_uri('img/submenu__img--2@1x.jpg')?>"
+                                            <img src="<?= get_theme_file_uri('img/submenu__img--2@1x.jpg') ?>"
                                                  alt="Illustration for men catalog" class="submenu__img">
                                         </picture>
                                         <span class="submenu__category"><?= __('[:ru]мужская[:en]men[:]'); ?></span>
                                     </a>
                                 </li>
                                 <li class="submenu__item">
-                                    <a href="<?= get_the_permalink(69);?>" class="submenu__link">
+                                    <a href="<?= get_the_permalink(69); ?>" class="submenu__link">
                                         <picture>
-                                            <img src="<?= get_theme_file_uri('img/submenu__img--3@1x.jpg')?>"
+                                            <img src="<?= get_theme_file_uri('img/submenu__img--3@1x.jpg') ?>"
                                                  alt="Illustration for about us link" class="submenu__img">
                                         </picture>
                                         <span class="submenu__category"><?= __('[:ru]о нас[:en]about us[:]'); ?></span>
                                     </a>
                                 </li>
                                 <li class="submenu__item">
-                                    <a href="<?= get_post_type_archive_link('faq')?>" class="submenu__link">
+                                    <a href="<?= get_post_type_archive_link('faq') ?>" class="submenu__link">
                                         <picture>
-                                            <img src="<?= get_theme_file_uri('img/submenu__img--4@1x.jpg')?>"
+                                            <img src="<?= get_theme_file_uri('img/submenu__img--4@1x.jpg') ?>"
                                                  alt="Illustration for FAQ link" class="submenu__img">
                                         </picture>
                                         <span class="submenu__category"><?= __('[:ru]Ответы и вопросы[:en]faq[:]'); ?></span>
@@ -131,55 +131,33 @@
                             </button>
                             <ul class="submenu__list submenu__list--lowLvl low-lvl">
                                 <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(17)?>" class="low-lvl__link">
+                                    <a href="<?= get_category_link(17) ?>" class="low-lvl__link">
                                         <?= __('[:ru]Все[:en]All[:]'); ?>
                                     </a>
                                 </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(19)?>" class="low-lvl__link">
-                                        <?= __('[:ru]Туфли[:en]Shoes[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--women@1x.jpg')?>"
-                                             alt="Photo of Circul product for women">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(21)?>" class="low-lvl__link">
-                                        <?= __('[:ru]Ботинки[:en]Boots[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--men@1x.jpg')?>"
-                                             alt="Photo of Circul product for women">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(22)?>" class="low-lvl__link">
-                                        <?= __('[:ru]кроссовки[:en]Sneakers[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--women@1x.jpg')?>"
-                                             alt="Photo of Circul product for women">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(20)?>" class="low-lvl__link">
-                                        <?= __('[:ru]Домашние тапочки[:en]Slippers[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--women@1x.jpg')?>"
-                                             alt="Photo of Circul product for women">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item low-lvl__item--sale">
-                                    <a href="catalog.html" class="low-lvl__link">
-                                        <?= __('[:ru]Распродажа[:en]Sale[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--sale@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
+                                <?php
+                                $prod_cat_args = array(
+                                    'taxonomy' => 'product_cat',
+                                    'hide_empty' => false, // скрывать категории без товаров или нет
+                                    'parent' => 17
+                                );
+                                $woo_categories = get_categories($prod_cat_args);
+                                if (!is_null($woo_categories)) :
+                                    foreach ($woo_categories as $woo_cat) :
+                                        $woo_cat_id = $woo_cat->term_id;
+                                        $woo_cat_name = $woo_cat->name;
+                                        $image = get_field('image_for_category_menu', 'product_cat_' . $woo_cat_id)
+                                        ?>
+                                        <li class="low-lvl__item">
+                                            <a href="<?= the_permalink() ?>" class="low-lvl__link">
+                                                <?= $woo_cat_name; ?>
+                                            </a>
+                                            <picture>
+                                                <img class="low-lvl__img"
+                                                     src="<?= $image['url']; ?>">
+                                            </picture>
+                                        </li>
+                                    <?php endforeach; endif; ?>
                             </ul>
                         </div>
                         <div class="submenu__content submenu__content--low submenu__content--men submenu__content--hidden">
@@ -191,55 +169,33 @@
                             </button>
                             <ul class="submenu__list submenu__list--lowLvl low-lvl">
                                 <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(16)?>" class="low-lvl__link">
+                                    <a href="<?= get_category_link(16) ?>" class="low-lvl__link">
                                         <?= __('[:ru]Все[:en]All[:]'); ?>
                                     </a>
                                 </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(19)?>" class="low-lvl__link">
-                                        <?= __('[:ru]Туфли[:en]Shoes[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--men@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(21)?>" class="low-lvl__link">
-                                        <?= __('[:ru]Ботинки[:en]Boots[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--women@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(22)?>" class="low-lvl__link">
-                                        <?= __('[:ru]кроссовки[:en]Sneakers[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--men@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(20)?>" class="low-lvl__link">
-                                        <?= __('[:ru]кроссовки[:en]Sneakers[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--women@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
-                                <li class="low-lvl__item low-lvl__item--sale">
-                                    <a href="catalog.html" class="low-lvl__link">
-                                        <?= __('[:ru]Распродажа[:en]Sale[:]'); ?>
-                                    </a>
-                                    <picture>
-                                        <img class="low-lvl__img" src="<?= get_theme_file_uri('img/low-lvl__img--sale@1x.jpg')?>"
-                                             alt="Photo of Circul product for men">
-                                    </picture>
-                                </li>
+                                <?php
+                                $prod_cat_args = array(
+                                    'taxonomy' => 'product_cat',
+                                    'hide_empty' => false, // скрывать категории без товаров или нет
+                                    'parent' => 16
+                                );
+                                $woo_categories = get_categories($prod_cat_args);
+                                if (!is_null($woo_categories)) :
+                                    foreach ($woo_categories as $woo_cat) :
+                                        $woo_cat_id = $woo_cat->term_id;
+                                        $woo_cat_name = $woo_cat->name;
+                                        $image = get_field('image_for_category_menu', 'product_cat_' . $woo_cat_id)
+                                        ?>
+                                        <li class="low-lvl__item">
+                                            <a href="<?= the_permalink() ?>" class="low-lvl__link">
+                                                <?= $woo_cat_name; ?>
+                                            </a>
+                                            <picture>
+                                                <img class="low-lvl__img"
+                                                     src="<?= $image['url']; ?>">
+                                            </picture>
+                                        </li>
+                                    <?php endforeach; endif; ?>
                             </ul>
                         </div>
                         <div class="submenu__content submenu__content--low submenu__content--lang submenu__content--hidden">
@@ -279,7 +235,7 @@
                     </div>
                 </li>
                 <li class="nav__item nav__item--search nav__item--tablet-plus">
-                    <a href="<?= the_permalink(43)?>" class="nav__link nav__link--search">
+                    <a href="<?= the_permalink(43) ?>" class="nav__link nav__link--search">
                         <?= __('[:ru]Магазины[:en]Stores[:]'); ?>
                         <svg class="nav__icon nav__icon--search" width="14" height="14" viewbox="0 0 14 14">
                             <use xlink:href="#search"></use>
@@ -297,7 +253,7 @@
                     </a>
                 </li>
                 <li class="nav__item nav__item--about nav__item--tablet-plus">
-                    <a href="<?= the_permalink(69)?>" class="nav__link">
+                    <a href="<?= the_permalink(69) ?>" class="nav__link">
                         <?= __('[:ru]О нас[:en]About us[:]'); ?>
                     </a>
                 </li>
@@ -306,9 +262,9 @@
         <div class="header__nav-shop nav-shop">
             <ul class="nav-shop__list">
                 <li class="nav-shop__item nav-shop__item--whishlist">
-                    <a href="<?= the_permalink(201)?>" class="nav-shop__link nav-shop__link--fav">
+                    <a href="<?= the_permalink(201) ?>" class="nav-shop__link nav-shop__link--fav">
                         <?= __('[:ru]Список желаний[:en]Wishlist[:]'); ?>
-<!--                        <span class="nav-shop__counter nav-shop__counter--wish">(99)</span>-->
+                        <!--                        <span class="nav-shop__counter nav-shop__counter--wish">(99)</span>-->
                         <svg class="nav-shop__icon nav-shop__icon--fav" width="16" height="16" viewbox="0 0 497 470">
                             <use xlink:href="#fav"></use>
                         </svg>
@@ -323,7 +279,7 @@
                         </svg>
                     </a>
                     <div class="bag">
-	                    <div class="container">
+                        <div class="container">
                             <button class="bag__close">
                                 <?= __('[:ru]Закрыть боковую корзину[:en]Close side bag[:]'); ?>
                             </button>
@@ -331,17 +287,17 @@
                                 <?= __('[:ru]корзина[:en]shopping bag[:]'); ?>
                                 <span class="bag__counter">(<?php name_item_in_cart_count(); ?>)</span>
                             </h2>
-                            <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+                            <?php the_widget('WC_Widget_Cart', 'title='); ?>
                         </div>
                     </div>
                 </li>
                 <li class="nav-shop__item nav-shop__item--faq nav-shop__item--tablet-plus">
-                    <a href="<?= get_post_type_archive_link('faq')?>" class="nav-shop__link">
+                    <a href="<?= get_post_type_archive_link('faq') ?>" class="nav-shop__link">
                         <?= __('[:ru]Ответы и вопросы[:en]FAQ[:]'); ?>
                     </a>
                 </li>
                 <li class="nav-shop__item nav-shop__item--sign nav-shop__item--tablet-plus">
-                    <a href="<?= the_permalink(12)?>" class="nav-shop__link">
+                    <a href="<?= the_permalink(12) ?>" class="nav-shop__link">
                         <?= __('[:ru]Мой аккаунт[:en]My account[:]'); ?>
                     </a>
                 </li>
