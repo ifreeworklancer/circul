@@ -270,15 +270,19 @@
                         </svg>
                     </a>
                 </li>
-                <li class="nav-shop__item nav-shop__item--bag  menu-item cart-punkt">
+                <li class="nav-shop__item nav-shop__item--bag nav-shop__item--bagMob menu-item cart-punkt">
                     <a class="nav-shop__link nav-shop__link--cart">
-                        <?= __('[:ru]Корзина[:en]Bag[:]'); ?>
-                        <span class="nav-shop__counter nav-shop__counter--bag">(<?php name_item_in_cart_count(); ?>)</span>
-                        <svg class="nav-shop__icon nav-shop__icon--cart" width="12" height="16" viewbox="0 0 12 16">
-                            <use xlink:href="#cart"></use>
-                        </svg>
+                        <div class="bags-icon-mob">
+                            <?= __('[:ru]Корзина[:en]Bag[:]'); ?>
+                            <span class="nav-shop__counter nav-shop__counter--bag nav-shop__counter--bagMob"><?php name_item_in_cart_count(); ?></span>
+                            <span class="nav-shop__counter nav-shop__counter--bag">(<?php name_item_in_cart_count(); ?>)</span>
+                            <svg class="nav-shop__icon nav-shop__icon--cart" width="12" height="16" viewbox="0 0 12 16">
+                                <use xlink:href="#cart"></use>
+                            </svg>
+
+                        </div>
                     </a>
-                    <div class="bag">
+                    <div class="bag bag--widget">
                         <div class="container">
                             <button class="bag__close">
                                 <?= __('[:ru]Закрыть боковую корзину[:en]Close side bag[:]'); ?>

@@ -585,6 +585,25 @@ li.nav__item--selected > .nav__link {
     stroke-width: 40px;
 }
 
+.bags-icon-mob {
+    position: relative;
+}
+
+.nav-shop__counter--bagMob {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 10px;
+    color: #fff;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-shop__counter--bagMob {
+        display: block;
+    }
+}
+
 @media (min-width: 768px) {
     .nav-shop {
         display: -webkit-box;
@@ -8459,10 +8478,12 @@ select.orderby {
     font-size: 20px;
     font-weight: 300;
 }
+
 .order-item-footer {
     display: flex;
     justify-content: space-between;
 }
+
 .order-item-footer-row {
     margin: 20px 0;
 }
