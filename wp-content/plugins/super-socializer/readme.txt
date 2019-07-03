@@ -3,8 +3,8 @@ Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Twitch login
 Requires at least: 2.5.0
-Tested up to: 5.2
-Stable tag: 7.12.25
+Tested up to: 5.2.2
+Stable tag: 7.12.30
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -210,6 +210,23 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.12.30 [25 June 2019] =
+* [Bugfix] Previous update was breaking social sharing
+
+= 7.12.29 [25 June 2019] =
+* [Bugfix] Fixed the typo "Tigger" in "Advanced Configuration" section at social login options page
+
+= 7.12.28 [25 June 2019] =
+* [New] Option to trigger social login popup in the same browser tab instead of a popup window
+* [Bugfix] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+
+= 7.12.27 [5 June 2019] =
+* [Bugfix] Minor bugfixing
+* [Bugfix] Facebook App ID and Facebook App Secret options were not appearing at Super Socializer > Social Sharing options page if Facebook share icon was enabled via shortcode or widget
+
+= 7.12.26 [2 June 2019] =
+* [Bugfix] Facebook App ID and Facebook App Secret options were not appearing in the Miscellaneous section in some cases
+
 = 7.12.25 =
 * [Bugfix] Facebook share count was not working in some cases
 
@@ -1869,3 +1886,20 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.25 =
 * [Bugfix] Facebook share count was not working in some cases
+
+= 7.12.26 [2 June 2019] =
+* [Bugfix] Facebook App ID and Facebook App Secret options were not appearing in the Miscellaneous section in some cases
+
+= 7.12.27 [5 June 2019] =
+* [Bugfix] Minor bugfixing
+* [Bugfix] Facebook App ID and Facebook App Secret options were not appearing at Super Socializer > Social Sharing options page if Facebook share icon was enabled via shortcode or widget
+
+= 7.12.28 [25 June 2019] =
+* [New] Option to trigger social login popup in the same browser tab instead of a popup window
+* [Bugfix] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+
+= 7.12.29 [25 June 2019] =
+* [Bugfix] Fixed the typo "Tigger" in "Advanced Configuration" section at social login options page
+
+= 7.12.30 [25 June 2019] =
+* [Bugfix] Previous update was breaking social sharing

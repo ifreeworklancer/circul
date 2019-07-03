@@ -245,15 +245,10 @@ function theChampVerticalCounterPreview(val){
 }
 
 function heateorSsToggleFbShareCountOptions() {
-    if(heateorSsHorizontalFacebookShareEnabled && (heateorSsHorizontalShares || heateorSsHorizontalTotalShares)){
-        jQuery('#heateor_ss_fb_share_count_options').css('display', 'table-row-group');
+    if((heateorSsHorizontalFacebookShareEnabled || heateorSsVerticalFacebookShareEnabled) && !heateorSsFacebookAppSecretSaved){
+        jQuery('#heateor_ss_fb_share_count_options').css('display', 'block');
     }else{
         jQuery('#heateor_ss_fb_share_count_options').css('display', 'none');
-    }
-    if(heateorSsVerticalFacebookShareEnabled && (heateorSsVerticalShares || heateorSsVerticalTotalShares)){
-        jQuery('#heateor_ss_fb_vertical_share_count_options').css('display', 'table-row-group');
-    }else{
-        jQuery('#heateor_ss_fb_vertical_share_count_options').css('display', 'none');
     }
 }
 

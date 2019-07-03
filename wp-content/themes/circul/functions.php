@@ -24,6 +24,7 @@ function theme_setup()
     add_theme_support('custom-logo');
     register_nav_menus(
         [
+            'header_menu' => 'Меню хэдера',
             'first_footer_menu' => 'Первая колонка футера',
             'second_footer_menu' => 'Вторая колонка футера',
         ]
@@ -55,10 +56,11 @@ add_action('wp_enqueue_scripts', 'theme_scripts');
 // Enqueue styles
 function theme_styles()
 {
-    wp_enqueue_style('theme-app1', get_theme_file_uri('css/style.css'), null, null);
-    wp_enqueue_style('theme-app2', get_theme_file_uri('css/normalize.min.css'), null, null);
-    wp_enqueue_style('theme-app3', get_theme_file_uri('jQuery/slick/slick.css'), null, null);
-    wp_enqueue_style('theme-app4', get_theme_file_uri('css/fix.css'), null, null);
+    wp_enqueue_style('normalize', get_theme_file_uri('css/normalize.min.css'), null, null);
+    wp_enqueue_style('default', get_theme_file_uri('style.css'), null, null);
+    wp_enqueue_style('styles', get_theme_file_uri('css/style.css'), null, null);
+    wp_enqueue_style('slick', get_theme_file_uri('jQuery/slick/slick.css'), null, null);
+    wp_enqueue_style('fix', get_theme_file_uri('css/fix.css'), null, null);
 
 }
 
@@ -133,7 +135,8 @@ function true_register_wp_sidebars()
             'id' => 'true_side', // уникальный id
             'name' => 'Боковая колонка', // название сайдбара
             'description' => 'Перетащите сюда виджеты, чтобы добавить их в сайдбар.', // описание
-            'before_widget' => '<div id="%1$s" class="side widget %2$s">', // по умолчанию виджеты выводятся <li>-списком
+            'before_widget' => '<div id="%1$s" class="side widget %2$s">',
+            // по умолчанию виджеты выводятся <li>-списком
             'after_widget' => '</div>',
             'before_title' => '<p class="filter__title filter__title--item">', // по умолчанию заголовки виджетов в <h2>
             'after_title' => '</p>'
@@ -156,9 +159,9 @@ if (!function_exists('woocommerce_form_field')) {
     /**
      * Outputs a checkout/address form field.
      *
-     * @param string $key Key.
-     * @param mixed $args Arguments.
-     * @param string $value (default: null).
+     * @param  string  $key  Key.
+     * @param  mixed  $args  Arguments.
+     * @param  string  $value  (default: null).
      * @return string
      */
     function woocommerce_form_field($key, $args, $value = null)
@@ -200,7 +203,7 @@ if (!function_exists('woocommerce_form_field')) {
 
         // Custom attribute handling.
         $custom_attributes = array();
-        $args['custom_attributes'] = array_filter((array)$args['custom_attributes'], 'strlen');
+        $args['custom_attributes'] = array_filter((array) $args['custom_attributes'], 'strlen');
         if ($args['maxlength']) {
             $args['custom_attributes']['maxlength'] = absint($args['maxlength']);
         }
@@ -211,16 +214,16 @@ if (!function_exists('woocommerce_form_field')) {
             $args['custom_attributes']['autofocus'] = 'autofocus';
         }
         if ($args['description']) {
-            $args['custom_attributes']['aria-describedby'] = $args['id'] . '-description';
+            $args['custom_attributes']['aria-describedby'] = $args['id'].'-description';
         }
         if (!empty($args['custom_attributes']) && is_array($args['custom_attributes'])) {
             foreach ($args['custom_attributes'] as $attribute => $attribute_value) {
-                $custom_attributes[] = esc_attr($attribute) . '="' . esc_attr($attribute_value) . '"';
+                $custom_attributes[] = esc_attr($attribute).'="'.esc_attr($attribute_value).'"';
             }
         }
         if (!empty($args['validate'])) {
             foreach ($args['validate'] as $validate) {
-                $args['class'][] = 'validate-' . $validate;
+                $args['class'][] = 'validate-'.$validate;
             }
         }
         $field = '';
@@ -233,21 +236,28 @@ if (!function_exists('woocommerce_form_field')) {
 
                 if (1 === count($countries)) {
 
-                    $field .= '<strong>' . current(array_values($countries)) . '</strong>';
+                    $field .= '<strong>'.current(array_values($countries)).'</strong>';
 
-                    $field .= '<input type="hidden" name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" value="' . current(array_keys($countries)) . '" ' . implode(' ', $custom_attributes) . ' class="country_to_state" readonly="readonly" />';
+                    $field .= '<input type="hidden" name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" value="'.current(array_keys($countries)).'" '.implode(' ',
+                            $custom_attributes).' class="country_to_state" readonly="readonly" />';
 
                 } else {
 
-                    $field = '<label class="label-select-country">' . esc_html__('Select a country&hellip;', 'woocommerce') . '</label><select name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" class="country_to_state country_select ' . esc_attr(implode(' ', $args['input_class'])) . '" ' . implode(' ', $custom_attributes) . '><option value="">' . esc_html__('Select a country&hellip;', 'woocommerce') . '</option>';
+                    $field = '<label class="label-select-country">'.esc_html__('Select a country&hellip;',
+                            'woocommerce').'</label><select name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" class="country_to_state country_select '.esc_attr(implode(' ',
+                            $args['input_class'])).'" '.implode(' ',
+                            $custom_attributes).'><option value="">'.esc_html__('Select a country&hellip;',
+                            'woocommerce').'</option>';
 
                     foreach ($countries as $ckey => $cvalue) {
-                        $field .= '<option value="' . esc_attr($ckey) . '" ' . selected($value, $ckey, false) . '>' . $cvalue . '</option>';
+                        $field .= '<option value="'.esc_attr($ckey).'" '.selected($value, $ckey,
+                                false).'>'.$cvalue.'</option>';
                     }
 
                     $field .= '</select>';
 
-                    $field .= '<noscript><button type="submit" name="woocommerce_checkout_update_totals" value="' . esc_attr__('Update country', 'woocommerce') . '">' . esc_html__('Update country', 'woocommerce') . '</button></noscript>';
+                    $field .= '<noscript><button type="submit" name="woocommerce_checkout_update_totals" value="'.esc_attr__('Update country',
+                            'woocommerce').'">'.esc_html__('Update country', 'woocommerce').'</button></noscript>';
 
                 }
 
@@ -257,24 +267,36 @@ if (!function_exists('woocommerce_form_field')) {
                 $states = WC()->countries->get_states($for_country);
                 if (is_array($states) && empty($states)) {
                     $field_container = '<p class="form-row %1$s" id="%2$s" style="display: none">%3$s</p>';
-                    $field .= '<input type="hidden" class="hidden" name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" value="" ' . implode(' ', $custom_attributes) . ' placeholder="' . esc_attr($args['placeholder']) . '" readonly="readonly" />';
+                    $field .= '<input type="hidden" class="hidden" name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" value="" '.implode(' ',
+                            $custom_attributes).' placeholder="'.esc_attr($args['placeholder']).'" readonly="readonly" />';
                 } elseif (!is_null($for_country) && is_array($states)) {
-                    $field .= '<select name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" class="state_select ' . esc_attr(implode(' ', $args['input_class'])) . '" ' . implode(' ', $custom_attributes) . ' data-placeholder="' . esc_attr($args['placeholder'] ? $args['placeholder'] : esc_html__('Select an option&hellip;', 'woocommerce')) . '">
-						<option value="">' . esc_html__('Select an option&hellip;', 'woocommerce') . '</option>';
+                    $field .= '<select name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" class="state_select '.esc_attr(implode(' ',
+                            $args['input_class'])).'" '.implode(' ',
+                            $custom_attributes).' data-placeholder="'.esc_attr($args['placeholder'] ? $args['placeholder'] : esc_html__('Select an option&hellip;',
+                            'woocommerce')).'">
+						<option value="">'.esc_html__('Select an option&hellip;', 'woocommerce').'</option>';
                     foreach ($states as $ckey => $cvalue) {
-                        $field .= '<option value="' . esc_attr($ckey) . '" ' . selected($value, $ckey, false) . '>' . $cvalue . '</option>';
+                        $field .= '<option value="'.esc_attr($ckey).'" '.selected($value, $ckey,
+                                false).'>'.$cvalue.'</option>';
                     }
                     $field .= '</select>';
                 } else {
-                    $field .= '<input type="text" class="checkout__input' . esc_attr(implode(' ', $args['input_class'])) . '" value="' . esc_attr($value) . '"  placeholder="' . $args['label'] . $required . '" name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" ' . implode(' ', $custom_attributes) . ' />';
+                    $field .= '<input type="text" class="checkout__input'.esc_attr(implode(' ',
+                            $args['input_class'])).'" value="'.esc_attr($value).'"  placeholder="'.$args['label'].$required.'" name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" '.implode(' ',
+                            $custom_attributes).' />';
                 }
                 break;
             case 'textarea':
-                $field .= '<textarea name="' . esc_attr($key) . '" class="input-text ' . esc_attr(implode(' ', $args['input_class'])) . '" id="' . esc_attr($args['id']) . '" placeholder="' . esc_attr($args['placeholder']) . '" ' . (empty($args['custom_attributes']['rows']) ? ' rows="2"' : '') . (empty($args['custom_attributes']['cols']) ? ' cols="5"' : '') . implode(' ', $custom_attributes) . '>' . esc_textarea($value) . '</textarea>';
+                $field .= '<textarea name="'.esc_attr($key).'" class="input-text '.esc_attr(implode(' ',
+                        $args['input_class'])).'" id="'.esc_attr($args['id']).'" placeholder="'.esc_attr($args['placeholder']).'" '.(empty($args['custom_attributes']['rows']) ? ' rows="2"' : '').(empty($args['custom_attributes']['cols']) ? ' cols="5"' : '').implode(' ',
+                        $custom_attributes).'>'.esc_textarea($value).'</textarea>';
                 break;
             case 'checkbox':
-                $field = '<label class="checkbox ' . implode(' ', $args['label_class']) . '" ' . implode(' ', $custom_attributes) . '>
-						<input type="' . esc_attr($args['type']) . '" class="input-checkbox ' . esc_attr(implode(' ', $args['input_class'])) . '" name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" value="1" ' . checked($value, 1, false) . ' /> ' . $args['label'] . $required . '</label>';
+                $field = '<label class="checkbox '.implode(' ', $args['label_class']).'" '.implode(' ',
+                        $custom_attributes).'>
+						<input type="'.esc_attr($args['type']).'" class="input-checkbox '.esc_attr(implode(' ',
+                        $args['input_class'])).'" name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" value="1" '.checked($value,
+                        1, false).' /> '.$args['label'].$required.'</label>';
                 break;
             case 'text':
             case 'password':
@@ -288,7 +310,9 @@ if (!function_exists('woocommerce_form_field')) {
             case 'email':
             case 'url':
             case 'tel':
-                $field .= '<input type="' . esc_attr($args['type']) . '" class="checkout__input ' . esc_attr(implode(' ', $args['input_class'])) . '" name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" placeholder="' . $args['label'] . $required . '"  value="' . esc_attr($value) . '" ' . implode(' ', $custom_attributes) . ' />';
+                $field .= '<input type="'.esc_attr($args['type']).'" class="checkout__input '.esc_attr(implode(' ',
+                        $args['input_class'])).'" name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" placeholder="'.$args['label'].$required.'"  value="'.esc_attr($value).'" '.implode(' ',
+                        $custom_attributes).' />';
                 break;
             case 'select':
                 $field = '';
@@ -298,23 +322,31 @@ if (!function_exists('woocommerce_form_field')) {
                         if ('' === $option_key) {
                             // If we have a blank option, select2 needs a placeholder.
                             if (empty($args['placeholder'])) {
-                                $args['placeholder'] = $option_text ? $option_text : __('Choose an option', 'woocommerce');
+                                $args['placeholder'] = $option_text ? $option_text : __('Choose an option',
+                                    'woocommerce');
                             }
                             $custom_attributes[] = 'data-allow_clear="true"';
                         }
-                        $options .= '<option value="' . esc_attr($option_key) . '" ' . selected($value, $option_key, false) . '>' . esc_attr($option_text) . '</option>';
+                        $options .= '<option value="'.esc_attr($option_key).'" '.selected($value, $option_key,
+                                false).'>'.esc_attr($option_text).'</option>';
                     }
-                    $field .= '<select name="' . esc_attr($key) . '" id="' . esc_attr($args['id']) . '" class="select ' . esc_attr(implode(' ', $args['input_class'])) . '" ' . implode(' ', $custom_attributes) . ' data-placeholder="' . esc_attr($args['placeholder']) . '">
-							' . $options . '
+                    $field .= '<select name="'.esc_attr($key).'" id="'.esc_attr($args['id']).'" class="select '.esc_attr(implode(' ',
+                            $args['input_class'])).'" '.implode(' ',
+                            $custom_attributes).' data-placeholder="'.esc_attr($args['placeholder']).'">
+							'.$options.'
 						</select>';
                 }
                 break;
             case 'radio':
-                $label_id .= '_' . current(array_keys($args['options']));
+                $label_id .= '_'.current(array_keys($args['options']));
                 if (!empty($args['options'])) {
                     foreach ($args['options'] as $option_key => $option_text) {
-                        $field .= '<input type="radio" class="input-radio ' . esc_attr(implode(' ', $args['input_class'])) . '" value="' . esc_attr($option_key) . '" name="' . esc_attr($key) . '" ' . implode(' ', $custom_attributes) . ' id="' . esc_attr($args['id']) . '_' . esc_attr($option_key) . '"' . checked($value, $option_key, false) . ' />';
-                        $field .= '<label for="' . esc_attr($args['id']) . '_' . esc_attr($option_key) . '" class="radio ' . implode(' ', $args['label_class']) . '">' . $option_text . '</label>';
+                        $field .= '<input type="radio" class="input-radio '.esc_attr(implode(' ',
+                                $args['input_class'])).'" value="'.esc_attr($option_key).'" name="'.esc_attr($key).'" '.implode(' ',
+                                $custom_attributes).' id="'.esc_attr($args['id']).'_'.esc_attr($option_key).'"'.checked($value,
+                                $option_key, false).' />';
+                        $field .= '<label for="'.esc_attr($args['id']).'_'.esc_attr($option_key).'" class="radio '.implode(' ',
+                                $args['label_class']).'">'.$option_text.'</label>';
                     }
                 }
                 break;
@@ -327,13 +359,13 @@ if (!function_exists('woocommerce_form_field')) {
             $field_html .= $field;
 
             $container_class = esc_attr(implode(' ', $args['class']));
-            $container_id = esc_attr($args['id']) . '_field';
+            $container_id = esc_attr($args['id']).'_field';
             $field = sprintf($field_container, $container_class, $container_id, $field_html);
         }
         /**
          * Filter by type.
          */
-        $field = apply_filters('woocommerce_form_field_' . $args['type'], $field, $key, $args, $value);
+        $field = apply_filters('woocommerce_form_field_'.$args['type'], $field, $key, $args, $value);
         /**
          * General filter on form fields.
          *
@@ -416,7 +448,7 @@ add_filter('next_post_link', 'posts_link_attributes');
 function posts_link_attributes($output)
 {
     $code = 'class="card__link"';
-    return str_replace('<a href=', '<a ' . $code . ' href=', $output);
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 
 
@@ -426,7 +458,8 @@ function woocommerce_header_add_to_cart_fragment($fragments)
     ?>
     <a class="cart-contents" href="/cart/" title="<?php _e('Перейти в корзину'); ?>">
         <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
-        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count), WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
+                    WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
     </a>
     <?php
     $fragments['a.cart-contents'] = ob_get_clean();
@@ -439,7 +472,8 @@ if (!function_exists('cart_link')) {
     {
         ?><a class="cart-contents" href="/cart/" title="<?php _e('Перейти в корзину'); ?>">
         <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
-        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count), WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
+                    WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
         </a>
         <?php
     }

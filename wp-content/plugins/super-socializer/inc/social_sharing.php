@@ -5,17 +5,21 @@ defined('ABSPATH') or die("Cheating........Uh!!");
  */
 
 /**
- * Render sharing interface html.
+ * Render sharing interface html
  */
 function the_champ_prepare_sharing_html( $postUrl, $sharingType = 'horizontal', $displayCount, $totalShares, $shareCountTransientId, $standardWidget = false ) {
 	
 	global $post, $theChampSharingOptions;
 
-	if ( NULL === $post ) {
+	if ( NULL === $post || ! is_object( $post ) ) {
         $post = get_post( $shareCountTransientId );
 	}
 
-	if ( ( $sharingType == 'vertical' && !is_singular() ) || $standardWidget ) {
+	if ( ! is_object( $post ) ) {
+        return '';
+	}
+
+	if ( ( $sharingType == 'vertical' && ! is_singular() ) || $standardWidget ) {
 		$postTitle = get_bloginfo( 'name' ) . " - " . get_bloginfo( 'description' );
 		if ( is_category() ) {
 			$postTitle = esc_attr( wp_strip_all_tags( stripslashes( single_cat_title( '', false ) ), true ) );
@@ -509,9 +513,10 @@ function the_champ_render_sharing($content){
 	}
 
 	global $post;
-	if(!$post){
-		return $content;
+	if(!is_object($post)){
+        return $content;
 	}
+	
 	// hook to bypass sharing
 	$disable = apply_filters('the_champ_bypass_sharing', $post, $content);
 	// if $disable value is 1, return content without sharing interface

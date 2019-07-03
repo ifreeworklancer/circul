@@ -767,7 +767,7 @@
 						}
 						?>
 
-						<tbody id="the_champ_instagram_options" <?php echo !in_array('instagram', $theChampSharingOptions['horizontal_re_providers']) ? 'style = "display: none"' : '';?> >
+						<tbody id="the_champ_instagram_options" <?php echo !isset($theChampSharingOptions['horizontal_re_providers']) || !in_array('instagram', $theChampSharingOptions['horizontal_re_providers']) ? 'style = "display: none"' : '';?> >
 							<tr>
 								<th>
 								<img id="the_champ_instagram_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -787,7 +787,7 @@
 							</tr>
 						</tbody>
 
-						<tbody id="the_champ_comment_options" <?php echo ! in_array( 'Comment', $theChampSharingOptions['horizontal_re_providers'] ) ? 'style = "display: none"' : '';?> >
+						<tbody id="the_champ_comment_options" <?php echo !isset($theChampSharingOptions['horizontal_re_providers']) || ! in_array( 'Comment', $theChampSharingOptions['horizontal_re_providers'] ) ? 'style = "display: none"' : '';?> >
 							<tr>
 								<th>
 								<img id="the_champ_comment_container_id_help" class="the_champ_help_bubble" src="<?php echo plugins_url( '../images/info.png', __FILE__ ) ?>" />
@@ -823,7 +823,7 @@
 							<td colspan="2">
 							<script>
 							// facebook app id and secret options toggle variables
-							var heateorSsHorizontalShares = <?php echo isset($theChampSharingOptions['horizontal_counts']) ? 'true' : 'false' ?>, heateorSsHorizontalTotalShares = <?php echo isset($theChampSharingOptions['horizontal_total_shares']) ? 'true' : 'false' ?>, heateorSsVerticalShares = <?php echo isset($theChampSharingOptions['vertical_counts']) ? 'true' : 'false' ?>, heateorSsVerticalTotalShares = <?php echo isset($theChampSharingOptions['vertical_total_shares']) ? 'true' : 'false' ?>, heateorSsHorizontalFacebookShareEnabled = <?php echo in_array('facebook', $theChampSharingOptions['horizontal_re_providers']) ? 'true' : 'false'; ?>, heateorSsVerticalFacebookShareEnabled = <?php echo in_array('facebook', $theChampSharingOptions['vertical_re_providers']) ? 'true' : 'false'; ?>;
+							var heateorSsHorizontalFacebookShareEnabled = <?php echo in_array('facebook', $theChampSharingOptions['horizontal_re_providers']) ? 'true' : 'false'; ?>, heateorSsVerticalFacebookShareEnabled = <?php echo in_array('facebook', $theChampSharingOptions['vertical_re_providers']) ? 'true' : 'false'; ?>, heateorSsFacebookAppSecretSaved = <?php echo isset($theChampLoginOptions['enable']) && $theChampLoginOptions['fb_key'] && $theChampLoginOptions['fb_secret'] && in_array('facebook', $theChampLoginOptions['providers']) ? 'true' : 'false'; ?>;
 							<?php
 							$horSharingStyle = 'width:' . ( $theChampSharingOptions['horizontal_sharing_shape'] != 'rectangle' ? $theChampSharingOptions['horizontal_sharing_size'] : $theChampSharingOptions['horizontal_sharing_width'] ) . 'px;height:' . $line_height . 'px;';
 							$horDeliciousRadius = '';
@@ -1050,7 +1050,7 @@
 							<label for="the_champ_counts"><?php _e("Show share counts", 'super-socializer'); ?></label>
 							</th>
 							<td>
-							<input id="the_champ_counts" name="the_champ_sharing[horizontal_counts]" type="checkbox" <?php echo isset( $theChampSharingOptions['horizontal_counts'] ) ? 'checked = "checked"' : '';?> value="1" onclick="if(this.checked){heateorSsHorizontalShares = true;}else{heateorSsHorizontalShares = false;} heateorSsToggleFbShareCountOptions()" />
+							<input id="the_champ_counts" name="the_champ_sharing[horizontal_counts]" type="checkbox" <?php echo isset( $theChampSharingOptions['horizontal_counts'] ) ? 'checked = "checked"' : '';?> value="1" />
 							<br/>
 							<span style="font-size:12px"><?php _e( 'Share counts are supported for Facebook, Twitter, Linkedin, Buffer, Reddit, Pinterest, Odnoklassniki, Fintel and Vkontakte', 'super-socializer' ) ?></span>
 							<span class="the_champ_help_content" style="display:block"><strong><?php echo sprintf( __( 'To show Twitter share count, you have to click "Give me my Twitter counts back" button at <a href="%s" target="_blank">TwitCount.com</a> and register your website %s with them. No need to copy-paste any code from their website.', 'super-socializer' ), 'http://twitcount.com', home_url() ) ?></strong></span>
@@ -1072,7 +1072,7 @@
 							<label for="the_champ_total_hor_shares"><?php _e("Show total shares", 'super-socializer' ); ?></label>
 							</th>
 							<td>
-							<input id="the_champ_total_hor_shares" name="the_champ_sharing[horizontal_total_shares]" type="checkbox" <?php echo isset( $theChampSharingOptions['horizontal_total_shares'] ) ? 'checked = "checked"' : '';?> value="1" onclick="if(this.checked){heateorSsHorizontalTotalShares = true;}else{heateorSsHorizontalTotalShares = false;} heateorSsToggleFbShareCountOptions()" />
+							<input id="the_champ_total_hor_shares" name="the_champ_sharing[horizontal_total_shares]" type="checkbox" <?php echo isset( $theChampSharingOptions['horizontal_total_shares'] ) ? 'checked = "checked"' : '';?> value="1" />
 							</td>
 						</tr>
 						
@@ -1161,7 +1161,7 @@
 							</td>
 						</tr>
 						
-						<tbody id="the_champ_vertical_instagram_options" <?php echo !in_array('instagram', $theChampSharingOptions['vertical_re_providers']) ? 'style = "display: none"' : '';?> >
+						<tbody id="the_champ_vertical_instagram_options" <?php echo !isset($theChampSharingOptions['vertical_re_providers']) || !in_array('instagram', $theChampSharingOptions['vertical_re_providers']) ? 'style = "display: none"' : '';?> >
 							<tr>
 								<th>
 								<img id="the_champ_vertical_instagram_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -1181,7 +1181,7 @@
 							</tr>
 						</tbody>
 
-						<tbody id="the_champ_vertical_comment_options" <?php echo ! in_array( 'Comment', $theChampSharingOptions['vertical_re_providers'] ) ? 'style = "display: none"' : '';?> >
+						<tbody id="the_champ_vertical_comment_options" <?php echo !isset($theChampSharingOptions['vertical_re_providers']) || !in_array('Comment', $theChampSharingOptions['vertical_re_providers']) ? 'style = "display: none"' : '';?> >
 							<tr>
 								<th>
 								<img id="the_champ_vertical_comment_container_id_help" class="the_champ_help_bubble" src="<?php echo plugins_url( '../images/info.png', __FILE__ ) ?>" />
@@ -1472,7 +1472,7 @@
 							<label for="the_champ_vertical_counts"><?php _e("Show share counts", 'super-socializer' ); ?></label>
 							</th>
 							<td>
-							<input id="the_champ_vertical_counts" name="the_champ_sharing[vertical_counts]" type="checkbox" <?php echo isset( $theChampSharingOptions['vertical_counts'] ) ? 'checked = "checked"' : '';?> value="1" onclick="if(this.checked){heateorSsVerticalShares = true;}else{heateorSsVerticalShares = false;} heateorSsToggleFbShareCountOptions()" />
+							<input id="the_champ_vertical_counts" name="the_champ_sharing[vertical_counts]" type="checkbox" <?php echo isset( $theChampSharingOptions['vertical_counts'] ) ? 'checked = "checked"' : '';?> value="1" />
 							<br/>
 							<span style="font-size:12px"><?php _e( 'Share counts are supported for Facebook, Twitter, Linkedin, Buffer, Reddit, Pinterest, Odnoklassniki, Fintel and Vkontakte', 'super-socializer' ) ?></span>
 							<span class="the_champ_help_content" style="display:block"><strong><?php echo sprintf( __( 'To show Twitter share count, you have to click "Give me my Twitter counts back" button at <a href="%s" target="_blank">TwitCount.com</a> and register your website %s with them. No need to copy-paste any code from their website.', 'super-socializer' ), 'http://twitcount.com', home_url() ) ?></strong></span>
@@ -1494,7 +1494,7 @@
 							<label for="the_champ_total_vertical_shares"><?php _e("Show total shares", 'super-socializer'); ?></label>
 							</th>
 							<td>
-							<input id="the_champ_total_vertical_shares" name="the_champ_sharing[vertical_total_shares]" type="checkbox" <?php echo isset( $theChampSharingOptions['vertical_total_shares'] ) ? 'checked = "checked"' : '';?> value="1" onclick="if(this.checked){heateorSsVerticalTotalShares = true;}else{heateorSsVerticalTotalShares = false;} heateorSsToggleFbShareCountOptions()" />
+							<input id="the_champ_total_vertical_shares" name="the_champ_sharing[vertical_total_shares]" type="checkbox" <?php echo isset( $theChampSharingOptions['vertical_total_shares'] ) ? 'checked = "checked"' : '';?> value="1" />
 							</td>
 						</tr>
 						
@@ -1614,10 +1614,14 @@
 				<div class="clear"></div>
 				<div class="the_champ_left_column">
 				
-				<div class="stuffbox" id="heateor_ss_fb_share_count_options" <?php echo (isset($theChampLoginOptions['enable']) && $theChampLoginOptions['fb_key'] && $theChampLoginOptions['fb_secret'] && in_array('facebook', $theChampLoginOptions['providers'])) || !(in_array('facebook', $theChampSharingOptions['horizontal_re_providers']) && (isset($theChampSharingOptions['horizontal_counts']) || isset($theChampSharingOptions['horizontal_total_shares']))) ? 'style = "display: none"' : '';?>>
+				<div class="stuffbox" id="heateor_ss_fb_share_count_options" <?php echo !(isset($theChampLoginOptions['enable']) && $theChampLoginOptions['fb_key'] && $theChampLoginOptions['fb_secret'] && in_array('facebook', $theChampLoginOptions['providers'])) && ((in_array('facebook', $theChampSharingOptions['vertical_re_providers'])) || (in_array('facebook', $theChampSharingOptions['horizontal_re_providers']))) ? '' : 'style = "display: none"';?>>
 					<h3><label><?php _e('Facebook Share Count', 'super-socializer');?></label></h3>
 					<div class="inside">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<td colspan="2"><strong><?php _e('Note', 'super-socializer') ?>:</strong> <?php _e('Required only to track Facebook share count', 'super-socializer') ?></td>
+						</tr>
+
 						<tr>
 							<th>
 							<img id="the_champ_fb_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
