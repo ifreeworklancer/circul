@@ -3,50 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    <title>Circul main</title>-->
-    <style>
-        /* Inline svg dimensions to avoid page breaking when no styles applied */
-        .header__logo-icon {
-            width: 8.8em;
-            height: 1.6em;
-        }
-
-        .cart__icon {
-            margin-right: 1.2em;
-            width: 0.6em;
-            height: 1.2em;
-        }
-
-        .payment__icon {
-            max-width: 11em;
-        }
-
-        .bag {
-            --offset-top: 5em;
-            position: absolute;
-            top: var(--offset-top);
-            right: 0;
-            width: 100vw;
-            pointer-events: none;
-        }
-
-        .bag > .container {
-            --padding-top: 2.4em;
-            --padding-bottom: 3.6em;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            padding-top: var(--padding-top);
-            padding-bottom: var(--padding-bottom);
-            height: calc(100vh - var(--offset-top));
-            overflow: scroll;
-            scrollbar-width: thin;
-            background-color: #fff;
-            transform: translateX(100%);
-            transition-duration: 0.4s;
-            pointer-events: none;
-        }
-    </style>
     <?php wp_head(); ?>
 </head>
 
@@ -82,6 +38,7 @@
                                 <?= __('[:ru]Закрыть Меню[:en]Close menu[:]'); ?>
                             </button>
                         </div>
+
                         <div class="submenu__content submenu__content--top">
                             <ul class="submenu__list submenu__list--topLvl">
                                 <li class="submenu__item">
@@ -146,7 +103,7 @@
                                     foreach ($woo_categories as $woo_cat) :
                                         $woo_cat_id = $woo_cat->term_id;
                                         $woo_cat_name = $woo_cat->name;
-                                        $image = get_field('image_for_category_menu', 'product_cat_' . $woo_cat_id)
+                                        $image = get_field('image_for_category_menu', 'product_cat_'.$woo_cat_id)
                                         ?>
                                         <li class="low-lvl__item">
                                             <a href="<?= the_permalink() ?>" class="low-lvl__link">
@@ -184,7 +141,7 @@
                                     foreach ($woo_categories as $woo_cat) :
                                         $woo_cat_id = $woo_cat->term_id;
                                         $woo_cat_name = $woo_cat->name;
-                                        $image = get_field('image_for_category_menu', 'product_cat_' . $woo_cat_id)
+                                        $image = get_field('image_for_category_menu', 'product_cat_'.$woo_cat_id)
                                         ?>
                                         <li class="low-lvl__item">
                                             <a href="<?= the_permalink() ?>" class="low-lvl__link">
@@ -304,6 +261,11 @@
             </ul>
         </div>
     </div>
+
+    <?php wp_nav_menu([
+        'theme_location' => 'header_menu',
+        'container' => ''
+    ]) ?>
 </header>
 
 <main>

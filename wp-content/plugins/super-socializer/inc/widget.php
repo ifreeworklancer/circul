@@ -228,7 +228,7 @@ class TheChampSharingWidget extends WP_Widget {
 	/** Widget edit form at admin panel */ 
 	public function form( $instance ) { 
 		/* Set up default widget settings. */ 
-		$defaults = array( 'title' => 'Share the joy', 'show_counts' => 0, 'total_shares' => 0, 'target_url' => 'default', 'target_url_custom' => '', 'before_widget_content' => '', 'after_widget_content' => '' );
+		$defaults = array( 'title' => 'Share the joy', 'show_counts' => '', 'total_shares' => '', 'target_url' => 'default', 'target_url_custom' => '', 'before_widget_content' => '', 'after_widget_content' => '', 'hide_for_logged_in' => '' );
 
 		foreach( $instance as $key => $value ) {  
 			if ( is_string( $value ) ) {
@@ -399,7 +399,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 	/** Widget edit form at admin panel */ 
 	public function form( $instance ) { 
 		/* Set up default widget settings. */ 
-		$defaults = array('alignment' => 'left', 'show_counts' => 0, 'total_shares' => 0, 'left_offset' => '40', 'right_offset' => '0', 'target_url' => 'default', 'target_url_custom' => '', 'top_offset' => '100', 'vertical_bg' => '');
+		$defaults = array('alignment' => 'left', 'show_counts' => '', 'total_shares' => '', 'left_offset' => '40', 'right_offset' => '0', 'target_url' => 'default', 'target_url_custom' => '', 'top_offset' => '100', 'vertical_bg' => '', 'hide_for_logged_in' => '');
 
 		foreach( $instance as $key => $value ) {  
 			if ( is_string( $value ) ) {
