@@ -24,7 +24,8 @@ function theme_setup()
     add_theme_support('custom-logo');
     register_nav_menus(
         [
-            'header_menu' => 'Меню хэдера',
+            'header_menu_women' => 'Меню хэдера(Женские)',
+            'header_menu_men' => 'Меню хэдера(Мужские)',
             'first_footer_menu' => 'Первая колонка футера',
             'second_footer_menu' => 'Вторая колонка футера',
         ]

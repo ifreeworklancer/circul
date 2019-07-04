@@ -79,44 +79,62 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="submenu__content submenu__content--low submenu__content--women submenu__content--hidden">
-                            <button class="submenu__back" type="button">
-                                <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
-                                    <use xlink:href="#back"></use>
-                                </svg>
-                                Back
-                            </button>
-                            <ul class="submenu__list submenu__list--lowLvl low-lvl">
-                                <li class="low-lvl__item">
-                                    <a href="<?= get_category_link(17) ?>" class="low-lvl__link">
-                                        <?= __('[:ru]Все[:en]All[:]'); ?>
-                                    </a>
-                                </li>
-                                <?php
-                                $prod_cat_args = array(
-                                    'taxonomy' => 'product_cat',
-                                    'hide_empty' => false, // скрывать категории без товаров или нет
-                                    'parent' => 17
-                                );
-                                $woo_categories = get_categories($prod_cat_args);
-                                if (!is_null($woo_categories)) :
-                                    foreach ($woo_categories as $woo_cat) :
-                                        $woo_cat_id = $woo_cat->term_id;
-                                        $woo_cat_name = $woo_cat->name;
-                                        $image = get_field('image_for_category_menu', 'product_cat_'.$woo_cat_id)
-                                        ?>
-                                        <li class="low-lvl__item">
-                                            <a href="<?= the_permalink() ?>" class="low-lvl__link">
-                                                <?= $woo_cat_name; ?>
-                                            </a>
-                                            <picture>
-                                                <img class="low-lvl__img"
-                                                     src="<?= $image['url']; ?>">
-                                            </picture>
-                                        </li>
-                                    <?php endforeach; endif; ?>
-                            </ul>
-                        </div>
+                        <?php wp_nav_menu([
+                            'theme_location' => 'header_menu_women',
+                            'container'       => 'div',
+                            'container_class' => 'submenu__content submenu__content--low submenu__content--women submenu__content--hidden',
+                            'menu_class' => 'submenu__list submenu__list--lowLvl low-lvl',
+                            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                            'list_item_class'  => 'low-lvl__item',
+                            'link_class'   => 'low-lvl__link'
+                        ]) ?>
+<!--                        <div class="submenu__content submenu__content--low submenu__content--women submenu__content--hidden">-->
+<!--                            <button class="submenu__back" type="button">-->
+<!--                                <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">-->
+<!--                                    <use xlink:href="#back"></use>-->
+<!--                                </svg>-->
+<!--                                Back-->
+<!--                            </button>-->
+<!--                            <ul class="submenu__list submenu__list--lowLvl low-lvl">-->
+<!--                                <li class="low-lvl__item">-->
+<!--                                    <a href="--><?//= get_category_link(17) ?><!--" class="low-lvl__link">-->
+<!--                                        --><?//= __('[:ru]Все[:en]All[:]'); ?>
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                --><?php
+//                                $prod_cat_args = array(
+//                                    'taxonomy' => 'product_cat',
+//                                    'hide_empty' => false, // скрывать категории без товаров или нет
+//                                    'parent' => 17
+//                                );
+//                                $woo_categories = get_categories($prod_cat_args);
+//                                if (!is_null($woo_categories)) :
+//                                    foreach ($woo_categories as $woo_cat) :
+//                                        $woo_cat_id = $woo_cat->term_id;
+//                                        $woo_cat_name = $woo_cat->name;
+//                                        $image = get_field('image_for_category_menu', 'product_cat_'.$woo_cat_id)
+//                                        ?>
+<!--                                        <li class="low-lvl__item">-->
+<!--                                            <a href="--><?//= the_permalink() ?><!--" class="low-lvl__link">-->
+<!--                                                --><?//= $woo_cat_name; ?>
+<!--                                            </a>-->
+<!--                                            <picture>-->
+<!--                                                <img class="low-lvl__img"-->
+<!--                                                     src="--><?//= $image['url']; ?><!--">-->
+<!--                                            </picture>-->
+<!--                                        </li>-->
+<!--                                    --><?php //endforeach; endif; ?>
+<!--                            </ul>-->
+<!--                        </div>-->
+                        <?php wp_nav_menu([
+                            'theme_location' => 'header_menu_men',
+                            'container'       => 'div',
+                            'container_class' => 'submenu__content submenu__content--low submenu__content--men submenu__content--hidden',
+                            'menu_class' => 'submenu__list submenu__list--lowLvl low-lvl',
+                            'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+                            'list_item_class'  => 'low-lvl__item',
+                            'link_class'   => 'low-lvl__link'
+                        ]) ?>
                         <div class="submenu__content submenu__content--low submenu__content--men submenu__content--hidden">
                             <button class="submenu__back" type="button">
                                 <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
@@ -266,10 +284,7 @@
         </div>
     </div>
 
-    <?php wp_nav_menu([
-        'theme_location' => 'header_menu',
-        'container' => ''
-    ]) ?>
+
 </header>
 
 <main>
