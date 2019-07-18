@@ -25,27 +25,31 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 <li class="catalog__item">
-    <a href="<?php the_permalink(); ?>" class="advice__link">
-        <div class="advice__frame">
+<!--    <input type="checkbox" class="catalog__fav" name="advice-like" id="more-fav1">-->
+<!--    <label for="more-fav1" class="catalog__like">-->
+<!--        Add to favourites-->
+<!--        <svg class="catalog__icon" width="20" height="20" viewbox="0 0 497 470">-->
+<!--            <use xlink:href="#fav"></use>-->
+<!--        </svg>-->
+<!--    </label>-->
+<!--    --><?//= do_shortcode('[ti_wishlists_addtowishlist]')?>
+    <a href="<?php the_permalink(); ?>" class="catalog__link">
+        <div class="catalog__frame">
             <picture>
                 <img src="<?php echo get_the_post_thumbnail_url(); ?>"
                      alt="Photo of an item you may also like" class="advice__img">
             </picture>
         </div>
     </a>
-    <dl class="advice__info">
-        <dt class="advice__name">
+    <dl class="catalog__info">
+        <dt class="catalog__name">
             <?php the_title(); ?>
-            <input type="checkbox" class="advice__fav" name="advice-like" id="more-fav1">
-            <label for="more-fav1" class="advice__like">
-                Add to favourites
-                <svg class="advice__icon" width="20" height="20" viewbox="0 0 497 470">
-                    <use xlink:href="#fav"></use>
-                </svg>
-            </label>
         </dt>
-        <dd class="advice__price">
+        <dd class="catalog__price">
             <?php echo $product->get_price_html(); ?>
         </dd>
     </dl>
+    <a href="<?php the_permalink(); ?>" class="catalog__more">
+        <?= __('[:ru]Узнать больше[:en]Read more[:]')?>
+    </a>
 </li>
