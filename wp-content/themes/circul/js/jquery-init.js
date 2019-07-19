@@ -1,6 +1,14 @@
 (function () {
     'use strict';
 
+    const desktop = window.matchMedia('(min-width: 1260px)');
+    if (desktop.matches) {
+        $('.banner > .container').parally({
+            speed: -0.6,
+            offset: -70
+        });
+    }
+
     $(document).ready(function () {
         $('.promo__list').slick({
             arrows: false,
@@ -16,6 +24,7 @@
         dots: true,
         vertical: true,
         verticalSwiping: true,
+        infinite: false,
         responsive: [
             {
                 breakpoint: 767,
@@ -27,6 +36,19 @@
             }
         ]
     });
+
+    $('.card__list').on('wheel', (function(e) {
+        e.preventDefault();
+        let scrollCount = 0;
+        scroll = setTimeout(function () { scrollCount = 0; }, 200);
+        if (scrollCount) return 0;
+        scrollCount = 1;
+        if (e.originalEvent.deltaY < 0) {
+            $(this).slick('slickPrev');
+        } else {
+            $(this).slick('slickNext');
+        }
+    }));
 
 // var startSlide = $('.card__list').slick('slickCurrentSlide');
 // let totalCount = $('li.card__item:not(.slick-cloned)').length - 1;
