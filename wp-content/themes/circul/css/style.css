@@ -961,6 +961,12 @@ li.nav__item--selected > .nav__link {
     margin-top: auto;
 }
 
+@media (max-width: 576px) {
+    .submenu__list--lowLvl li a img {
+        display: none !important;
+    }
+}
+
 @media (min-width: 768px) {
     .submenu {
         top: 5em;
