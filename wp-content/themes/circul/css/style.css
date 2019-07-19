@@ -1215,7 +1215,7 @@ li.nav__item--selected > .nav__link {
     height: 14px;
     font-size: 0;
     line-height: 0;
-    background-color: white;
+    background-color: white !important;
     border: none;
     border-radius: 50%;
     cursor: pointer;
