@@ -254,7 +254,7 @@
             <ul class="nav-shop__list">
                 <li class="nav-shop__item nav-shop__item--whishlist">
                     <a href="<?= the_permalink(201) ?>" class="nav-shop__link nav-shop__link--fav">
-                        <?= __('[:ru]Список желаний[:en]Wishlist[:]'); ?>
+                        <?= get_the_title(201) ?>
                         <!--                        <span class="nav-shop__counter nav-shop__counter--wish">(99)</span>-->
                         <svg class="nav-shop__icon nav-shop__icon--fav" width="16" height="16" viewbox="0 0 497 470">
                             <use xlink:href="#fav"></use>
@@ -293,7 +293,7 @@
                 </li>
                 <li class="nav-shop__item nav-shop__item--sign nav-shop__item--tablet-plus">
                     <a href="<?= the_permalink(12) ?>" class="nav-shop__link">
-                        <?= __('[:ru]Мой аккаунт[:en]My account[:]'); ?>
+                        <?= get_the_title(12) ?>
                     </a>
                 </li>
             </ul>

@@ -153,7 +153,7 @@
 }
 
 html {
-    --projectScale: 0.69;
+    --projectScale: 1;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow-y: scroll;
@@ -3173,22 +3173,11 @@ span.bag__value {
 }
 
 .filter__element {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    background-color: transparent;
-    border: none;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.filter__element + label {
     --font-size-em: 1.2;
     position: relative;
     display: block;
     padding: calc(1.1em / var(--font-size-em)) calc(1.6em / var(--font-size-em)) calc(1em / var(--font-size-em)) calc(1.6em / var(--font-size-em));
+    width: 100%;
     font-family: inherit;
     font-size: calc(1em * var(--font-size-em));
     font-weight: 500;
@@ -3197,6 +3186,17 @@ span.bag__value {
     text-transform: uppercase;
     background-color: #eaeaea;
 }
+
+.filter__element option {
+    font-family: inherit;
+    font-size: calc(1em * var(--font-size-em) / var(--font-size-em));
+    font-weight: 500;
+    line-height: calc(14 / 12);
+    color: #a2a2a2;
+    text-transform: uppercase;
+    background-color: #eaeaea;
+}
+
 
 .filter__element + label::before {
     content: "";
@@ -3230,11 +3230,11 @@ span.bag__value {
     transition-duration: 0.3s;
 }
 
-.filter__element--trigger + label {
+.filter__element--trigger {
     margin-top: calc(2.4em / var(--font-size-em));
 }
 
-.filter__element--trigger:checked + label {
+.filter__element--trigger:checked {
     color: white;
     background-color: #3f3f3f;
 }
@@ -3312,14 +3312,18 @@ span.bag__value {
         margin-top: -1px;
     }
 
-    .filter__element + label {
+    .filter__element  {
         --font-size-em: 1.8;
         margin: 0;
-        padding: 1.6rem 1.6rem 1.8rem 1.6rem;
+        padding: 1.4rem 1.6rem 1.6rem 1.6rem;
         font-weight: 300;
         line-height: calc(22 / 18);
         letter-spacing: 1px;
         border: 1px solid #979797;
+    }
+
+    .filter__element--trigger {
+        background-color: #f4f4f4;
     }
 
     .filter__element + label::before, .filter__element + label::after {
