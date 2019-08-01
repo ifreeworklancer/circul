@@ -3316,7 +3316,7 @@ span.bag__value {
         margin-top: -1px;
     }
 
-    .filter__element  {
+    .filter__element {
         --font-size-em: 1.8;
         margin: 0;
         padding: 1.4rem 1.6rem 1.6rem 1.6rem;
@@ -8632,7 +8632,7 @@ select.orderby {
     padding-bottom: 30px;
 }
 
-.woocommerce-pagination ul li  {
+.woocommerce-pagination ul li {
     border: 1px solid #707070 !important;
     width: 30px !important;
     height: 30px !important;
@@ -8642,19 +8642,19 @@ select.orderby {
     font-size: 14px;
 }
 
-.woocommerce-pagination ul li:first-of-type  {
+.woocommerce-pagination ul li:first-of-type {
     border-right: 0 !important;
 }
 
-.woocommerce-pagination ul li:last-of-type  {
+.woocommerce-pagination ul li:last-of-type {
     border-left: 0 !important;
 }
 
-.woocommerce-pagination ul li span  {
+.woocommerce-pagination ul li span {
     background: transparent !important;
 }
 
-.woocommerce-pagination ul li a  {
+.woocommerce-pagination ul li a {
     display: block;
     width: 100%;
     color: #707070 !important;
@@ -8693,4 +8693,51 @@ select.orderby {
 
 .woocommerce-info:before {
     display: none;
+}
+
+.woocommerce-notice {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 500px !important;
+    margin-bottom: 0 !important;
+    padding: 20px 30px !important;
+}
+
+.woocommerce-notice:before {
+    display: none;
+}
+
+.woocommerce-notice a {
+    float: none !important;
+    margin-top: 15px !important;
+    order: 2 !important;
+    padding: 15px 25px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: #3f3f3f !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    background-color: transparent !important;
+    border: 1px solid !important;
+    border-radius: 0 !important;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+.woocommerce-notice a:hover {
+    background: #3f3f3f !important;
+    color: #fff !important;
+}
+
+.bag--opened .variation {
+    display: none !important;
 }
