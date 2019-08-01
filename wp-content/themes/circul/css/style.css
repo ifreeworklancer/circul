@@ -3478,6 +3478,15 @@ span.bag__value {
     margin: 0;
 }
 
+.catalog__price del {
+    color: #333;
+    font-size: 12px;
+}
+
+.catalog__price ins {
+    text-decoration: none;
+}
+
 .catalog__more {
     --font-size-em: 1.2;
     display: block;
@@ -3925,6 +3934,20 @@ span.bag__value {
     color: black;
 }
 
+.info__price del {
+    color: #333;
+    font-size: 12px;
+}
+
+.info__price del span {
+    color: #333;
+    font-size: 12px;
+}
+
+.info__price ins {
+    text-decoration: none;
+}
+
 .info__social {
     position: relative;
     display: -webkit-box;
@@ -4037,6 +4060,15 @@ span.bag__value {
         margin-top: 24px;
         font-size: 24px;
         line-height: 29px;
+    }
+
+    .info__price del {
+        font-size: 20px;
+    }
+
+
+    .info__price del span {
+        font-size: 20px;
     }
 
     .info__social {
@@ -7740,6 +7772,20 @@ span.bag__value {
     letter-spacing: 1px;
 }
 
+.whishlist__description del {
+    font-size: 1rem;
+    color: #333;
+}
+
+.whishlist__description del span {
+    font-size: 1rem;
+    color: #333;
+}
+
+.whishlist__description ins {
+    text-decoration: none;
+}
+
 .whishlist__buttons {
     margin-top: 2.4rem;
 }
@@ -7818,6 +7864,14 @@ span.bag__value {
         font-size: 2rem;
         font-weight: 300;
         letter-spacing: 1px;
+    }
+
+    .whishlist__description del {
+        font-size: 12px;
+    }
+
+    .whishlist__description del span {
+        font-size: 12px;
     }
 
     .whishlist__add,
@@ -8572,4 +8626,71 @@ select.orderby {
 .order-item-footer {
     font-size: 18px;
     font-weight: 300;
+}
+
+.woocommerce-pagination {
+    padding-bottom: 30px;
+}
+
+.woocommerce-pagination ul li  {
+    border: 1px solid #707070 !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.woocommerce-pagination ul li:first-of-type  {
+    border-right: 0 !important;
+}
+
+.woocommerce-pagination ul li:last-of-type  {
+    border-left: 0 !important;
+}
+
+.woocommerce-pagination ul li span  {
+    background: transparent !important;
+}
+
+.woocommerce-pagination ul li a  {
+    display: block;
+    width: 100%;
+    color: #707070 !important;
+}
+
+.woocommerce-pagination ul li a:hover {
+    background: #707070;
+}
+
+.onsale {
+    display: none;
+}
+
+.shipping-calculator-button {
+    color: #a2a2a2;
+    border-bottom: 1px solid #a2a2a2;
+}
+
+.shipping-calculator-button:hover {
+    color: #707070;
+    border-bottom: 1px solid #707070;
+}
+
+.cart__item .item__value {
+    font-size: 12px;
+}
+
+.woocommerce-info {
+    padding: 0 15px !important;
+    margin: 2em auto;
+    border-top: 0 !important;
+    background: transparent !important;
+    text-align: center;
+    width: 100%;
+}
+
+.woocommerce-info:before {
+    display: none;
 }
