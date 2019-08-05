@@ -2,12 +2,12 @@
     'use strict';
 
     const desktop = window.matchMedia('(min-width: 1260px)');
-    if (desktop.matches) {
-        $('.banner > .container').parally({
-            speed: -0.6,
-            offset: -70
-        });
-    }
+    // if (desktop.matches) {
+    //     $('.banner > .container').parally({
+    //         speed: -0.6,
+    //         offset: -70
+    //     });
+    // }
 
     $(document).ready(function () {
         $('.promo__list').slick({
