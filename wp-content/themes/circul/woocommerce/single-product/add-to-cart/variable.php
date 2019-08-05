@@ -65,6 +65,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                     'attribute' => $attribute_name,
                     'product' => $product,
                     'class' => 'order__select',
+                    'show_option_none' => __( '[:ru]Выбрать размер[:en]Choose size[:]')
                 ));
                 ?>
                 <a class="order__link">
