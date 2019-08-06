@@ -6426,6 +6426,25 @@ span.bag__value {
     font-size: 1rem;
 }
 
+.checkout--step2 .variation {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+.checkout--step2 .variation dd {
+    margin-left: 7px;
+}
+
+.checkout--step2 .cart__value {
+    display: none;
+}
+
 .checkout--step2 > .container {
     min-height: calc(100vh - 5em);
 }
