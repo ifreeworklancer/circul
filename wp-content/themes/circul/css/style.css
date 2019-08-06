@@ -6441,6 +6441,10 @@ span.bag__value {
     margin-left: 7px;
 }
 
+.checkout--step2 .variation dd p {
+    margin: 0;
+}
+
 .checkout--step2 .cart__value {
     display: none;
 }
