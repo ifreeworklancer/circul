@@ -71,8 +71,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                 <a class="order__link">
                     <?= __('[:ru]Размеры:[:en]Size guide[:]'); ?>
                 </a>
-                </div>
             <?php endforeach; ?>
+            </div>
 
             <div class="single_variation_wrap">
                 <?php

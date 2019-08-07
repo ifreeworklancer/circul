@@ -4,7 +4,7 @@ $('body').on('click' , '.item__increment' , function() {
 
     var inputAmountVal = $(this).siblings('.item__value').text();
 
-    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]')
+    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
 
     inputAmountVal++;
 
@@ -13,10 +13,6 @@ $('body').on('click' , '.item__increment' , function() {
     $(originalQtyInp).val(inputAmountVal);
 
     // $(originalQtyInp).trigger( "change" );
-
-    $(originalQtyInp).on('change' , function(){
-        console.log($(originalQtyInp).val());
-    })
 
     $('button[name="update_cart"]').removeAttr("disabled");
 
@@ -29,7 +25,7 @@ $('body').on('click' , '.item__decrement' , function() {
 
     var inputAmountVal = $(this).siblings('.item__value').text();
 
-    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]')
+    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
 
     inputAmountVal--;
 
@@ -42,10 +38,6 @@ $('body').on('click' , '.item__decrement' , function() {
     $(originalQtyInp).val(inputAmountVal);
 
     // $(originalQtyInp).trigger( "change" );
-
-    $(originalQtyInp).on('change' , function(){
-        console.log($(originalQtyInp).val());
-    })
 
     $('button[name="update_cart"]').removeAttr("disabled");
     

@@ -25,14 +25,8 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 <li class="catalog__item">
-<!--    <input type="checkbox" class="catalog__fav" name="advice-like" id="more-fav1">-->
-<!--    <label for="more-fav1" class="catalog__like">-->
-<!--        Add to favourites-->
-<!--        <svg class="catalog__icon" width="20" height="20" viewbox="0 0 497 470">-->
-<!--            <use xlink:href="#fav"></use>-->
-<!--        </svg>-->
-<!--    </label>-->
-<!--    --><?//= do_shortcode('[ti_wishlists_addtowishlist]')?>
+    <?= do_shortcode('[ti_wishlists_addtowishlist]') ?>
+
     <a href="<?php the_permalink(); ?>" class="catalog__link">
         <div class="catalog__frame">
             <picture>

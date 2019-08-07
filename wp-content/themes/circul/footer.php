@@ -60,13 +60,11 @@
         </dl>
         <div class="footer__credits">
             <p class="footer__copyright">
-                © CIRCUL mark 2016
-                <span class="footer__origin">
-            Made in Ukraine
-          </span>
+                <?= date('Y') ?> © <?php bloginfo('title') ?>
+              <span class="footer__origin">Made in Ukraine</span>
             </p>
             <p class="footer__designer">
-                Design Blablabla
+              <!--                Design Blablabla-->
             </p>
         </div>
     </div>

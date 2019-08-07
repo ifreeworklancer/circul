@@ -1,3 +1,21 @@
+
+.header__logo-icon {
+    width: 8.8em;
+    height: 1.6em;
+}
+
+.cart__icon {
+    margin-right: 1.2em;
+    width: 0.6em;
+    height: 1.2em;
+}
+
+.payment__icon {
+    max-width: 11em;
+}
+
+
+
 .hidden-block {
     position: absolute;
     left: -9999px;
@@ -160,6 +178,16 @@ button {
 .woocommerce ul.order_details li strong { 
     font-size: 16px;
     text-transform: uppercase;
+}
+
+.catalog__item .order__like {
+    position: absolute;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    border: none;
 }
 
 @media (min-width: 768px) {

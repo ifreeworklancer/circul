@@ -142,7 +142,7 @@
       const modalSize = document.querySelector('[data-modal="modal-size"]');
 
       listenModal(trigger, modalSize);
-    }
+    };
 
     this.sign = function () {
       const triggers = document.querySelectorAll('[data-trigger="sign-in"]');
@@ -186,10 +186,11 @@
 
       switchContent();
     }
-  }
+  };;
 
   if (document.querySelector('.options__content--size')) {
     operateModal.size();
   }
+
   operateModal.sign();
 })();
