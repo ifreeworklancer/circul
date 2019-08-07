@@ -39,7 +39,7 @@ class TInvWL_Wizard {
 	function __construct( $plugin_name, $version ) {
 		$this->_name    = $plugin_name;
 		$this->_version = $version;
-		if ( apply_filters( $this->_name . '_enable_wizard', true ) ) {
+		if ( apply_filters( 'tinvwl_enable_wizard', true ) ) {
 			$this->define_hooks();
 		}
 		update_option( $this->_name . '_wizard', true );
@@ -298,7 +298,7 @@ class TInvWL_Wizard {
 			$page_name[ $list->post_name ] = $list->ID;
 		}
 		$data = array(
-			'general_default_title_value' => apply_filters( 'tinvwl-general-default_title', tinv_get_option( 'general', 'default_title' ) ),
+			'general_default_title_value' => apply_filters( 'tinvwl_default_wishlist_title', tinv_get_option( 'general', 'default_title' ) ),
 		);
 		foreach ( $title_pages as $key => $text ) {
 			$_data['options']   = $page_list;
@@ -484,7 +484,6 @@ class TInvWL_Wizard {
 			'social_facebook_value'  => tinv_get_option( 'social', 'facebook' ),
 			'social_twitter_value'   => tinv_get_option( 'social', 'twitter' ),
 			'social_pinterest_value' => tinv_get_option( 'social', 'pinterest' ),
-			'social_google_value'    => tinv_get_option( 'social', 'google' ),
 			'social_whatsapp_value'  => tinv_get_option( 'social', 'whatsapp' ),
 			'social_clipboard_value' => tinv_get_option( 'social', 'clipboard' ),
 			'social_email_value'     => tinv_get_option( 'social', 'email' ),
@@ -500,7 +499,6 @@ class TInvWL_Wizard {
 			'social_facebook'  => FILTER_VALIDATE_BOOLEAN,
 			'social_twitter'   => FILTER_VALIDATE_BOOLEAN,
 			'social_pinterest' => FILTER_VALIDATE_BOOLEAN,
-			'social_google'    => FILTER_VALIDATE_BOOLEAN,
 			'social_whatsapp'  => FILTER_VALIDATE_BOOLEAN,
 			'social_clipboard' => FILTER_VALIDATE_BOOLEAN,
 			'social_email'     => FILTER_VALIDATE_BOOLEAN,
@@ -508,7 +506,6 @@ class TInvWL_Wizard {
 		tinv_update_option( 'social', 'facebook', (bool) $data['social_facebook'] );
 		tinv_update_option( 'social', 'twitter', (bool) $data['social_twitter'] );
 		tinv_update_option( 'social', 'pinterest', (bool) $data['social_pinterest'] );
-		tinv_update_option( 'social', 'google', (bool) $data['social_google'] );
 		tinv_update_option( 'social', 'whatsapp', (bool) $data['social_whatsapp'] );
 		tinv_update_option( 'social', 'clipboard', (bool) $data['social_clipboard'] );
 		tinv_update_option( 'social', 'email', (bool) $data['social_email'] );

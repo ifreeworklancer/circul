@@ -1220,8 +1220,8 @@ li.nav__item--selected > .nav__link {
 .promo__list .slick-dots > li > button {
   margin: 0;
   padding: 0;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   font-size: 0;
   line-height: 0;
   background-color: white !important;
@@ -3895,8 +3895,8 @@ span.bag__value {
   }
 
   .card .slick-dots button {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
   }
 
   .card__info {

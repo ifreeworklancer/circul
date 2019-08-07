@@ -249,7 +249,6 @@ class TInvWL_Public_Wishlist_View {
 		return $this->current_products_query;
 	}
 
-
 	/**
 	 * Get current products from wishlist
 	 *
@@ -380,65 +379,57 @@ class TInvWL_Public_Wishlist_View {
 	function add_meta_tags() {
 		if ( is_page( apply_filters( 'wpml_object_id', tinv_get_option( 'page', 'wishlist' ), 'page', true ) ) ) {
 			$wishlist = $this->get_current_wishlist();
-			if ( $wishlist && 0 < $wishlist['ID'] && 'private' !== $wishlist['status'] ) {
-				if ( is_user_logged_in() ) {
-					$user = get_user_by( 'id', $wishlist['author'] );
-					if ( $user && $user->exists() ) {
-						$user_name = trim( sprintf( '%s %s', $user->user_firstname, $user->user_lastname ) );
-						$user      = @$user->display_name; // @codingStandardsIgnoreLine Generic.PHP.NoSilencedErrors.Discouraged
+			if ( $wishlist && 0 < $wishlist['ID'] ) {
+				$this->wishlist_url = tinv_url_wishlist( $wishlist['share_key'] );
+				if ( 'private' !== $wishlist['status'] && tinv_get_option( 'social', 'facebook' ) ) {
+					if ( is_user_logged_in() ) {
+						$user = get_user_by( 'id', $wishlist['author'] );
+						if ( $user && $user->exists() ) {
+							$user_name = trim( sprintf( '%s %s', $user->user_firstname, $user->user_lastname ) );
+							$user      = @$user->display_name; // @codingStandardsIgnoreLine Generic.PHP.NoSilencedErrors.Discouraged
+						} else {
+							$user_name = '';
+							$user      = '';
+						}
 					} else {
 						$user_name = '';
 						$user      = '';
 					}
-				} else {
-					$user_name = '';
-					$user      = '';
-				}
 
-				if ( is_array( $this->get_current_products_query() ) ) {
-					$products = $this->current_products_query;
-				} else {
-					$products = $this->get_current_products( $wishlist, true );
-				}
+					if ( is_array( $this->get_current_products_query() ) ) {
+						$products = $this->current_products_query;
+					} else {
+						$products = $this->get_current_products( $wishlist, true );
+					}
 
-				$products_title = array();
-				foreach ( $products as $product ) {
-					if ( ! empty( $product ) && ! empty( $product['data'] ) ) {
-						$title = $product['data']->get_title();
-						if ( ! in_array( $title, $products_title ) ) {
-							$products_title[] = $title;
+					$products_title = array();
+					foreach ( $products as $product ) {
+						if ( ! empty( $product ) && ! empty( $product['data'] ) ) {
+							$title = $product['data']->get_title();
+							if ( ! in_array( $title, $products_title ) ) {
+								$products_title[] = $title;
+							}
 						}
 					}
-				}
-				$product = array_shift( $products );
-				$image   = '';
-				if ( ! empty( $product ) && ! empty( $product['data'] ) ) {
-					list( $image ) = wp_get_attachment_image_src( $product['data']->get_image_id(), 'full' );
-				}
+					$product = array_shift( $products );
+					$image   = '';
+					if ( ! empty( $product ) && ! empty( $product['data'] ) ) {
+						list( $image ) = wp_get_attachment_image_src( $product['data']->get_image_id(), 'full' );
+					}
 
-				$this->social_image = $image;
-				$this->wishlist_url = tinv_url_wishlist( $wishlist['share_key'] );
+					$this->social_image = $image;
 
-				$meta = apply_filters( 'tinvwl_social_header_meta', array(
-					'url'         => $this->wishlist_url,
-					'type'        => 'product.group',
-					'title'       => sprintf( __( '%1$s by %2$s', 'ti-woocommerce-wishlist' ), $wishlist['title'], ( empty( $user_name ) ? $user : $user_name ) ),
-					'description' => implode( ', ', $products_title ),
-					'image'       => $image,
-				) );
-				if ( tinv_get_option( 'social', 'facebook' ) ) {
+
+					$meta = apply_filters( 'tinvwl_social_header_meta', array(
+						'url'         => $this->wishlist_url,
+						'type'        => 'product.group',
+						'title'       => sprintf( __( '%1$s by %2$s', 'ti-woocommerce-wishlist' ), $wishlist['title'], ( empty( $user_name ) ? $user : $user_name ) ),
+						'description' => implode( ', ', $products_title ),
+						'image'       => $image,
+					) );
+
 					foreach ( $meta as $name => $content ) {
 						echo sprintf( '<meta property="og:%s" content="%s" />', esc_attr( $name ), esc_attr( $content ) );
-					}
-					echo "\n";
-				}
-				if ( tinv_get_option( 'social', 'google' ) ) {
-					unset( $meta['url'], $meta['type'] );
-					foreach ( $meta as $name => $content ) {
-						if ( 'title' === $name ) {
-							$name = 'name';
-						}
-						echo sprintf( '<meta itemprop="%s" content="%s">', esc_attr( $name ), esc_attr( $content ) );
 					}
 					echo "\n";
 				}
@@ -634,7 +625,7 @@ class TInvWL_Public_Wishlist_View {
 				return $this->wishlist_empty( array(), array(
 					'ID'        => '',
 					'author'    => get_current_user_id(),
-					'title'     => apply_filters( 'tinvwl-general-default_title', tinv_get_option( 'general', 'default_title' ) ),
+					'title'     => apply_filters( 'tinvwl_default_wishlist_title', tinv_get_option( 'general', 'default_title' ) ),
 					'status'    => 'private',
 					'type'      => 'default',
 					'share_key' => '',
@@ -679,7 +670,7 @@ class TInvWL_Public_Wishlist_View {
 		}
 
 		$wishlist_table_row                     = tinv_get_option( 'product_table' );
-		$wishlist_table_row['text_add_to_cart'] = apply_filters( 'tinvwl-product_table-text_add_to_cart', tinv_get_option( 'product_table', 'text_add_to_cart' ) );
+		$wishlist_table_row['text_add_to_cart'] = apply_filters( 'tinvwl_add_to_cart_text', tinv_get_option( 'product_table', 'text_add_to_cart' ) );
 
 		$data = array(
 			'products'           => $products,

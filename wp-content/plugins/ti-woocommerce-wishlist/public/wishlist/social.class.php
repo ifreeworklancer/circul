@@ -57,7 +57,7 @@ class TInvWL_Public_Wishlist_Social {
 
 		$social = tinv_get_option( 'social' );
 
-		$share_on = apply_filters( 'tinvwl-social-share_on', tinv_get_option( 'social', 'share_on' ) );
+		$share_on = apply_filters( 'tinvwl_share_on_text', tinv_get_option( 'social', 'share_on' ) );
 
 		foreach ( $social as $name => $soc_network ) {
 			if ( $soc_network && method_exists( __CLASS__, $name ) ) {
@@ -124,19 +124,6 @@ class TInvWL_Public_Wishlist_Social {
 		);
 
 		return 'http://pinterest.com/pin/create/button/?' . http_build_query( $data );
-	}
-
-	/**
-	 * Create google++ share url
-	 *
-	 * @return string
-	 */
-	public static function google() {
-		$data = array(
-			'url' => self::$url,
-		);
-
-		return 'https://plus.google.com/share?' . http_build_query( $data );
 	}
 
 	/**

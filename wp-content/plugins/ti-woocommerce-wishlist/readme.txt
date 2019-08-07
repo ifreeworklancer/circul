@@ -3,7 +3,7 @@ Contributors: templateinvaders
 Tags: wishlist, woocommerce, woocommerce wishlist, e-commerce, ecommerce
 Requires at least: 4.7
 Tested up to: 5.2
-Stable tag: 1.12.3
+Stable tag: 1.13.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,7 +16,9 @@ Add Wishlist functionality to your store for free.
 
 WooCommerce Wishlist is a simple but powerful tool that can help you to convert your site visitors into loyal customers. There are many situations when customers can't buy a product at this time or simply don’t want. Possibility to save products for later encourages users to return to your site and after all, make a purchase. Adding products to Wishlist is easy and convenient so it may also force your customers to buy even more products than they planned. Users can share their wishlist, for example, to help their friends choose a gift for upcoming holiday and so on. By sharing their Wishlists, they are bringing you, new potential customers. All in all this increasing amount of your site visitors, conversion and as a result sales.
 
-🔗 [Live Preview](https://templateinvaders.com/product/ti-woocommerce-wishlist-wordpress-plugin/preview/?utm_source=wordpressorg&utm_content=preview)
+🔗 [Live Preview #1](https://wishlist2.templateinvaders.com/?utm_source=wordpressorg&utm_content=preview)
+🔗 [Live Preview #2](https://wishlist3.templateinvaders.com/?utm_source=wordpressorg&utm_content=preview)
+🔗 [Live Preview #3](https://wishlist1.templateinvaders.com/?utm_source=wordpressorg&utm_content=preview)
 
 🔗 [View documentation](https://templateinvaders.com/documentation/ti-woocommerce-wishlist-free/?utm_source=wordpressorg&utm_content=documentation)
 
@@ -131,6 +133,8 @@ There are few ways to install TI WooCommerce Wishlist Plugin:
 
 For help setting up and configuring, please refer to our [online documentation](https://templateinvaders.com/documentation/ti-woocommerce-wishlist-free/?utm_source=wordpressorg&utm_content=documentation_faq)
 
+[REST API documentation](https://templateinvaders.com/api/wishlist/?utm_source=wordpressorg&utm_content=documentation_faq)
+
 = Where can I get support or talk to other users? =
 
 If you get stuck, you can ask for help in the [Plugin Forum](https://wordpress.org/support/plugin/ti-woocommerce-wishlist) or [help page](https://templateinvaders.com/help/?utm_source=wordpressorg&utm_content=help_faq) on our website.
@@ -153,6 +157,32 @@ If you get stuck, you can ask for help in the [Plugin Forum](https://wordpress.o
 
 
 == Changelog ==
+= 1.13.2 =
+*Release Date - 30 July 2019*
+
+* Fixed a compatibility issue with WooCommerce Show Single Variations by Iconic plugin
+
+= 1.13.1 =
+*Release Date - 29 July 2019*
+
+* Fixed unclosed 'strong' tag in admin notification
+* Fixed empty URL issue for sharing buttons
+* Fixed performance for meta tags addition on wishlist page
+* Fixed empty text issue for 'View Wishlist' button
+* Removed Google Plus (G+) sharing option since the service is closed
+* Added cleanup of deleted products from wishlist
+* Added parameters to the 'tinvwl_get_wishlist_products' to get a custom products query results
+
+= 1.13.0 =
+*Release Date - 15 July 2019*
+
+* Added wishlist [REST API](https://templateinvaders.com/api/wishlist/?utm_source=wordpressorg&utm_content=changelog)
+* Refactored filters and actions
+* Prevent plugin network wide activation
+* Fixed an issue with deleted products in frontend templates
+* Fixed wishlist products query issue  on multilingual setup
+* TM Product Options plugin integration updated
+
 = 1.12.3 =
 *Release Date - 17 May 2019*
 
@@ -211,20 +241,5 @@ If you get stuck, you can ask for help in the [Plugin Forum](https://wordpress.o
 * Fixed minor PHP issues
 * Fixed minor CSS issues
 
-= 1.9.18 =
-*Release Date - 4 April 2019*
-
-* Fixed an issue with removing products from wishlist when added to cart for WooCommerce prior 3.x versions.
-* Fixed an issue when the wizard add multiple shortcodes to an exists page
-
-= 1.9.17 =
-*Release Date - 2 April 2019*
-
-* Fixed HTML W3C validation for the Add to Wishlist button
-* Fixed a limit for Add all to cart function
-* Fixed public JS error
-* Added filter <i>tinvwl-allow_parent_variable</i> that allows to add parent variable product without selected variation from a 3rd party code.
-* Improved the Setup Wizard to prepend the Wishlist Page shortcode to existing page content.
-
-[See changelog for all versions](https://raw.githubusercontent.com/doozy/ti-woocommerce-wishlist-premium/master/changelog.txt).
+[See changelog for all versions](https://templateinvaders.com/changelogs/ti-woocommerce-wishlist-plugin-free-changelog/?utm_source=wordpressorg&utm_content=changelog).
 
