@@ -165,6 +165,7 @@ html {
 *::after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+  outline: none !important;
 }
 
 body {
@@ -1220,8 +1221,8 @@ li.nav__item--selected > .nav__link {
 .promo__list .slick-dots > li > button {
   margin: 0;
   padding: 0;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   font-size: 0;
   line-height: 0;
   background-color: white !important;
@@ -3895,8 +3896,8 @@ span.bag__value {
   }
 
   .card .slick-dots button {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   .card__info {
