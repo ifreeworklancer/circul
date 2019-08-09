@@ -313,6 +313,11 @@ a.link--opened:not([href])::before {
   fill: white;
 }
 
+.header__logo-icon {
+  width: 8.8em;
+  height: 1.6em;
+}
+
 .header__nav {
   -webkit-box-ordinal-group: 2;
   -ms-flex-order: 1;
@@ -1221,8 +1226,8 @@ li.nav__item--selected > .nav__link {
 .promo__list .slick-dots > li > button {
   margin: 0;
   padding: 0;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   font-size: 0;
   line-height: 0;
   background-color: white !important;
