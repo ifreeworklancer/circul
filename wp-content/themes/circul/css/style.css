@@ -2594,7 +2594,7 @@ span.bag__value {
   .products__link::before {
     --text-content: "shop now";
     --font-size-em: 2;
-    content: var(--text-content);
+    content: attr(title);
     position: absolute;
     top: calc(17.5em / var(--font-size-em));
     left: calc(50% - 14em / var(--font-size-em));
