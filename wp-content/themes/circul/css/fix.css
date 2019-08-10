@@ -193,4 +193,11 @@ button {
   }
 }
 
+.woocommerce-notices-wrapper p {
+  font-size: 16px;
+  text-align: center;
+}
 
+.woocommerce-notices-wrapper form {
+  text-align: center;
+}
