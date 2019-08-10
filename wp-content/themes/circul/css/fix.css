@@ -193,11 +193,11 @@ button {
   }
 }
 
-.woocommerce-notices-wrapper p {
+.woocommerce-checkout .woocommerce p {
   font-size: 16px;
   text-align: center;
 }
 
-.woocommerce-notices-wrapper form {
+.woocommerce-checkout .woocommerce form {
   text-align: center;
 }
