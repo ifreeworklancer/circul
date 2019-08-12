@@ -203,4 +203,10 @@ button {
   margin-bottom: 30px;
 }
 
-#nova_poshta_shipping_fields {display: block!important;}
+#nova_poshta_shipping_fields {
+  display: block !important;
+}
+
+#nova-poshta-shipping-info select {
+  margin-bottom: 10px;
+}
