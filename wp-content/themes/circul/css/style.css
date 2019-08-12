@@ -2572,7 +2572,7 @@ span.bag__value {
   }
 
   .products__item:last-of-type {
-    grid-column: 2 / -1;
+    grid-column: 2 / 1;
   }
 }
 
