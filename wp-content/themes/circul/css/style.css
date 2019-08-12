@@ -3587,7 +3587,7 @@ span.bag__value {
 
   .catalog__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 58em);
+    grid-template-columns: repeat(auto-fit, 56em);
     grid-gap: 4.4em 1em;
     -ms-flex-pack: distribute;
     justify-content: space-between;
