@@ -147,8 +147,13 @@
     this.sign = function () {
       const triggers = document.querySelectorAll('[data-trigger="sign-in"]');
       const modalSign = document.querySelector('[data-modal="sign-in"]');
-      const items = modalSign.querySelectorAll('.modal__item');
-      const buttons = modalSign.querySelectorAll('[data-link]');
+      let items = [];
+      let buttons = [];
+
+      if (modalSign.length) {
+        items = modalSign.querySelectorAll('.modal__item');
+        buttons = modalSign.querySelectorAll('[data-link]');
+      }
 
       function hideAll (exceptionClassName) {
         // Access to next pannels of modal is performed via data attributes of .modal__selection elements. These attributes contain the specific class name of the pannel to be revealed on click. This function hides all modal pannels except the one which contains the parameter class.
