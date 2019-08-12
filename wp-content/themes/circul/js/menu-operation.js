@@ -190,7 +190,9 @@
                 trigger.classList.remove('link--active');
             }
 
-            trigger.addEventListener('click', toggleClass);
+            if (!!trigger) {
+                trigger.addEventListener('click', toggleClass);
+            }
             document.addEventListener('click', function (evt) {
                 if (evt.target === button ||
                     evt.target.classList.contains('bag__btn') || evt.target.classList.contains('bag--opened') ||
