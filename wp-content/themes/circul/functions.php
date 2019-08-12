@@ -402,7 +402,7 @@ function custom_override_checkout_fields($fields)
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_company']);
     unset($fields['billing']['billing_state']);
-    unset($fields['shipping']);
+//    unset($fields['shipping']);
 
 
     return $fields;
