@@ -45,8 +45,8 @@ function theme_scripts()
     wp_dequeue_script('selectWoo');
     wp_deregister_script('selectWoo');
 
+    wp_enqueue_script('app2', get_theme_file_uri('jQuery/jquery-3.3.1.min.js'), null, '', true);
     wp_enqueue_script('app1', get_theme_file_uri('js/menu-operation.js'), null, '', true);
-//    wp_enqueue_script('app2', get_theme_file_uri('jQuery/jquery-3.3.1.min.js'), null, '', true);
     wp_enqueue_script('app4', get_theme_file_uri('jQuery/slick/slick.min.js'), null, '', true);
     wp_enqueue_script('app13', get_theme_file_uri('jQuery/parallax/parally.min.js'), null, '', true);
     wp_enqueue_script('app5', get_theme_file_uri('js/jquery-init.js'), null, '', true);
