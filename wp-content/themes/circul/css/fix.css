@@ -209,4 +209,5 @@ button {
 
 #nova-poshta-shipping-info select {
   margin-bottom: 10px;
+  text-transform: none !important;
 }
