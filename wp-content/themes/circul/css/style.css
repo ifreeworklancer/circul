@@ -3123,7 +3123,7 @@ span.bag__value {
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  height: 18em;
+  height: 160px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -3161,7 +3161,7 @@ span.bag__value {
 
 @media (min-width: 768px) {
   .banner > .container {
-    height: 22em;
+    height: 180px;
   }
 
   .term-description,
@@ -3183,7 +3183,7 @@ span.bag__value {
   }
 
   .banner > .container {
-    height: 404px;
+    height: 240px;
   }
 
   .term-description,
