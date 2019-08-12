@@ -383,7 +383,7 @@ if (!function_exists('woocommerce_form_field')) {
          *
          * @since 3.4.0
          */
-        $field = apply_filters('woocommerce_form_field', $field, $key, $args, $value);
+//        $field = apply_filters('woocommerce_form_field', $field, $key, $args, $value);
         if ($args['return']) {
             return $field;
         } else {
