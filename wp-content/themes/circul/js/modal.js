@@ -150,7 +150,7 @@
       let items = [];
       let buttons = [];
 
-      if (modalSign.length) {
+      if (!!modalSign) {
         items = modalSign.querySelectorAll('.modal__item');
         buttons = modalSign.querySelectorAll('[data-link]');
       }
