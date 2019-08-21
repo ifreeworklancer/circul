@@ -245,7 +245,7 @@
         </li>
         <li class="nav-shop__item nav-shop__item--faq nav-shop__item--tablet-plus">
           <a href="<?= get_post_type_archive_link('faq') ?>" class="nav-shop__link">
-              <?= __('[:ru]Ответы и вопросы[:en]FAQ[:]'); ?>
+              FAQ
           </a>
         </li>
         <li class="nav-shop__item nav-shop__item--sign nav-shop__item--tablet-plus">
