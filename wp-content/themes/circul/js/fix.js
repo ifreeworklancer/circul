@@ -51,12 +51,13 @@ $('body').on('click', '.close-notice', function () {
 const $billing_country = $('#billing_country').val();
 
 if ($billing_country) {
-  toggleBilling($billing_country);
+  toggleBilling();
 
-  $('#billing_country').on('change', toggleBilling($billing_country));
+  $('#billing_country').on('change', toggleBilling());
 }
 
 function toggleBilling() {
+  console.log($billing_country);
   if ($billing_country === 'UA') {
     $('#nova_poshta_shipping_fields').show();
     $('#billing_address_1, #billing_city').hide();
