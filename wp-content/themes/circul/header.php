@@ -253,7 +253,7 @@
               <?= get_the_title(12) ?>
           </a>
         </li>
-        <li class="nav-shop__item nav-item cart-punkt">
+        <li class="nav-shop__item nav-item currency-selector">
           <?= do_shortcode('[multicurrency]') ?>
         </li>
       </ul>
