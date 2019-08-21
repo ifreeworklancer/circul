@@ -22,7 +22,7 @@ function theme_setup()
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo');
-    
+
     register_nav_menus(
         [
             'header_menu_women' => 'Меню хэдера(Женские)',
@@ -397,12 +397,12 @@ add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
 
 function custom_override_checkout_fields($fields)
 {
-    unset($fields['billing']['billing_address_1']);
+    //    unset($fields['billing']['billing_country']);
+//    unset($fields['billing']['billing_city']);
+//    unset($fields['billing']['billing_address_1']);
     unset($fields['billing']['billing_address_2']);
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_company']);
-    unset($fields['billing']['billing_country']);
-    unset($fields['billing']['billing_city']);
     unset($fields['billing']['billing_state']);
     unset($fields['shipping']);
 
@@ -469,11 +469,11 @@ function woocommerce_header_add_to_cart_fragment($fragments)
 {
     ob_start();
     ?>
-    <a class="cart-contents" href="/cart/" title="<?php _e('Перейти в корзину'); ?>">
-        <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
-        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
-                    WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
-    </a>
+  <a class="cart-contents" href="/cart/" title="<?php _e('Перейти в корзину'); ?>">
+    <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
+    <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
+                WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+  </a>
     <?php
     $fragments['a.cart-contents'] = ob_get_clean();
     return $fragments;
@@ -484,10 +484,10 @@ if (!function_exists('cart_link')) {
     function cart_link()
     {
         ?><a class="cart-contents" href="/cart/" title="<?php _e('Перейти в корзину'); ?>">
-        <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
-        <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
-                    WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
-        </a>
+      <span class="cart-ico"> <i class="fa fa-shopping-cart"></i></span>
+      <span class="cart-txt">товаров: <strong><?php echo sprintf(_n('%d', '%d', WC()->cart->cart_contents_count),
+                  WC()->cart->cart_contents_count); ?></strong><br> на сумму: <strong><?php echo WC()->cart->get_cart_total(); ?></strong></span>
+      </a>
         <?php
     }
 }
