@@ -187,7 +187,7 @@
           <a href="<?= the_permalink(43) ?>" class="nav__link nav__link--search">
               <?= __('[:ru]Магазины[:en]Stores[:]'); ?>
             <svg class="nav__icon nav__icon--search" width="14" height="14" viewbox="0 0 14 14">
-              <use xlink:href="#search"></use>
+              <use xlink:href="#geo"></use>
             </svg>
           </a>
         </li>
