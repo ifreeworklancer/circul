@@ -1,5 +1,5 @@
 <div>
-  <svg style="display: none">
+  <svg style="position: absolute; left: -99999px;">
     <symbol id="geo" viewBox="0 0 512 512">
       <g>
         <g>

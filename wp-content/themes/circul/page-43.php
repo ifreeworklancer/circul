@@ -118,7 +118,7 @@
                       echo 'stores__frame--ukr stores__frame--active';
                   } elseif ($count == 2) {
                       echo 'stores__frame--rus';
-                  } ?>">
+                  } ?>" style="margin-bottom: 10px;">
                     <iframe class="stores__map"
                             src="<?= $item['iframe_link']; ?>"
                             allowfullscreen></iframe>
