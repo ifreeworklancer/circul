@@ -48,9 +48,7 @@ $('body').on('click', '.close-notice', function () {
 });
 
 // Billing
-window.onload = function() {
-    toggleBilling();
-}
+window.onload = toggleBilling;
 
 $('#billing_country').on('change', toggleBilling);
 
