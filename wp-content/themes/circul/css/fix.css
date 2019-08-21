@@ -214,6 +214,10 @@ button {
 
 .currency-selector {
   order: 5;
+}
+
+.currency-selector .premmerce-multicurrency {
   padding: 6px 20px 6px 10px;
   background-color: transparent;
+  color: #fff;
 }
