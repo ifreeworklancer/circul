@@ -40,7 +40,13 @@ $('body').on('click' , '.item__decrement' , function() {
     // $(originalQtyInp).trigger( "change" );
 
     $('button[name="update_cart"]').removeAttr("disabled");
-    
+
+
+    // Billing
+    const $billing_country = $('#billing_country').val();
+    if ($billing_country) {
+        console.log($billing_country);
+    }
 });
 
 $('body').on('click' , '.close-notice' , function() {
