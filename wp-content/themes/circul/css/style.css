@@ -6267,7 +6267,7 @@ span.bag__value {
 }
 
 .stores__frame--map {
-  display: none;
+  /*display: none;*/
 }
 
 @media (min-width: 768px) {
