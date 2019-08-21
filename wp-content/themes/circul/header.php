@@ -60,7 +60,7 @@
                   </a>
                 </li>
                 <li class="submenu__item">
-                  <a class="submenu__link">
+                  <a class="submenu__link" href="<?php the_permalink(69); ?>">
                     <picture>
                       <img src="<?= get_theme_file_uri('img/submenu__img--3@1x.jpg') ?>"
                            alt="Illustration for about us link" class="submenu__img">
@@ -69,12 +69,12 @@
                   </a>
                 </li>
                 <li class="submenu__item">
-                  <a class="submenu__link">
+                  <a class="submenu__link" href="<?= get_post_type_archive_link('faq') ?>">
                     <picture>
                       <img src="<?= get_theme_file_uri('img/submenu__img--4@1x.jpg') ?>"
                            alt="Illustration for FAQ link" class="submenu__img">
                     </picture>
-                    <span class="submenu__category"><?= __('[:ru]Ответы и вопросы[:en]faq[:]'); ?></span>
+                    <span class="submenu__category">FAQ</span>
                   </a>
                 </li>
               </ul>
