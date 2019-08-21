@@ -52,6 +52,8 @@ const $billing_country = $('#billing_country').val();
 
 if ($billing_country) {
   toggleBilling($billing_country);
+
+  $('#billing_country').on('change', toggleBilling($billing_country));
 }
 
 function toggleBilling() {
