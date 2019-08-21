@@ -249,11 +249,11 @@
           </a>
         </li>
         <li class="nav-shop__item nav-shop__item--sign nav-shop__item--tablet-plus">
-          <a href="<?= the_permalink(12) ?>" class="nav-shop__link">
+          <a href="<?php the_permalink(12) ?>" class="nav-shop__link">
               <?= get_the_title(12) ?>
           </a>
         </li>
-        <li class="nav-shop__item nav-item">
+        <li class="nav-shop__item nav-item cart-punkt">
           <?= do_shortcode('[multicurrency]') ?>
         </li>
       </ul>
