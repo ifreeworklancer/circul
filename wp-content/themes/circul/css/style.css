@@ -6273,6 +6273,12 @@ span.bag__value {
   height: 20rem;
 }
 
+.stores__frame--map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 @media (min-width: 768px) {
   .stores > .container {
     padding-bottom: 5rem;
