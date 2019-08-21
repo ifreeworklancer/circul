@@ -40,7 +40,7 @@ if (empty($product) || !$product->is_visible()) {
             <?php the_title(); ?>
         </dt>
         <dd class="catalog__price">
-            <?php echo $product->get_price(); ?>
+            <?php echo $product->get_price_html(); ?>
         </dd>
     </dl>
     <a href="<?php the_permalink(); ?>" class="catalog__more">
