@@ -1,68 +1,64 @@
 $('body').on('click', '.item__increment', function () {
 
-  var inputAmount = $(this).siblings('.item__value');
+    var inputAmount = $(this).siblings('.item__value');
 
-  var inputAmountVal = $(this).siblings('.item__value').text();
+    var inputAmountVal = $(this).siblings('.item__value').text();
 
-  var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
+    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
 
-  inputAmountVal++;
+    inputAmountVal++;
 
-  $(inputAmount).text(inputAmountVal);
+    $(inputAmount).text(inputAmountVal);
 
-  $(originalQtyInp).val(inputAmountVal);
+    $(originalQtyInp).val(inputAmountVal);
 
-  // $(originalQtyInp).trigger( "change" );
+    // $(originalQtyInp).trigger( "change" );
 
-  $('button[name="update_cart"]').removeAttr("disabled");
+    $('button[name="update_cart"]').removeAttr("disabled");
 
 });
 
 
 $('body').on('click', '.item__decrement', function () {
 
-  var inputAmount = $(this).siblings('.item__value');
+    var inputAmount = $(this).siblings('.item__value');
 
-  var inputAmountVal = $(this).siblings('.item__value').text();
+    var inputAmountVal = $(this).siblings('.item__value').text();
 
-  var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
+    var originalQtyInp = $(this).parent().siblings('.original-qty').find('input[type=number]');
 
-  inputAmountVal--;
+    inputAmountVal--;
 
-  if (inputAmountVal == 0) {
-    inputAmountVal = 1;
-  }
+    if (inputAmountVal == 0) {
+        inputAmountVal = 1;
+    }
 
-  $(inputAmount).text(inputAmountVal);
+    $(inputAmount).text(inputAmountVal);
 
-  $(originalQtyInp).val(inputAmountVal);
+    $(originalQtyInp).val(inputAmountVal);
 
-  // $(originalQtyInp).trigger( "change" );
+    // $(originalQtyInp).trigger( "change" );
 
-  $('button[name="update_cart"]').removeAttr("disabled");
+    $('button[name="update_cart"]').removeAttr("disabled");
 
 });
 
 $('body').on('click', '.close-notice', function () {
-  $('.woocommerce-notice').hide();
+    $('.woocommerce-notice').hide();
 });
 
 // Billing
-const $billing_country = $('#billing_country').val();
 
-if ($billing_country) {
-  // toggleBilling();
-
-  $('#billing_country').on('change', toggleBilling);
-}
+$('#billing_country').on('change', toggleBilling);
 
 function toggleBilling() {
-  console.log($billing_country);
-  if ($billing_country === 'UA') {
-    $('#nova_poshta_shipping_fields').show();
-    $('#billing_address_1, #billing_city').hide();
-  } else {
-    $('#nova_poshta_shipping_fields').hide();
-    $('#billing_address_1, #billing_city').show();
-  }
+    const $billing_country = $('#billing_country').val();
+
+    if ($billing_country === 'UA') {
+        $('#nova_poshta_shipping_fields').show();
+        $('#billing_address_1, #billing_city').hide();
+    } else {
+        $('#nova_poshta_shipping_fields').hide();
+        $('#billing_address_1, #billing_city').show();
+    }
 }
