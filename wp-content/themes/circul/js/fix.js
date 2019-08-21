@@ -51,9 +51,9 @@ $('body').on('click', '.close-notice', function () {
 const $billing_country = $('#billing_country').val();
 
 if ($billing_country) {
-  toggleBilling();
+  // toggleBilling();
 
-  $('#billing_country').on('change', toggleBilling());
+  $('#billing_country').on('change', toggleBilling);
 }
 
 function toggleBilling() {
