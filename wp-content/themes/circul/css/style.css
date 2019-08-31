@@ -2636,7 +2636,6 @@ span.bag__value {
   .products__item--dark .products__link,
   .products__item--dark .products__name {
     color: black;
-    background-color: #fff;
   }
 
   .products__item--dark .products__link::before,
