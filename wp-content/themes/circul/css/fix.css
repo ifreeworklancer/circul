@@ -223,18 +223,12 @@ button {
   color: initial;
 }
 
-/*.products__name {*/
-/*  background-color: rgba(0, 0, 0, 0.3);*/
-/*  color: #fff;*/
-/*  border: 1px solid #fff;*/
-/*}*/
+.products__list {
+  grid-auto-rows: 35em;
+}
 
-/*.products__list {*/
-/*  grid-auto-rows: 35em;*/
-/*}*/
-
-/*@media (min-width: 768px) {*/
-/*  .products__list {*/
-/*    grid-auto-rows: 23.2em;*/
-/*  }*/
-/*}*/
+@media (min-width: 768px) {
+  .products__list {
+    grid-auto-rows: 23.2em;
+  }
+}
