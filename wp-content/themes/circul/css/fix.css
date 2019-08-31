@@ -217,6 +217,7 @@ button {
   background-color: transparent;
   color: #fff;
   background-position: 90% 50%;
+  border: none;
 }
 
 .currency-selector .premmerce-multicurrency option {
