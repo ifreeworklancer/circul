@@ -218,3 +218,28 @@ button {
   color: #fff;
   background-position: 90% 50%;
 }
+
+.currency-selector .premmerce-multicurrency option {
+  color: initial;
+}
+
+.products__name {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.products__list {
+  grid-auto-rows: 35em;
+}
+
+@media (min-width: 768px) {
+  .products__list {
+    grid-auto-rows: 23.2em;
+  }
+
+  .products__name {
+    background-color: #fff;
+    color: #000;
+  }
+}

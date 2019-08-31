@@ -1,8 +1,7 @@
 </div>
 </main>
 
-
-<footer class="footer slide-up">
+<footer class="footer">
     <div class="container">
         <dl class="footer__list">
             <dt class="footer__item footer__item--1">

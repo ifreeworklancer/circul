@@ -2369,7 +2369,7 @@ span.bag__value {
   position: relative;
   margin: 0;
   padding: 0;
-  height: calc(100vh - 5em);
+  height: 65vh;
   list-style: none;
 }
 
@@ -2414,6 +2414,10 @@ span.bag__value {
 }
 
 @media (min-width: 768px) {
+  .promo__list {
+    height: calc(100vh - 5em);
+  }
+
   .promo__slogan {
     --promo-font-size-em: 8;
     width: calc(76.8em / var(--promo-font-size-em));
