@@ -237,9 +237,4 @@ button {
   .products__list {
     grid-auto-rows: 23.2em;
   }
-
-  .products__name {
-    background-color: #fff;
-    color: #000;
-  }
 }

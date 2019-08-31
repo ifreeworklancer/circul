@@ -2540,11 +2540,13 @@ span.bag__value {
   font-size: calc(1em * var(--name-font-size-em));
   font-weight: 500;
   line-height: 1.1;
-  color: black;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: white;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .products__hook {
@@ -2616,6 +2618,10 @@ span.bag__value {
     padding-top: calc(9em - 2.2em);
   }
 
+  .products__name {
+    border: none;
+  }
+
   .products__item--light .products__link,
   .products__item--light .products__name {
     color: white;
@@ -2630,6 +2636,7 @@ span.bag__value {
   .products__item--dark .products__link,
   .products__item--dark .products__name {
     color: black;
+    background-color: #fff;
   }
 
   .products__item--dark .products__link::before,
