@@ -408,8 +408,9 @@ function override_checkout_fields($fields)
     return $fields;
 }
 
-add_filter( 'woocommerce_shipping_fields', 'wc_npr_filter_shipping_fields', 10, 1 );
-function wc_npr_filter_shipping_fields( $address_fields ) {
+add_filter('woocommerce_shipping_fields', 'wc_npr_filter_shipping_fields', 10, 1);
+function wc_npr_filter_shipping_fields($address_fields)
+{
     $address_fields['shipping_first_name']['required'] = false;
     $address_fields['shipping_last_name']['required'] = false;
     $address_fields['shipping_address_1']['required'] = false;
@@ -419,8 +420,9 @@ function wc_npr_filter_shipping_fields( $address_fields ) {
     return $address_fields;
 }
 
-add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
-function wc_npr_filter_phone( $address_fields ) {
+add_filter('woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1);
+function wc_npr_filter_phone($address_fields)
+{
     $address_fields['billing_address_1']['required'] = false;
     $address_fields['billing_city']['required'] = false;
     return $address_fields;
@@ -520,14 +522,14 @@ function name_item_in_cart_count()
     echo count($product_ids_unique);
 }
 
-add_filter( 'get_the_archive_title', function ($title) {
+add_filter('get_the_archive_title', function ($title) {
 
-    if ( is_category() ) {
-        $title = single_cat_title( '', false );
-    } elseif ( is_tag() ) {
-        $title = single_tag_title( '', false );
-    } elseif ( is_author() ) {
-        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">'.get_the_author().'</span>';
     }
 
     return $title;
@@ -536,3 +538,75 @@ add_filter( 'get_the_archive_title', function ($title) {
 
 // Disable plugins update
 add_filter('site_transient_update_plugins', '__return_false');
+
+
+function handle_order_statuses($wc_statuses_arr)
+{
+//    var_dump($wc_statuses_arr);
+    $wc_statuses_arr['wc-pending'] = 'Согласование';
+    $wc_statuses_arr['wc-canceled'] = 'Отказ';
+    $wc_statuses_arr['wc-processing'] = 'Заказ в работе';
+    $wc_statuses_arr['wc-on-hold'] = 'Не дозвонились';
+
+//    if (isset($wc_statuses_arr['wc-processing'])) {
+//        unset($wc_statuses_arr['wc-processing']);
+//    }
+//    // Refunded
+//    if (isset($wc_statuses_arr['wc-refunded'])) {
+//        unset($wc_statuses_arr['wc-refunded']);
+//    }
+//    // On Hold
+//    if (isset($wc_statuses_arr['wc-on-hold'])) {
+//        unset($wc_statuses_arr['wc-on-hold']);
+//    }
+//    // Failed
+//    if (isset($wc_statuses_arr['wc-failed'])) {
+//        unset($wc_statuses_arr['wc-failed']);
+//    }
+//    // Pending payment
+//    if (isset($wc_statuses_arr['wc-pending'])) {
+//        unset($wc_statuses_arr['wc-pending']);
+//    }
+    // Completed
+    //if( isset( $wc_statuses_arr['wc-completed'] ) ){
+    //    unset( $wc_statuses_arr['wc-completed'] );
+    //}
+    // Cancelled
+    //if( isset( $wc_statuses_arr['wc-cancelled'] ) ){
+    //    unset( $wc_statuses_arr['wc-cancelled'] );
+    //}
+    return $wc_statuses_arr;
+}
+
+add_filter('wc_order_statuses', 'handle_order_statuses');
+
+function register_order_np_status()
+{
+    register_post_status('wc-order-np', array(
+        'label' => 'Заказ Н/П',
+        'public' => true,
+        'show_in_admin_status_list' => true,
+        'label_count' => _n_noop('Заказ Н/П <span class="count">(%s)</span>',
+            'Заказ Н/П <span class="count">(%s)</span>')
+    ));
+}
+
+add_action('init', 'register_order_np_status');
+
+function add_statuses($wc_statuses_arr)
+{
+    $new_statuses_arr = array();
+
+    // add new order status after processing
+    foreach ($wc_statuses_arr as $id => $label) {
+        $new_statuses_arr[$id] = $label;
+
+        if ('wc-completed' === $id) {
+            $new_statuses_arr['wc-order-np'] = 'Заказ Н/П';
+        }
+    }
+
+    return $new_statuses_arr;
+}
+
+add_filter('wc_order_statuses', 'add_statuses');

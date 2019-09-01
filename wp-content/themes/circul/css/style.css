@@ -2519,7 +2519,7 @@ span.bag__value {
 }
 
 .products__name {
-  --name-font-size-em: 1;
+  --name-font-size-em: 1.5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2545,14 +2545,38 @@ span.bag__value {
   text-transform: uppercase;
   letter-spacing: 1px;
 
-  background-color: rgba(0, 0, 0, 0.3);
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+  /*color: #fff;*/
+  /*border: 1px solid #fff;*/
+}
+
+.products__item--light {
+  color: #000;
+}
+
+.products__item--dark {
   color: #fff;
-  border: 1px solid #fff;
 }
 
 .products__hook {
   display: none;
   margin: 0;
+}
+
+.products__link::before {
+  --font-size-em: 1.25;
+  content: attr(title);
+  position: absolute;
+  top: calc(17.5em / var(--font-size-em));
+  left: calc(50% - 14em / var(--font-size-em));
+  padding: calc(1.3em / var(--font-size-em)) 0;
+  width: calc(28em / var(--font-size-em));
+  font-size: calc(1em * var(--font-size-em));
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 @media (max-width: 767px) {
@@ -2599,20 +2623,12 @@ span.bag__value {
   }
 
   .products__link::before {
-    --text-content: "shop now";
     --font-size-em: 2;
-    content: attr(title);
-    position: absolute;
     top: calc(17.5em / var(--font-size-em));
     left: calc(50% - 14em / var(--font-size-em));
     padding: calc(2.3em / var(--font-size-em)) 0;
     width: calc(28em / var(--font-size-em));
     font-size: calc(1em * var(--font-size-em));
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: 2.08px;
-    text-align: center;
-    text-transform: uppercase;
   }
 
   .products__item--name .products__link {
@@ -6160,8 +6176,7 @@ span.bag__value {
 
 .stores > .container {
   position: relative;
-  padding-top: 2.4rem;
-  padding-bottom: 22.8rem;
+  padding: 2.4rem 0;
 }
 
 .stores__heading {
