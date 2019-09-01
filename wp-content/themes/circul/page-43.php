@@ -102,9 +102,9 @@
           <?php endif; ?>
       </ul>
       <div class="stores__frame">
-        <picture>
-          <img class="stores__img" src="<?= the_post_thumbnail(); ?>" alt="Photo of Circul shoes">
-        </picture>
+<!--        <picture>-->
+<!--          <img class="stores__img" src="--><?//= the_post_thumbnail(); ?><!--" alt="Photo of Circul shoes">-->
+<!--        </picture>-->
       </div>
         <?php
         $stores_address_phone = get_field('stores_address_phone', 43);
