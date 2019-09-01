@@ -533,3 +533,6 @@ add_filter( 'get_the_archive_title', function ($title) {
     return $title;
 
 });
+
+// Disable plugins update
+add_filter('site_transient_update_plugins', '__return_false');
