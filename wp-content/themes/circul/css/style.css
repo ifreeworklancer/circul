@@ -2550,11 +2550,11 @@ span.bag__value {
   /*border: 1px solid #fff;*/
 }
 
-.products__item--light {
+.products__item--light .products__link {
   color: #000;
 }
 
-.products__item--dark {
+.products__item--dark .products__link {
   color: #fff;
 }
 
@@ -2567,16 +2567,18 @@ span.bag__value {
   --font-size-em: 1.25;
   content: attr(title);
   position: absolute;
-  top: calc(17.5em / var(--font-size-em));
-  left: calc(50% - 14em / var(--font-size-em));
+  top: 50%;
+  margin-top: 20px;
+  left: calc(50% - 10em / var(--font-size-em));
   padding: calc(1.3em / var(--font-size-em)) 0;
-  width: calc(28em / var(--font-size-em));
+  width: calc(20em / var(--font-size-em));
   font-size: calc(1em * var(--font-size-em));
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: 2px;
   text-align: center;
   text-transform: uppercase;
+  border: 1px solid;
 }
 
 @media (max-width: 767px) {
