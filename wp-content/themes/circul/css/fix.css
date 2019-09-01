@@ -228,8 +228,7 @@ button {
   grid-auto-rows: 35em;
 }
 
-@media (min-width: 768px) {
-  .products__list {
-    grid-auto-rows: 23.2em;
-  }
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -88,9 +88,9 @@
                         <button class="submenu__back" type="button">
                             <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                                 <use xlink:href="#back"></use>
-                            </svg>
-                            Back
-                        </button>
+                            </svg>'
+                      .'[:en]Back[:ru]Назад[:]'
+                      .'</button>
                         <ul class="%2$s">%3$s</ul>',
                   'list_item_class' => 'low-lvl__item',
                   'link_class' => 'low-lvl__link'
@@ -104,9 +104,9 @@
                   'items_wrap' => '<button class="submenu__back" type="button">
                             <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                                 <use xlink:href="#back"></use>
-                            </svg>
-                            Back
-                        </button><ul class="%2$s">%3$s</ul>',
+                            </svg>'
+                      .'[:en]Back[:ru]Назад[:]'
+                      .'</button><ul class="%2$s">%3$s</ul>',
                   'list_item_class' => 'low-lvl__item',
                   'link_class' => 'low-lvl__link'
               ]) ?>
@@ -115,7 +115,7 @@
                 <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                   <use xlink:href="#back"></use>
                 </svg>
-                Back
+                  <?= '[:en]Back[:ru]Назад[:]' ?>
               </button>
               <ul class="submenu__list submenu__list--lowLvl low-lvl">
                 <li class="low-lvl__item">
@@ -184,7 +184,7 @@
           </div>
         </li>
         <li class="nav__item nav__item--search nav__item--tablet-plus">
-          <a href="<?= the_permalink(43) ?>" class="nav__link nav__link--search">
+          <a href="<?php the_permalink(43) ?>" class="nav__link nav__link--search">
               <?= __('[:ru]Магазины[:en]Stores[:]'); ?>
             <svg class="nav__icon nav__icon--search" width="16" height="16">
               <use xlink:href="#geo"></use>
@@ -245,7 +245,7 @@
         </li>
         <li class="nav-shop__item nav-shop__item--faq nav-shop__item--tablet-plus">
           <a href="<?= get_post_type_archive_link('faq') ?>" class="nav-shop__link">
-              FAQ
+            FAQ
           </a>
         </li>
         <li class="nav-shop__item nav-shop__item--sign nav-shop__item--tablet-plus">
@@ -254,7 +254,7 @@
           </a>
         </li>
         <li class="nav-shop__item nav-item currency-selector">
-          <?= do_shortcode('[multicurrency]') ?>
+            <?= do_shortcode('[multicurrency]') ?>
         </li>
       </ul>
     </div>

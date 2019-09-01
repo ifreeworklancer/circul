@@ -19,8 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
 ?>
 <section class="checkout checkout--step2">
 	<div class="container">
@@ -29,8 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</h1>
 
 		<div class="checkout__action checkout__action--delivery">
-
-			
 
 			<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 

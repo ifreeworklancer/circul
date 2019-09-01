@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: WC Ukr Shipping
- * Plugin URI: https://kirillbdev.pro/plugins/wc-ukr-shipping/?ref=repository
+ * Plugin Name: Новая Почта
+ * Plugin URI:
  * Description: Плагин доставки Украинской службой Нова Пошта для WooCommerce
- * Version: 1.3.0
- * Author: kirillbdev
+ * Version: 1.0.0
+ * Author: Talanoff
  * License URI: license.txt
  * Tested up to: 5.2.2
 */

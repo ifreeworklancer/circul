@@ -45,11 +45,11 @@
   };
 
   let selectShipping = function () {
-    let currentShipping = $('.shipping_method').length > 1 ?
-      $('.shipping_method:checked').val() :
-      $('.shipping_method').val();
+    // let currentShipping = $('.shipping_method').length > 1 ?
+    //   $('.shipping_method:checked').val() :
+    //   $('.shipping_method').val();
 
-    if (currentCountry === 'UA' && currentShipping && currentShipping.match(/^nova_poshta_shipping.+/i)) {
+    if (currentCountry === 'UA') {
       $('#nova_poshta_shipping_fields').css('display', 'block');
       $('.woocommerce-shipping-fields').css('display', 'none');
     }
@@ -60,7 +60,7 @@
   };
 
   $(function() {
-    $('#nova_poshta_shipping_fields').css('display', 'none');
+    // $('#nova_poshta_shipping_fields').css('display', 'none');
 
     $(document.body).bind('update_checkout', function (event, args) {
       setLoadingState();

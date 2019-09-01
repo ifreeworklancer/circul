@@ -393,19 +393,37 @@ if (!function_exists('woocommerce_form_field')) {
 }
 
 
-add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
-function custom_override_checkout_fields($fields)
+add_filter('woocommerce_checkout_fields', 'override_checkout_fields');
+function override_checkout_fields($fields)
 {
 //    unset($fields['billing']['billing_country']);
 //    unset($fields['billing']['billing_city']);
 //    unset($fields['billing']['billing_address_1']);
     unset($fields['billing']['billing_address_2']);
-    unset($fields['billing']['billing_postcode']);
+//    unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_company']);
     unset($fields['billing']['billing_state']);
 //    unset($fields['shipping']);
 
     return $fields;
+}
+
+add_filter( 'woocommerce_shipping_fields', 'wc_npr_filter_shipping_fields', 10, 1 );
+function wc_npr_filter_shipping_fields( $address_fields ) {
+    $address_fields['shipping_first_name']['required'] = false;
+    $address_fields['shipping_last_name']['required'] = false;
+    $address_fields['shipping_address_1']['required'] = false;
+    $address_fields['shipping_city']['required'] = false;
+    $address_fields['shipping_postcode']['required'] = false;
+
+    return $address_fields;
+}
+
+add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
+function wc_npr_filter_phone( $address_fields ) {
+    $address_fields['billing_address_1']['required'] = false;
+    $address_fields['billing_city']['required'] = false;
+    return $address_fields;
 }
 
 
@@ -494,7 +512,6 @@ if (!function_exists('cart_link')) {
 
 function name_item_in_cart_count()
 {
-    global $woocommerce;
     $product_ids = array();
     foreach (WC()->cart->get_cart() as $cart_item_key => $values) {
         $product_ids[] = $values['product_id'];
