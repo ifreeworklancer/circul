@@ -150,7 +150,7 @@ function true_register_wp_sidebars()
             'before_widget' => '<div id="%1$s" class="side widget %2$s">',
             // по умолчанию виджеты выводятся <li>-списком
             'after_widget' => '</div>',
-            'before_title' => '<p class="filter__title filter__title--item">', // по умолчанию заголовки виджетов в <h2>
+            'before_title' => '<p style="display: none;">', // по умолчанию заголовки виджетов в <h2>
             'after_title' => '</p>'
         )
     );
