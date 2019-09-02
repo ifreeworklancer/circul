@@ -95,3 +95,9 @@ $orderBtn.prop('disabled', true);
 $('.order__select').on('change', function () {
   $orderBtn.prop('disabled', !$(this).val());
 });
+
+
+$('.stores__list li').on('click', function() {
+  const index = $(this).parent().indexOf($(this));
+  console.log(index);
+});

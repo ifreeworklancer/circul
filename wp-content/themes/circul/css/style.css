@@ -6329,7 +6329,7 @@ span.bag__value {
 }
 
 .stores__frame--map {
-  display: block;
+  display: none;
   position: static;
   width: 100%;
   height: 20rem;
@@ -6339,6 +6339,10 @@ span.bag__value {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.stores__frame--map.stores__frame--active {
+  display: block;
 }
 
 @media (min-width: 768px) {
