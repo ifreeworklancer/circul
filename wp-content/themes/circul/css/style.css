@@ -4975,9 +4975,9 @@ span.bag__value {
 
 .faq__link::before {
   content: var(--pseudo-elem-text);
-  position: relative;
-  /*top: var(--pseudo-position-top);*/
-  /*left: calc(50% - 14rem);*/
+  position: absolute;
+  top: var(--pseudo-position-top);
+  left: calc(50% - 14rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
