@@ -4973,6 +4973,23 @@ span.bag__value {
   --pseudo-elem-text: "discover";
 }
 
+.faq__item--dark .faq__link::before,
+.faq__item--dark .faq__link > *::before {
+  color: black;
+  border-color: black;
+}
+
+.faq__item--light .faq__link,
+.faq__item--light .faq__link > * {
+  color: white;
+}
+
+.faq__item--light .faq__link::before,
+.faq__item--light .faq__link > *::before {
+  color: white;
+  border-color: white;
+}
+
 .faq__link::before {
   content: var(--pseudo-elem-text);
   position: absolute;
