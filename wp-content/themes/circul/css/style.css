@@ -4968,16 +4968,16 @@ span.bag__value {
   height: 100%;
 
   --pseudo-position-top: 17rem;
-  --pseudo-elem-width: 28rem;
-  --pseudo-elem-height: 7.3rem;
+  --pseudo-elem-width: 18rem;
+  --pseudo-elem-height: 4.3rem;
   --pseudo-elem-text: "discover";
 }
 
 .faq__link::before {
   content: var(--pseudo-elem-text);
-  position: absolute;
-  top: var(--pseudo-position-top);
-  left: calc(50% - 14rem);
+  position: relative;
+  /*top: var(--pseudo-position-top);*/
+  /*left: calc(50% - 14rem);*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
