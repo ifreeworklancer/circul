@@ -170,21 +170,18 @@
             <div class="submenu__footer subfooter">
               <ul class="subfooter__list">
                 <li class="subfooter__item">
-                  <?php wpm_language_switcher('list', 'name'); ?>
-<!--                  <a href="#" class="subfooter__link submenu__link--trigger">-->
-<!--                    English-->
-<!--                  </a>-->
+                    <?php wpm_language_switcher('list', 'name'); ?>
                 </li>
                 <li class="subfooter__item">
-                  <?php if (!is_user_logged_in()) : ?>
-                  <a href="/login" class="subfooter__link">
-                    <?php _e('[:en]Sign in[:ru]Войти[:]') ?>
-                  </a>
-                  <?php else : ?>
-                    <a href="/my-account" class="subfooter__link">
-                      <?php _e('[:en]Account[:ru]Аккаунт[:]') ?>
-                    </a>
-                  <?php endif; ?>
+                    <?php if (!is_user_logged_in()) : ?>
+                      <a href="/login" class="subfooter__link">
+                          <?php _e('[:en]Sign in[:ru]Войти[:]') ?>
+                      </a>
+                    <?php else : ?>
+                      <a href="/my-account" class="subfooter__link">
+                          <?php _e('[:en]Account[:ru]Аккаунт[:]') ?>
+                      </a>
+                    <?php endif; ?>
                 </li>
               </ul>
             </div>
