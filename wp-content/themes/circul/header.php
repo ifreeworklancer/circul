@@ -170,9 +170,10 @@
             <div class="submenu__footer subfooter">
               <ul class="subfooter__list">
                 <li class="subfooter__item">
-                  <a href="#" class="subfooter__link submenu__link--trigger">
-                    English
-                  </a>
+                  <?php wpm_language_switcher('list', 'name'); ?>
+<!--                  <a href="#" class="subfooter__link submenu__link--trigger">-->
+<!--                    English-->
+<!--                  </a>-->
                 </li>
                 <li class="subfooter__item">
                   <?php if (!is_user_logged_in()) : ?>
