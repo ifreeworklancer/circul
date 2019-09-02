@@ -232,3 +232,7 @@ button {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.smm__form .tnp-submit {
+  display: none;
+}
