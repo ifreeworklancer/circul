@@ -98,6 +98,6 @@ $('.order__select').on('change', function () {
 
 
 $('.stores__list li').on('click', function() {
-  const index = $(this).parent().index($(this));
+  const index = $('.stores__list li').index($(this));
   console.log(index);
 });

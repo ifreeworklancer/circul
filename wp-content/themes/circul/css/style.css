@@ -6229,7 +6229,7 @@ span.bag__value {
 .stores__heading::before {
   content: "";
   position: absolute;
-  bottom: -5.9rem;
+  bottom: -1.9rem;
   left: 0;
   width: 100%;
   height: 1px;
