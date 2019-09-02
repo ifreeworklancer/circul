@@ -79,10 +79,12 @@ function checkBillingInfo() {
     f3 = $('#billing_postcode').val();
   }
 
-  if (f3.length && f2.length && f1.length) {
-    $('#place_order').prop('disabled', false);
-  } else {
-    $('#place_order').prop('disabled', true);
+  if (f1 && f2 && f3) {
+    if (f3.length && f2.length && f1.length) {
+      $('#place_order').prop('disabled', false);
+    } else {
+      $('#place_order').prop('disabled', true);
+    }
   }
 }
 
@@ -103,6 +105,6 @@ $('.stores__list li').on('click', function() {
 
   if (frames[index]) {
     frames.removeClass('stores__frame--active');
-    frames[index].addClass('stores__frame--active');
+    $(frames[index]).addClass('stores__frame--active');
   }
 });
