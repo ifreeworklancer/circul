@@ -31,7 +31,7 @@
                 <p class="smm__invitation">
                     <?= __('[:ru]Подписаться на новостную рассылку[:en]Subscribe to newsletter[:]'); ?>
                 </p>
-              <?php do_shortcode('[newsletter_form type="minimal"]'); ?>
+              <?php echo do_shortcode('[newsletter_form type="minimal"]'); ?>
 <!--                <form class="smm__form" action="#">-->
 <!--                    <input type="text" class="smm__email" placeholder="Enter e-mail adress">-->
 <!--                    <button class="smm__btn visually-hidden" type="submit">-->
