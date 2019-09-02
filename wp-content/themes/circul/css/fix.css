@@ -224,7 +224,8 @@ button {
   color: initial;
 }
 
-.products__list {
+.products__list,
+.faq__list {
   grid-auto-rows: 35em;
 }
 
