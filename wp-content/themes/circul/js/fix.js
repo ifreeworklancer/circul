@@ -99,11 +99,12 @@ $('.order__select').on('change', function () {
 });
 
 
-$('.stores__list li').on('click', function() {
-  const index = $('.stores__list li').index($(this));
+const $storesList = $('.stores__list li');
+$storesList.on('click', function () {
+  const index = $storesList.index($(this));
   const frames = $('.stores__frame');
 
-  $('.stores__list li').removeClass('stores__item--active');
+  $storesList.removeClass('stores__item--active');
   $(this).addClass('stores__item--active');
 
   if (frames[index]) {
