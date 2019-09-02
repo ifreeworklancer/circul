@@ -5031,7 +5031,7 @@ span.bag__value {
   min-height: 3.6rem;
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.1rem;
+  line-height: 1;
   color: black;
   text-transform: uppercase;
   text-align: center;
