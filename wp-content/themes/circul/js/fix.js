@@ -99,5 +99,10 @@ $('.order__select').on('change', function () {
 
 $('.stores__list li').on('click', function() {
   const index = $('.stores__list li').index($(this));
-  console.log(index);
+  const frames = $('.stores__frame');
+
+  if (frames[index]) {
+    frames.removeClass('stores__frame--active');
+    frames[index].addClass('stores__frame--active');
+  }
 });
