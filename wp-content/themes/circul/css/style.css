@@ -2918,6 +2918,7 @@ span.bag__value {
   text-transform: uppercase;
   border: none;
   border-bottom: 1px solid #707070;
+  background-color: transparent;
 }
 
 .smm__newsletter .smm__form input.tnp-email::-webkit-input-placeholder {
