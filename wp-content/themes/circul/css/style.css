@@ -4912,7 +4912,7 @@ span.bag__value {
 
 .faq__list {
   display: grid;
-  grid-template-rows: calc(100vh - 5rem);
+  /*grid-template-rows: calc(100vh - 5rem);*/
   grid-auto-rows: 23.2rem;
   grid-row-gap: 0.8rem;
   margin: 0;
