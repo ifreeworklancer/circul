@@ -236,3 +236,7 @@ button {
 .smm__form .tnp-submit {
   display: none !important;
 }
+
+.subfooter__item .wpm-language-switcher .active {
+  display: none;
+}
