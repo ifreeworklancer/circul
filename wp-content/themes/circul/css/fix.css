@@ -237,6 +237,10 @@ button {
   display: none !important;
 }
 
+.subfooter__item .wpm-language-switcher {
+  text-transform: uppercase;
+}
+
 .subfooter__item .wpm-language-switcher .active {
   display: none;
 }
