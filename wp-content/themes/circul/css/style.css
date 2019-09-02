@@ -4966,6 +4966,11 @@ span.bag__value {
   align-items: center;
   padding: 0 10%;
   height: 100%;
+
+  --pseudo-position-top: 17rem;
+  --pseudo-elem-width: 28rem;
+  --pseudo-elem-height: 7.3rem;
+  --pseudo-elem-text: "discover";
 }
 
 .faq__link::before {
@@ -4984,9 +4989,9 @@ span.bag__value {
   align-items: center;
   width: var(--pseudo-elem-width);
   min-height: var(--pseudo-elem-height);
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 300;
-  line-height: 2.4rem;
+  line-height: 1.4rem;
   text-align: center;
   text-transform: uppercase;
   border-width: 1px;
@@ -5125,6 +5130,16 @@ span.bag__value {
     --pseudo-elem-width: 28rem;
     --pseudo-elem-height: 7.3rem;
     --pseudo-elem-text: "discover";
+  }
+
+  .faq__link::before {
+    top: var(--pseudo-position-top);
+    left: calc(50% - 14rem);
+    width: var(--pseudo-elem-width);
+    min-height: var(--pseudo-elem-height);
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 2.4rem;
   }
 
   .faq__item:hover .faq-item__img {
