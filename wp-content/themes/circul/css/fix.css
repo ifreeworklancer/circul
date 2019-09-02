@@ -234,5 +234,5 @@ button {
 }
 
 .smm__form .tnp-submit {
-  display: none;
+  display: none !important;
 }
