@@ -4954,6 +4954,7 @@ span.bag__value {
 }
 
 .faq__link {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4965,6 +4966,31 @@ span.bag__value {
   align-items: center;
   padding: 0 10%;
   height: 100%;
+}
+
+.faq__link::before {
+  content: var(--pseudo-elem-text);
+  position: absolute;
+  top: var(--pseudo-position-top);
+  left: calc(50% - 14rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: var(--pseudo-elem-width);
+  min-height: var(--pseudo-elem-height);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 2.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .faq__topic {
@@ -5099,31 +5125,6 @@ span.bag__value {
     --pseudo-elem-width: 28rem;
     --pseudo-elem-height: 7.3rem;
     --pseudo-elem-text: "discover";
-  }
-
-  .faq__link::before {
-    content: var(--pseudo-elem-text);
-    position: absolute;
-    top: var(--pseudo-position-top);
-    left: calc(50% - 14rem);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: var(--pseudo-elem-width);
-    min-height: var(--pseudo-elem-height);
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 2.4rem;
-    text-align: center;
-    text-transform: uppercase;
-    border-width: 1px;
-    border-style: solid;
   }
 
   .faq__item:hover .faq-item__img {
