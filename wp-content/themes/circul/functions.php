@@ -511,7 +511,6 @@ if (!function_exists('cart_link')) {
     }
 }
 
-
 function name_item_in_cart_count()
 {
     $product_ids = array();
@@ -523,7 +522,6 @@ function name_item_in_cart_count()
 }
 
 add_filter('get_the_archive_title', function ($title) {
-
     if (is_category()) {
         $title = single_cat_title('', false);
     } elseif (is_tag()) {
@@ -533,80 +531,9 @@ add_filter('get_the_archive_title', function ($title) {
     }
 
     return $title;
-
 });
 
 // Disable plugins update
 add_filter('site_transient_update_plugins', '__return_false');
 
-
-function handle_order_statuses($wc_statuses_arr)
-{
-//    var_dump($wc_statuses_arr);
-    $wc_statuses_arr['wc-pending'] = 'Согласование';
-    $wc_statuses_arr['wc-canceled'] = 'Отказ';
-    $wc_statuses_arr['wc-processing'] = 'Заказ в работе';
-    $wc_statuses_arr['wc-on-hold'] = 'Не дозвонились';
-
-//    if (isset($wc_statuses_arr['wc-processing'])) {
-//        unset($wc_statuses_arr['wc-processing']);
-//    }
-//    // Refunded
-//    if (isset($wc_statuses_arr['wc-refunded'])) {
-//        unset($wc_statuses_arr['wc-refunded']);
-//    }
-//    // On Hold
-//    if (isset($wc_statuses_arr['wc-on-hold'])) {
-//        unset($wc_statuses_arr['wc-on-hold']);
-//    }
-//    // Failed
-//    if (isset($wc_statuses_arr['wc-failed'])) {
-//        unset($wc_statuses_arr['wc-failed']);
-//    }
-//    // Pending payment
-//    if (isset($wc_statuses_arr['wc-pending'])) {
-//        unset($wc_statuses_arr['wc-pending']);
-//    }
-    // Completed
-    //if( isset( $wc_statuses_arr['wc-completed'] ) ){
-    //    unset( $wc_statuses_arr['wc-completed'] );
-    //}
-    // Cancelled
-    //if( isset( $wc_statuses_arr['wc-cancelled'] ) ){
-    //    unset( $wc_statuses_arr['wc-cancelled'] );
-    //}
-    return $wc_statuses_arr;
-}
-
-add_filter('wc_order_statuses', 'handle_order_statuses');
-
-function register_order_np_status()
-{
-    register_post_status('wc-order-np', array(
-        'label' => 'Заказ Н/П',
-        'public' => true,
-        'show_in_admin_status_list' => true,
-        'label_count' => _n_noop('Заказ Н/П <span class="count">(%s)</span>',
-            'Заказ Н/П <span class="count">(%s)</span>')
-    ));
-}
-
-add_action('init', 'register_order_np_status');
-
-function add_statuses($wc_statuses_arr)
-{
-    $new_statuses_arr = array();
-
-    // add new order status after processing
-    foreach ($wc_statuses_arr as $id => $label) {
-        $new_statuses_arr[$id] = $label;
-
-        if ('wc-completed' === $id) {
-            $new_statuses_arr['wc-order-np'] = 'Заказ Н/П';
-        }
-    }
-
-    return $new_statuses_arr;
-}
-
-add_filter('wc_order_statuses', 'add_statuses');
+require_once __DIR__ . '/incl/statuses.php';

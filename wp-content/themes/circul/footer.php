@@ -62,9 +62,7 @@
                 <?= date('Y') ?> © <?php bloginfo('title') ?>
               <span class="footer__origin">Made in Ukraine</span>
             </p>
-            <p class="footer__designer">
-              <!--                Design Blablabla-->
-            </p>
+            <p class="footer__designer"></p>
         </div>
     </div>
 </footer>

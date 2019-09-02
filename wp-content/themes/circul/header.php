@@ -89,7 +89,7 @@
                             <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                                 <use xlink:href="#back"></use>
                             </svg>'
-                      .'[:en]Back[:ru]Назад[:]'
+                      .__('[:en]Back[:ru]Назад[:]')
                       .'</button>
                         <ul class="%2$s">%3$s</ul>',
                   'list_item_class' => 'low-lvl__item',
@@ -105,7 +105,7 @@
                             <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                                 <use xlink:href="#back"></use>
                             </svg>'
-                      .'[:en]Back[:ru]Назад[:]'
+                      .__('[:en]Back[:ru]Назад[:]')
                       .'</button><ul class="%2$s">%3$s</ul>',
                   'list_item_class' => 'low-lvl__item',
                   'link_class' => 'low-lvl__link'
@@ -115,7 +115,7 @@
                 <svg class="submenu__icon" width="6" height="12" viewbox="0 0 8 14">
                   <use xlink:href="#back"></use>
                 </svg>
-                  <?= '[:en]Back[:ru]Назад[:]' ?>
+                  <?= __('[:en]Back[:ru]Назад[:]') ?>
               </button>
               <ul class="submenu__list submenu__list--lowLvl low-lvl">
                 <li class="low-lvl__item">
@@ -175,9 +175,15 @@
                   </a>
                 </li>
                 <li class="subfooter__item">
-                  <a href="#" class="subfooter__link">
-                    Sign in
+                  <?php if (!is_user_logged_in()) : ?>
+                  <a href="/login" class="subfooter__link">
+                    <?php _e('[:en]Sign in[:ru]Войти[:]') ?>
                   </a>
+                  <?php else : ?>
+                    <a href="/my-account" class="subfooter__link">
+                      <?php _e('[:en]Account[:ru]Аккаунт[:]') ?>
+                    </a>
+                  <?php endif; ?>
                 </li>
               </ul>
             </div>

@@ -34,15 +34,6 @@
         <div class="smm__form">
             <?php echo do_shortcode('[newsletter_form type="minimal"]'); ?>
         </div>
-        <!--                <form class="smm__form" action="#">-->
-        <!--                    <input type="text" class="smm__email" placeholder="Enter e-mail adress">-->
-        <!--                    <button class="smm__btn visually-hidden" type="submit">-->
-        <!--                        --><? //= __('[:ru]Отправить письмо[:en]Send email[:]'); ?>
-        <!--                    </button>-->
-        <!--                </form>-->
-        <p class="smm__success">
-            <?= __('[:ru]Спасибо! Вы начнете получать ваши письма в ближайшее время[:en]Thank you! You will start to receive your e-mails shortly[:]'); ?>
-        </p>
       </div>
     </div>
   </div>
