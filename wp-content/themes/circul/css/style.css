@@ -4967,7 +4967,7 @@ span.bag__value {
   padding: 0 10%;
   height: 100%;
 
-  --pseudo-position-top: 17rem;
+  --pseudo-position-top: 22rem;
   --pseudo-elem-width: 18rem;
   --pseudo-elem-height: 4.3rem;
   --pseudo-elem-text: "discover";
@@ -4994,7 +4994,7 @@ span.bag__value {
   content: var(--pseudo-elem-text);
   position: absolute;
   top: var(--pseudo-position-top);
-  left: calc(50% - 14rem);
+  left: calc(50% - 9rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
