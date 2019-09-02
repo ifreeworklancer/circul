@@ -5032,12 +5032,12 @@ span.bag__value {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.1rem;
-  color: black;
+  /*color: black;*/
   text-transform: uppercase;
   text-align: center;
   vertical-align: center;
   letter-spacing: 1px;
-  background-color: white;
+  /*background-color: white;*/
 }
 
 .faq__annex {
