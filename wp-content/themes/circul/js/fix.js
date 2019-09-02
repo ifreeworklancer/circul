@@ -103,6 +103,9 @@ $('.stores__list li').on('click', function() {
   const index = $('.stores__list li').index($(this));
   const frames = $('.stores__frame');
 
+  $('.stores__list li').removeClass('stores__item--active');
+  $(this).addClass('stores__item--active');
+
   if (frames[index]) {
     frames.removeClass('stores__frame--active');
     $(frames[index]).addClass('stores__frame--active');
