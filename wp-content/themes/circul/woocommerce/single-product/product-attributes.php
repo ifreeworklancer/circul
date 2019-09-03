@@ -40,11 +40,13 @@ if (!$product_attributes) {
 
   <input type="checkbox" class="options__trigger options__trigger--payment cart__trigger"
          id="payment" name="options">
+
+  <?php $delivery = get_post(705); ?>
   <label for="payment">
-      <?= __('[:ru]Доставка и оплата[:ua]Delivery & payment[:]'); ?>
+      <?= $delivery->post_title ?>
   </label>
   <div class="options__content options__content--payment cart__details">
-      <?php the_field('delivery', 10); ?>
+      <?php apply_filters('the_content', $delivery->post_content); ?>
   </div>
   <input type="checkbox" class="options__trigger options__trigger--size" id="size" name="options">
   <label for="size">
