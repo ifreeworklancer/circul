@@ -46,7 +46,7 @@ if (!$product_attributes) {
       <?php _e($delivery->post_title); ?>
   </label>
   <div class="options__content options__content--payment cart__details">
-      <?php apply_filters('the_content', $delivery->post_content); ?>
+      <?php echo apply_filters('the_content', $delivery->post_content); ?>
   </div>
   <input type="checkbox" class="options__trigger options__trigger--size" id="size" name="options">
   <label for="size">
