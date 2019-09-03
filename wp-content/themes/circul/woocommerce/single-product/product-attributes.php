@@ -45,7 +45,7 @@ if (!$product_attributes) {
   <label for="payment">
       <?php _e($delivery->post_title); ?>
   </label>
-  <div class="options__content options__content--payment cart__details">
+  <div class="options__content options__content--payment cart__details mah-0">
       <?php echo apply_filters('the_content', $delivery->post_content); ?>
   </div>
 
@@ -218,7 +218,7 @@ if (!$product_attributes) {
   <label for="guarantee">
       <?php _e($warranty->post_title); ?>
   </label>
-  <div class="options__content options__content--guarantee cart__details">
+  <div class="options__content options__content--guarantee cart__details mah-0">
       <?php echo apply_filters('the_content', $warranty->post_content); ?>
   </div>
 </div>

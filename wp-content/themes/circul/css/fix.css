@@ -258,3 +258,7 @@ button {
     padding-right: 0;
   }
 }
+
+.mah-0 {
+  max-height: 0;
+}
