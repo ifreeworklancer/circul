@@ -538,9 +538,9 @@ add_filter('site_transient_update_plugins', '__return_false');
 
 require_once __DIR__.'/incl/statuses.php';
 
-function handle_language_change($lang)
+function handle_language_change()
 {
-  var_dump($lang);
+  var_dump(wpm_get_language());
 }
 
 add_action('wpm_changed_language', 'handle_language_change');
