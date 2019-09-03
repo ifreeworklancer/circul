@@ -48,6 +48,7 @@ if (!$product_attributes) {
   <div class="options__content options__content--payment cart__details">
       <?php echo apply_filters('the_content', $delivery->post_content); ?>
   </div>
+
   <input type="checkbox" class="options__trigger options__trigger--size" id="size" name="options">
   <label for="size">
       <?= __('[:ru]Размеры[:ua]Size guide[:]'); ?>
@@ -212,10 +213,12 @@ if (!$product_attributes) {
   </div>
   <input type="checkbox" class="options__trigger options__trigger--guarantee cart__trigger"
          id="guarantee" name="options">
+
+  <?php $warranty = get_post(707); ?>
   <label for="guarantee">
-      <?= __('[:ru]Гарантии и возвраты[:ua]Guarantees & returns[:]'); ?>
+      <?php _e($warranty->post_title); ?>
   </label>
   <div class="options__content options__content--guarantee cart__details">
-      <?php the_field('guarantees', 10); ?>
+      <?php echo apply_filters('the_content', $warranty->post_content); ?>
   </div>
 </div>
