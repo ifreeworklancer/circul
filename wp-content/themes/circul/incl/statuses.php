@@ -14,8 +14,17 @@ function handle_order_statuses($wc_statuses_arr)
     $wc_statuses_arr['wc-on-hold'] = 'Не дозвонились';
     $wc_statuses_arr['wc-completed'] = 'Выдан';
 
+    if (isset($wc_statuses_arr['wc-refunded'])) {
+        unset($wc_statuses_arr['wc-refunded']);
+    }
+
+    if (isset($wc_statuses_arr['wc-failed'])) {
+        unset($wc_statuses_arr['wc-failed']);
+    }
+
     return $wc_statuses_arr;
 }
+
 add_filter('wc_order_statuses', 'handle_order_statuses');
 
 /**
@@ -79,6 +88,7 @@ function register_new_statuses()
             'Выдан <span class="count">(%s)</span>')
     ));
 }
+
 add_action('init', 'register_new_statuses');
 
 /**
@@ -107,4 +117,5 @@ function add_statuses($wc_statuses_arr)
 
     return $new_statuses_arr;
 }
+
 add_filter('wc_order_statuses', 'add_statuses');
