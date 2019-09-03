@@ -540,7 +540,9 @@ require_once __DIR__.'/incl/statuses.php';
 
 function handle_language_change()
 {
-  var_dump(wpm_get_language());
+  $lang = wpm_get_language();
+
+
 }
 
 add_action('wpm_changed_language', 'handle_language_change');
