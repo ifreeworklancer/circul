@@ -22,6 +22,10 @@ function handle_order_statuses($wc_statuses_arr)
         unset($wc_statuses_arr['wc-failed']);
     }
 
+    if (isset($wc_statuses_arr['wc-canceled'])) {
+        unset($wc_statuses_arr['wc-canceled']);
+    }
+
     return $wc_statuses_arr;
 }
 
