@@ -43,7 +43,7 @@ if (!$product_attributes) {
 
   <?php $delivery = get_post(705); ?>
   <label for="payment">
-      <?= $delivery->post_title ?>
+      <?php _e($delivery->post_title); ?>
   </label>
   <div class="options__content options__content--payment cart__details">
       <?php apply_filters('the_content', $delivery->post_content); ?>
