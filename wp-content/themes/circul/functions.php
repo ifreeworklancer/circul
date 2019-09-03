@@ -536,4 +536,11 @@ add_filter('get_the_archive_title', function ($title) {
 // Disable plugins update
 add_filter('site_transient_update_plugins', '__return_false');
 
-require_once __DIR__ . '/incl/statuses.php';
+require_once __DIR__.'/incl/statuses.php';
+
+function handle_language_change($lang)
+{
+  var_dump($lang);
+}
+
+add_action('wpm_changed_language', 'handle_language_change');
