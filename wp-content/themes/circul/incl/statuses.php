@@ -8,11 +8,10 @@
  */
 function handle_order_statuses($wc_statuses_arr)
 {
-    $wc_statuses_arr['wc-pending'] = 'Согласование';
-    $wc_statuses_arr['wc-canceled'] = 'Отказ';
-    $wc_statuses_arr['wc-processing'] = 'Заказ в работе';
-    $wc_statuses_arr['wc-on-hold'] = 'Не дозвонились';
-    $wc_statuses_arr['wc-completed'] = 'Выдан';
+    $wc_statuses_arr['wc-pending'] = 'Заказ оплачен';
+    $wc_statuses_arr['wc-processing'] = 'Согласование';
+    $wc_statuses_arr['wc-on-hold'] = 'Отказ';
+    $wc_statuses_arr['wc-completed'] = 'Не дозвнились';
 
     if (isset($wc_statuses_arr['wc-refunded'])) {
         unset($wc_statuses_arr['wc-refunded']);
@@ -36,6 +35,7 @@ add_filter('wc_order_statuses', 'handle_order_statuses');
  */
 function register_new_statuses()
 {
+
     register_post_status('wc-order-paid', array(
         'label' => 'Заказ оплачен',
         'public' => true,
@@ -60,14 +60,6 @@ function register_new_statuses()
             'Заказ в магазине <span class="count">(%s)</span>')
     ));
 
-    register_post_status('wc-order-np', array(
-        'label' => 'Заказ Н/П',
-        'public' => true,
-        'show_in_admin_status_list' => true,
-        'label_count' => _n_noop('Заказ Н/П <span class="count">(%s)</span>',
-            'Заказ Н/П <span class="count">(%s)</span>')
-    ));
-
     register_post_status('wc-sent-np', array(
         'label' => 'Отправлен Н/П',
         'public' => true,
@@ -85,11 +77,11 @@ function register_new_statuses()
     ));
 
     register_post_status('wc-issued', array(
-        'label' => 'Выдан',
+        'label' => 'Выдан в магазине',
         'public' => true,
         'show_in_admin_status_list' => true,
-        'label_count' => _n_noop('Выдан <span class="count">(%s)</span>',
-            'Выдан <span class="count">(%s)</span>')
+        'label_count' => _n_noop('Выдан в магазине <span class="count">(%s)</span>',
+            'Выдан в магазине <span class="count">(%s)</span>')
     ));
 }
 
@@ -109,13 +101,12 @@ function add_statuses($wc_statuses_arr)
         $new_statuses_arr[$id] = $label;
 
         if ('wc-completed' === $id) {
-            $new_statuses_arr['wc-order-np'] = 'Заказ Н/П';
-            $new_statuses_arr['wc-sent-np'] = 'Отправлен Н/П';
-            $new_statuses_arr['wc-sent'] = 'Отправлен';
             $new_statuses_arr['wp-order-paid'] = 'Заказ оплачен';
-            $new_statuses_arr['wp-order-in-progress'] = 'Заказ в работе';
+            $new_statuses_arr['wc-order-in-progress'] = 'Заказ в работе';
             $new_statuses_arr['wp-order-in-shop'] = 'Заказ в магазине';
-            $new_statuses_arr['wc-issued'] = 'Выдан';
+            $new_statuses_arr['wc-sent'] = 'Отправлен';
+            $new_statuses_arr['wc-sent-np'] = 'Отправлен Н/П';
+            $new_statuses_arr['wc-issued'] = 'Выдан в магазине';
         }
     }
 
