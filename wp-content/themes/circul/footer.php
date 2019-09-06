@@ -33,6 +33,7 @@
                     'link_class'   => 'footer__link'
                 ));
                 ?>
+                <?= do_shortcode('[multicurrency]') ?>
             </dd>
             <dt class="footer__item footer__item--3">
                 <?= __('[:ru]Социальное[:en]Social[:]'); ?>
