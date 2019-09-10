@@ -8953,10 +8953,10 @@ select.orderby {
 }
 
 .footer__content .premmerce-multicurrency {
-    padding: 0 25px 0 0;
     background-color: transparent;
     background-position: 90% 50%;
-    font-size: 12px;
+    padding: 0 25px 0 1.5em;
+    font-size: 8px;
     font-weight: 700;
     color: #acacac;
     text-transform: uppercase;
@@ -8966,4 +8966,18 @@ select.orderby {
 
 .footer__content .premmerce-multicurrency option {
     color: #000;
+}
+
+@media(min-width: 1260px) {
+    .footer__content .premmerce-multicurrency {
+        padding: 0 25px 0 0;
+        background-color: transparent;
+        background-position: 90% 50%;
+        font-size: 12px;
+        font-weight: 700;
+        color: #acacac;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+    }
 }

@@ -79,14 +79,14 @@ do_action('woocommerce_before_customer_login_form'); ?>
 
                         <input type="text" class="modal__input modal__input--name" name="username"
                                id="reg_username" autocomplete="username"
-                               placeholder="E-mail name"
+                               placeholder="Name"
                                value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>"/><?php // @codingStandardsIgnoreLine ?>
 
                     <?php endif; ?>
 
                     <input type="email" class="modal__input modal__input--email" name="email"
                            id="reg_email" autocomplete="email"
-                           placeholder="E-mail email"
+                           placeholder="E-mail"
                            value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>"/><?php // @codingStandardsIgnoreLine ?>
 
                     <?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
