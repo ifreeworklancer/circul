@@ -92,11 +92,11 @@ $('#nova-poshta-shipping-info select').on('change', checkBillingInfo);
 $('#billing_address_1, #billing_city, #billing_postcode').on('keyup', checkBillingInfo);
 
 // Add to cart button
-const $orderBtn = $('.order__btn');
-$orderBtn.prop('disabled', true);
-$('.order__select').on('change', function () {
-    $orderBtn.prop('disabled', !$(this).val());
-});
+// const $orderBtn = $('.order__btn');
+// $orderBtn.prop('disabled', true);
+// $('.order__select').on('change', function () {
+//     $orderBtn.prop('disabled', !$(this).val());
+// });
 
 
 const $storesList = $('.stores__list li');
