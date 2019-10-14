@@ -1,6 +1,6 @@
 <?php $slides = get_field('sliders', 14); ?>
 
-<?php if ($slides) : ?>
+<?php var_dump($slides); if ($slides) : ?>
     <section class="promo">
         <link rel="stylesheet" href="<?= get_theme_file_uri('jQuery/slick/slick.css') ?>">
         <h2 class="visually-hidden">
